@@ -1,12 +1,12 @@
 {
-  "name": "anirbmuk",
-  "version": "0.0.0",
+  "name": "frontend",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
-    "start": "ng serve",
+    "start": "run-p connector:serve frontend:serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
@@ -25,7 +25,9 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "frontend:serve": "nx serve frontend",
+    "connector:serve": "nx serve connector"
   },
   "private": true,
   "dependencies": {
@@ -76,6 +78,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.2.1",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",

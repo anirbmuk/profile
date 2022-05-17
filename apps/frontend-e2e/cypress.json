@@ -5,8 +5,8 @@
   "modifyObstructiveCode": false,
   "pluginsFile": "./src/plugins/index",
   "supportFile": "./src/support/index.ts",
-  "video": true,
-  "videosFolder": "../../dist/cypress/apps/anirbmuk-e2e/videos",
-  "screenshotsFolder": "../../dist/cypress/apps/anirbmuk-e2e/screenshots",
+  "video": false,
+  "videosFolder": "../../dist/cypress/apps/frontend-e2e/videos",
+  "screenshotsFolder": "../../dist/cypress/apps/frontend-e2e/screenshots",
   "chromeWebSecurity": false
 }

@@ -1,27 +1,27 @@
 {
   "version": 1,
   "projects": {
-    "anirbmuk": {
+    "frontend": {
       "projectType": "application",
-      "root": "apps/anirbmuk",
-      "sourceRoot": "apps/anirbmuk/src",
-      "prefix": "anirbmuk",
+      "root": "apps/frontend",
+      "sourceRoot": "apps/frontend/src",
+      "prefix": "frontend",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/anirbmuk",
-            "index": "apps/anirbmuk/src/index.html",
-            "main": "apps/anirbmuk/src/main.ts",
-            "polyfills": "apps/anirbmuk/src/polyfills.ts",
-            "tsConfig": "apps/anirbmuk/tsconfig.app.json",
+            "outputPath": "dist/apps/frontend",
+            "index": "apps/frontend/src/index.html",
+            "main": "apps/frontend/src/main.ts",
+            "polyfills": "apps/frontend/src/polyfills.ts",
+            "tsConfig": "apps/frontend/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/anirbmuk/src/favicon.ico",
-              "apps/anirbmuk/src/assets"
+              "apps/frontend/src/favicon.ico",
+              "apps/frontend/src/assets"
             ],
-            "styles": ["apps/anirbmuk/src/styles.scss"],
+            "styles": ["apps/frontend/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +40,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/anirbmuk/src/environments/environment.ts",
-                  "with": "apps/anirbmuk/src/environments/environment.prod.ts"
+                  "replace": "apps/frontend/src/environments/environment.ts",
+                  "with": "apps/frontend/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -61,81 +61,81 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "anirbmuk:build:production"
+              "browserTarget": "frontend:build:production"
             },
             "development": {
-              "browserTarget": "anirbmuk:build:development"
+              "browserTarget": "frontend:build:development"
             }
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "apps/anirbmuk/proxy.conf.json"
+            "proxyConfig": "apps/frontend/proxy.conf.json"
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "anirbmuk:build"
+            "browserTarget": "frontend:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/anirbmuk/src/**/*.ts",
-              "apps/anirbmuk/src/**/*.html"
+              "apps/frontend/src/**/*.ts",
+              "apps/frontend/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/anirbmuk"],
+          "outputs": ["coverage/apps/frontend"],
           "options": {
-            "jestConfig": "apps/anirbmuk/jest.config.js",
+            "jestConfig": "apps/frontend/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "anirbmuk-e2e": {
-      "root": "apps/anirbmuk-e2e",
-      "sourceRoot": "apps/anirbmuk-e2e/src",
+    "frontend-e2e": {
+      "root": "apps/frontend-e2e",
+      "sourceRoot": "apps/frontend-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/anirbmuk-e2e/cypress.json",
-            "tsConfig": "apps/anirbmuk-e2e/tsconfig.e2e.json",
-            "devServerTarget": "anirbmuk:serve:development"
+            "cypressConfig": "apps/frontend-e2e/cypress.json",
+            "tsConfig": "apps/frontend-e2e/tsconfig.e2e.json",
+            "devServerTarget": "frontend:serve:development"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "anirbmuk:serve:production"
+              "devServerTarget": "frontend:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/anirbmuk-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
           }
         }
       }
     },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
+    "connector": {
+      "root": "apps/connector",
+      "sourceRoot": "apps/connector/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "outputPath": "dist/apps/connector",
+            "main": "apps/connector/src/main.ts",
+            "tsConfig": "apps/connector/tsconfig.app.json",
+            "assets": ["apps/connector/src/assets"]
           },
           "configurations": {
             "production": {
@@ -144,8 +144,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
+                  "replace": "apps/connector/src/environments/environment.ts",
+                  "with": "apps/connector/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -154,34 +154,34 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "connector:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": ["apps/connector/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": ["coverage/apps/connector"],
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
+            "jestConfig": "apps/connector/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "connector-interfaces": {
+      "root": "libs/connector-interfaces",
+      "sourceRoot": "libs/connector-interfaces/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/connector-interfaces/**/*.ts"]
           }
         }
       }
@@ -217,5 +217,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "anirbmuk"
+  "defaultProject": "frontend"
 }

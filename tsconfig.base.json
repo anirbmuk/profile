@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@anirbmuk/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@frontend/connector-interfaces": ["libs/connector-interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

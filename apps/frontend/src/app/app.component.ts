@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@anirbmuk/api-interfaces';
+import { Message } from '@frontend/connector-interfaces';
 
 @Component({
-  selector: 'anirbmuk-root',
+  selector: 'fe-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

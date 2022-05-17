@@ -1,5 +1,5 @@
 {
-  "npmScope": "anirbmuk",
+  "npmScope": "frontend",
   "affected": {
     "defaultBase": "master"
   },
@@ -19,17 +19,17 @@
     }
   },
   "projects": {
-    "anirbmuk": {
+    "frontend": {
       "tags": []
     },
-    "anirbmuk-e2e": {
+    "frontend-e2e": {
       "tags": [],
-      "implicitDependencies": ["anirbmuk"]
+      "implicitDependencies": ["frontend"]
     },
-    "api": {
+    "connector": {
       "tags": []
     },
-    "api-interfaces": {
+    "connector-interfaces": {
       "tags": []
     }
   }
