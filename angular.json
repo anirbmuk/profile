@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend/src",
-      "prefix": "frontend",
+      "prefix": "fe",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

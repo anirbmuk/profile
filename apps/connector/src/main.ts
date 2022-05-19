@@ -5,7 +5,7 @@
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-
+import { config } from 'dotenv';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
@@ -18,4 +18,5 @@ async function bootstrap() {
   });
 }
 
+config();
 bootstrap();
