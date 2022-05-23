@@ -19,18 +19,21 @@
     }
   },
   "projects": {
+    "connector": {
+      "tags": []
+    },
+    "connector-api-firebase": {
+      "tags": []
+    },
+    "connector-interfaces": {
+      "tags": []
+    },
     "frontend": {
       "tags": []
     },
     "frontend-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend"]
-    },
-    "connector": {
-      "tags": []
-    },
-    "connector-interfaces": {
-      "tags": []
     }
   }
 }

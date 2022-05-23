@@ -1,6 +1,90 @@
 {
   "version": 1,
   "projects": {
+    "connector": {
+      "root": "apps/connector",
+      "sourceRoot": "apps/connector/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/connector",
+            "main": "apps/connector/src/main.ts",
+            "tsConfig": "apps/connector/tsconfig.app.json",
+            "assets": ["apps/connector/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/connector/src/environments/environment.ts",
+                  "with": "apps/connector/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "connector:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/connector/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/connector"],
+          "options": {
+            "jestConfig": "apps/connector/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "connector-api-firebase": {
+      "root": "libs/connector-api/firebase",
+      "sourceRoot": "libs/connector-api/firebase/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/connector-api/firebase/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/connector-api/firebase"],
+          "options": {
+            "jestConfig": "libs/connector-api/firebase/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "connector-interfaces": {
+      "root": "libs/connector-interfaces",
+      "sourceRoot": "libs/connector-interfaces/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/connector-interfaces/**/*.ts"]
+          }
+        }
+      }
+    },
     "frontend": {
       "projectType": "application",
       "root": "apps/frontend",
@@ -119,69 +203,6 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "connector": {
-      "root": "apps/connector",
-      "sourceRoot": "apps/connector/src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/connector",
-            "main": "apps/connector/src/main.ts",
-            "tsConfig": "apps/connector/tsconfig.app.json",
-            "assets": ["apps/connector/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/connector/src/environments/environment.ts",
-                  "with": "apps/connector/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "connector:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/connector/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/connector"],
-          "options": {
-            "jestConfig": "apps/connector/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "connector-interfaces": {
-      "root": "libs/connector-interfaces",
-      "sourceRoot": "libs/connector-interfaces/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/connector-interfaces/**/*.ts"]
           }
         }
       }
