@@ -1,9 +1,15 @@
+import { IDocument } from '@frontend/connector-interfaces';
 import { Injectable } from '@nestjs/common';
-import { Message } from '@frontend/connector-interfaces';
+import { FirebaseService } from './firebase';
 
 @Injectable()
 export class AppService {
-  getData(): Message {
-    return { message: 'Welcome to api!' };
+  constructor(private readonly firebase: FirebaseService) {}
+
+  async getGitHubLinks(): Promise<{ items: IDocument[] | undefined }> {
+    const items = await this.firebase.fetchCollection<IDocument>({
+      collections: ['github'],
+    });
+    return { items };
   }
 }

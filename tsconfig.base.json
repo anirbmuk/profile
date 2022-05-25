@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@frontend/connector-api/firebase": [
-        "libs/connector-api/firebase/src/index.ts"
-      ],
       "@frontend/connector-interfaces": [
         "libs/connector-interfaces/src/index.ts"
       ]

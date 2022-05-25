@@ -1,1 +1,1 @@
-export * from './lib/connector-interfaces';
+export * from './lib/document';

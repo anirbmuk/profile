@@ -8,5 +8,3 @@ export interface FirebaseConfig {
   measurementId: string;
   databaseURL?: string;
 }
-
-export const FIREBASE_CONFIG = 'FIREBASE_CONFIG';

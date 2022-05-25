@@ -22,9 +22,6 @@
     "connector": {
       "tags": []
     },
-    "connector-api-firebase": {
-      "tags": []
-    },
     "connector-interfaces": {
       "tags": []
     },

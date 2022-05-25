@@ -51,27 +51,6 @@
         }
       }
     },
-    "connector-api-firebase": {
-      "root": "libs/connector-api/firebase",
-      "sourceRoot": "libs/connector-api/firebase/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/connector-api/firebase/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/connector-api/firebase"],
-          "options": {
-            "jestConfig": "libs/connector-api/firebase/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "connector-interfaces": {
       "root": "libs/connector-interfaces",
       "sourceRoot": "libs/connector-interfaces/src",

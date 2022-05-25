@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@frontend/connector-interfaces';
+import { Component } from '@angular/core';
+import { IDocument } from '@frontend/connector-interfaces';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'fe-root',
@@ -8,6 +9,8 @@ import { Message } from '@frontend/connector-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
+  github$ = this.http
+    .get<{ items: IDocument[] }>('/api/github')
+    .pipe(map((data) => data.items));
   constructor(private http: HttpClient) {}
 }

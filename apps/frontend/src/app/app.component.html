@@ -1,11 +1,13 @@
 <div class="flex justify-center">
   <div class="text-black space-y-8">
     <h1 class="my-4">Welcome to anirbmuk!</h1>
-    <img
-      width="450"
-      src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-      alt="Nx - Smart, Extensible Build Framework"
-    />
-    <div>Message: {{ hello$ | async | json }}</div>
+    <img width="450" src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
+      alt="Nx - Smart, Extensible Build Framework" />
+    <ng-container *ngFor="let item of github$ | async">
+      <div class="flex justify-between">
+        <span>{{ item.category }}:</span>
+        <span>{{ item.value }}</span>
+      </div>
+    </ng-container>
   </div>
 </div>
