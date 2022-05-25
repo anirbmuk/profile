@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import 'firebase/analytics';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore';
 import 'firebase/storage';
-import { FirebaseConfig } from '.';
+import { FirebaseConfig, FIREBASE_CONFIG } from '.';
 
 export interface FirestoreWhere {
   column: string;
@@ -28,19 +28,11 @@ export interface FirestoreQuery {
   endAt?: string | number | Date | undefined;
 }
 
-const config = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId,
-};
-
 @Injectable()
 export class FirebaseService {
-  constructor() {
+  constructor(
+    @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig
+  ) {
     this.initFirebaseApp(config);
   }
 

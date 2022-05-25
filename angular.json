@@ -64,6 +64,27 @@
         }
       }
     },
+    "connector-lib": {
+      "root": "libs/connector-lib",
+      "sourceRoot": "libs/connector-lib/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/connector-lib/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/connector-lib"],
+          "options": {
+            "jestConfig": "libs/connector-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "projectType": "application",
       "root": "apps/frontend",

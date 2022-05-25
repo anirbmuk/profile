@@ -1,0 +1,1 @@
+export const FIREBASE_CONFIG = 'FIREBASE_CONFIG';

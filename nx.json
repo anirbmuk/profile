@@ -25,6 +25,9 @@
     "connector-interfaces": {
       "tags": []
     },
+    "connector-lib": {
+      "tags": []
+    },
     "frontend": {
       "tags": []
     },

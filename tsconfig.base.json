@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@frontend/connector-lib": ["libs/connector-lib/src/index.ts"],
       "@frontend/connector-interfaces": [
         "libs/connector-interfaces/src/index.ts"
       ]
