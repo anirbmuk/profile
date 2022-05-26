@@ -4,6 +4,15 @@
 
 export const environment = {
   production: false,
+  hostUrl: 'http://localhost:4200',
+  config: null,
+  google: {
+    verified: false,
+    id: null,
+  },
+  title: 'Senior Frontend Developer | Professional Bio',
+  about:
+    'Anirban Mukherjee | anirbmuk | Senior Frontend Developer | Professional Bio',
 };
 
 /*

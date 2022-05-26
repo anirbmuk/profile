@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   FOOTER,
   GITHUB,
@@ -9,7 +9,8 @@ import {
   PROFILE,
   TECHSTACK,
 } from '@frontend/connector-interfaces';
-import { RequestService } from './shared/services';
+import { environment } from './../environments/environment';
+import { ITag, RequestService, Robots, SeoService } from './shared/services';
 
 @Component({
   selector: 'fe-root',
@@ -17,11 +18,25 @@ import { RequestService } from './shared/services';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   readonly profile$ = this.request.get<IProfile>(PROFILE);
   readonly techstack$ = this.request.get<ITechstack>(TECHSTACK);
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
   readonly footer$ = this.request.get<IFooterBlock>(FOOTER);
 
-  constructor(private readonly request: RequestService) {}
+  constructor(
+    private readonly request: RequestService,
+    private readonly seo: SeoService
+  ) {}
+
+  ngOnInit(): void {
+    this.seo.setMetaTags({
+      url: '/',
+      title: environment.about,
+      description: environment.about,
+      robots: `${Robots.INDEX},${Robots.FOLLOW}`,
+    } as ITag);
+    this.seo.setCanonical('/');
+    this.seo.setTitle(environment.title);
+  }
 }
