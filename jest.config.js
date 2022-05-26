@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/frontend',
     '<rootDir>/apps/connector',
     '<rootDir>/libs/connector-lib',
+    '<rootDir>/libs/components',
   ],
 };

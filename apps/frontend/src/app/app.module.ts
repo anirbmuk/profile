@@ -1,17 +1,24 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { SkeletonModule } from '@frontend/components';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { GithubComponent } from './sections/github/github.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
-import { GithubComponent } from './sections/github/github.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, ProfileComponent, TechstackComponent, GithubComponent],
-  imports: [BrowserModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProfileComponent,
+    TechstackComponent,
+    GithubComponent,
+  ],
+  imports: [BrowserModule, HttpClientModule, SkeletonModule],
   providers: [],
   bootstrap: [AppComponent],
 })
