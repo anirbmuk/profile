@@ -1,8 +1,12 @@
 import {
+  FOOTER,
+  GITHUB,
   IFooterBlock,
   IGitHub,
   IProfile,
   ITechstack,
+  PROFILE,
+  TECHSTACK,
 } from '@frontend/connector-interfaces';
 import { FirebaseService } from '@frontend/connector-lib';
 import { Injectable } from '@nestjs/common';
@@ -11,30 +15,25 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   constructor(private readonly firebase: FirebaseService) {}
 
-  async getGitHubLinks(): Promise<IGitHub[] | undefined> {
-    const items = await this.firebase.fetchCollection<IGitHub>({
-      collections: ['github'],
-    });
-    return items;
+  async getGitHubLinks() {
+    return this.get<IGitHub[]>(GITHUB);
   }
 
-  async getFooter(): Promise<IFooterBlock | undefined> {
-    const items = await this.firebase.fetchCollection<IFooterBlock>({
-      collections: ['footer'],
-    });
-    return items?.[0];
+  async getFooter() {
+    return this.get<IFooterBlock>(FOOTER);
   }
 
-  async getProfile(): Promise<IProfile | undefined> {
-    const items = await this.firebase.fetchCollection<IProfile>({
-      collections: ['profile'],
-    });
-    return items?.[0];
+  async getProfile() {
+    return this.get<IProfile>(PROFILE);
   }
 
-  async getTechstack(): Promise<ITechstack | undefined> {
-    const items = await this.firebase.fetchCollection<ITechstack>({
-      collections: ['techstack'],
+  async getTechstack() {
+    return this.get<ITechstack>(TECHSTACK);
+  }
+
+  private async get<T>(path: string) {
+    const items = await this.firebase.fetchCollection<T>({
+      collections: [path],
     });
     return items?.[0];
   }

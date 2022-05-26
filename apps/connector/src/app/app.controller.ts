@@ -1,3 +1,9 @@
+import {
+  FOOTER,
+  GITHUB,
+  PROFILE,
+  TECHSTACK,
+} from '@frontend/connector-interfaces';
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
@@ -5,22 +11,22 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('profile')
+  @Get(PROFILE)
   getProfile() {
     return this.appService.getProfile();
   }
 
-  @Get('techstack')
+  @Get(TECHSTACK)
   getTechstack() {
     return this.appService.getTechstack();
   }
 
-  @Get('github')
+  @Get(GITHUB)
   getGitHubLinks() {
     return this.appService.getGitHubLinks();
   }
 
-  @Get('footer')
+  @Get(FOOTER)
   getFooter() {
     return this.appService.getFooter();
   }

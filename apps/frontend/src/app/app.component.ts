@@ -1,22 +1,27 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
+  FOOTER,
+  GITHUB,
   IFooterBlock,
   IGitHub,
   IProfile,
   ITechstack,
+  PROFILE,
+  TECHSTACK,
 } from '@frontend/connector-interfaces';
-import { delay } from 'rxjs/operators';
+import { RequestService } from './shared/services';
 
 @Component({
   selector: 'fe-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  profile$ = this.http.get<IProfile>('/api/profile').pipe(delay(3000));
-  techstack$ = this.http.get<ITechstack>('/api/techstack').pipe(delay(3000));
-  github$ = this.http.get<IGitHub[]>('/api/github').pipe(delay(3000));
-  footer$ = this.http.get<IFooterBlock>('/api/footer').pipe(delay(3000));
-  constructor(private http: HttpClient) {}
+  readonly profile$ = this.request.get<IProfile>(PROFILE);
+  readonly techstack$ = this.request.get<ITechstack>(TECHSTACK);
+  readonly github$ = this.request.get<IGitHub[]>(GITHUB);
+  readonly footer$ = this.request.get<IFooterBlock>(FOOTER);
+
+  constructor(private readonly request: RequestService) {}
 }
