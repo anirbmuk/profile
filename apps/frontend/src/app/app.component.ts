@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IDocument } from '@frontend/connector-interfaces';
+import {
+  IFooterBlock,
+  IGitHub,
+  IProfile,
+  ITechstack,
+} from '@frontend/connector-interfaces';
 
 @Component({
   selector: 'fe-root',
@@ -9,6 +14,9 @@ import { IDocument } from '@frontend/connector-interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  github$ = this.http.get<IDocument[]>('/api/github');
+  profile$ = this.http.get<IProfile>('/api/profile');
+  techstack$ = this.http.get<ITechstack>('/api/techstack');
+  github$ = this.http.get<IGitHub[]>('/api/github');
+  footer$ = this.http.get<IFooterBlock>('/api/footer');
   constructor(private http: HttpClient) {}
 }

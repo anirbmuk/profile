@@ -1,1 +1,2 @@
-export * from './lib/document';
+export * from './lib/components';
+export * from './lib/features';

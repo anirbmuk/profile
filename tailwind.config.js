@@ -23,19 +23,23 @@ const defaultSizes = {
   '2xl': '18rem',
   '3xl': '20rem',
   '4xl': '24rem',
-  '5xl': '28rem'
+  '5xl': '28rem',
 };
 
 module.exports = {
-  content: ["./apps/frontend/src/**/*.{html,js,ts}"],
+  content: ['./apps/frontend/src/**/*.{html,js,ts}'],
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+    },
     screens: {
       sm: '768px',
       md: '1024px',
       xl: '1280px',
       '2xl': '1440px',
       '3xl': '1680px',
-      '4xl': '1920px'
+      '4xl': '1920px',
     },
     fontSize: {
       xs: ['0.625rem', '1rem'],
@@ -50,48 +54,48 @@ module.exports = {
       '6xl': ['3rem', '2.5rem'],
       '7xl': ['3.5rem', '2.5rem'],
       '8xl': ['4rem', '2.5rem'],
-      massive: ['10rem', '10rem']
+      massive: ['10rem', '10rem'],
     },
     fontWeight: {
       normal: 400,
       semiBold: 500,
-      bold: 700
+      bold: 700,
     },
     fontFamily: {
-      sans: ['Noto Sans', 'sans-serif']
+      sans: ['Noto Sans', 'sans-serif'],
     },
     extend: {
       minHeight: {
-        ...defaultSizes
+        ...defaultSizes,
       },
       maxHeight: {
-        ...defaultSizes
+        ...defaultSizes,
       },
       maxWidth: {
         fit: 'fit-content',
-        ...defaultSizes
+        ...defaultSizes,
       },
       minWidth: {
-        ...defaultSizes
+        ...defaultSizes,
       },
       inset: {
         ...defaultSizes,
         41: '41%',
-        48: '48%'
+        48: '48%',
       },
       height: {
         '10vh': '10vh',
         '20vh': '20vh',
         '30vh': '30vh',
         '40vh': '40vh',
-        '50vh': '50vh'
+        '50vh': '50vh',
       },
       zIndex: {
         100: '100',
         150: '150',
-        200: '200'
-      }
+        200: '200',
+      },
     },
   },
   plugins: [],
-}
+};

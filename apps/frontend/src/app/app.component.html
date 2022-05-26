@@ -1,13 +1,16 @@
-<div class="flex justify-center">
-  <div class="text-black space-y-8">
-    <h1 class="my-4">Welcome to anirbmuk!</h1>
-    <img width="450" src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-      alt="Nx - Smart, Extensible Build Framework" />
-    <ng-container *ngFor="let item of github$ | async">
-      <div class="flex justify-between">
-        <span>{{ item.category }}:</span>
-        <span>{{ item.value }}</span>
-      </div>
-    </ng-container>
-  </div>
+<fe-header></fe-header>
+<div class="container">
+  <h1 class="my-4 flex justify-center items-center">Anirban Mukherjee</h1>
+  <ng-container *ngIf="github$ | async as github">
+    <fe-github [block]="github"></fe-github>
+  </ng-container>
+  <ng-container *ngIf="profile$ | async as profile">
+    <fe-profile [block]="profile"></fe-profile>
+  </ng-container>
+  <ng-container *ngIf="techstack$ | async as techstack">
+    <fe-techstack [block]="techstack"></fe-techstack>
+  </ng-container>
 </div>
+<ng-container *ngIf="footer$ | async as footer">
+  <fe-footer [block]="footer"></fe-footer>
+</ng-container>
