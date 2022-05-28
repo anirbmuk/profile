@@ -23,7 +23,7 @@
         <span class="hidden md:block material-symbols-rounded">
           bookmark
         </span>
-        <span>{{ bio }}</span>
+        <span [innerHtml]="sanitizer.sanitizeHtml(bio)"></span>
       </div>
     </ng-container>
   </article>

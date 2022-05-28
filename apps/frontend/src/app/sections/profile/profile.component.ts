@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { SanitizerService } from '@frontend/components';
 import { IProfile } from '@frontend/connector-interfaces';
 
 @Component({
@@ -9,4 +10,6 @@ import { IProfile } from '@frontend/connector-interfaces';
 })
 export class ProfileComponent {
   @Input() block?: IProfile | null;
+
+  constructor(readonly sanitizer: SanitizerService) {}
 }
