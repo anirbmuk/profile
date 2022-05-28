@@ -1,21 +1,15 @@
 <fe-header></fe-header>
-<div class="container">
-  <h1 class="my-4 flex justify-center items-center">Anirban Mukherjee</h1>
-  <ng-container *ngIf="github$ | async as github; else loading">
-    <fe-github [block]="github"></fe-github>
-  </ng-container>
-  <ng-container *ngIf="profile$ | async as profile; else loading">
-    <fe-profile [block]="profile"></fe-profile>
-  </ng-container>
-  <ng-container *ngIf="techstack$ | async as techstack; else loading">
-    <fe-techstack [block]="techstack"></fe-techstack>
-  </ng-container>
-  <ng-template #loading>
-    <div class="my-10">
-      <fe-skeleton [count]="3"></fe-skeleton>
-    </div>
-  </ng-template>
-</div>
-<ng-container *ngIf="footer$ | async as footer">
-  <fe-footer [block]="footer"></fe-footer>
+<ng-container *ngIf="bio$ | async as bio; else loading">
+  <div class="container">
+    <h1 class="my-4 flex justify-center items-center">Anirban Mukherjee</h1>
+    <fe-profile [block]="bio?.[0]"></fe-profile>
+    <fe-techstack [block]="bio?.[1]"></fe-techstack>
+    <fe-github [block]="bio?.[2]"></fe-github>
+  </div>
+  <fe-footer [block]="bio?.[3]"></fe-footer>
 </ng-container>
+<ng-template #loading>
+  <div class="container my-10">
+    <fe-skeleton [count]="3"></fe-skeleton>
+  </div>
+</ng-template>

@@ -1,1 +1,31 @@
-<section class="my-4">{{ block | json }}</section>
+<section class="my-4 space-y-3">
+  <h3 class="flex justify-center items-center space-x-2">
+    <span class="material-symbols-rounded">
+      work
+    </span>
+    <span>{{ block?.designation }}</span>
+  </h3>
+  <h6 class="flex justify-center items-center space-x-2">
+    <span class="material-symbols-rounded">
+      my_location
+    </span>
+    <span>{{ block?.location }}</span>
+  </h6>
+  <div class="flex justify-center items-center space-x-4">
+    <ng-container *ngFor="let social of block?.social">
+      <fe-icon [icon]="social.type" [url]="social.url"></fe-icon>
+    </ng-container>
+  </div>
+  <hr>
+  <article class="space-y-8">
+    <ng-container *ngFor="let bio of block?.bio">
+      <div class="md:flex md:space-x-2">
+        <span class="hidden md:block material-symbols-rounded">
+          bookmark
+        </span>
+        <span>{{ bio }}</span>
+      </div>
+    </ng-container>
+  </article>
+  <hr>
+</section>

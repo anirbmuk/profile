@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SkeletonModule } from '@frontend/components';
+import { IconModule, SkeletonModule } from '@frontend/components';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,7 +18,7 @@ import { TechstackComponent } from './sections/techstack/techstack.component';
     TechstackComponent,
     GithubComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, SkeletonModule],
+  imports: [BrowserModule, HttpClientModule, SkeletonModule, IconModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -9,6 +9,7 @@ import {
   PROFILE,
   TECHSTACK,
 } from '@frontend/connector-interfaces';
+import { forkJoin } from 'rxjs';
 import { environment } from './../environments/environment';
 import { ITag, RequestService, Robots, SeoService } from './shared/services';
 
@@ -23,6 +24,13 @@ export class AppComponent implements OnInit {
   readonly techstack$ = this.request.get<ITechstack>(TECHSTACK);
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
   readonly footer$ = this.request.get<IFooterBlock>(FOOTER);
+
+  readonly bio$ = forkJoin<IProfile, ITechstack, IGitHub[], IFooterBlock>([
+    this.request.get<IProfile>(PROFILE),
+    this.request.get<ITechstack>(TECHSTACK),
+    this.request.get<IGitHub[]>(GITHUB),
+    this.request.get<IFooterBlock>(FOOTER),
+  ]);
 
   constructor(
     private readonly request: RequestService,

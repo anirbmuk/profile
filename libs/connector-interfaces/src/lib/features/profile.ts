@@ -9,6 +9,8 @@ export interface IProfile extends BaseDocument {
   location: string;
   education: IEducation[];
   social: ISocial[];
+  bio?: string[];
+  cover?: string[];
 }
 
 export interface IBlog {
