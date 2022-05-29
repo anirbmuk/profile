@@ -1,5 +1,5 @@
+<fe-header></fe-header>
 <ng-container *ngIf="bio$ | async as bio; else loading">
-  <fe-header></fe-header>
   <div class="container mt-20">
     <fe-profile [block]="bio?.[0]"></fe-profile>
     <fe-techstack [block]="bio?.[1]"></fe-techstack>
@@ -8,7 +8,7 @@
   <fe-footer [block]="bio?.[3]"></fe-footer>
 </ng-container>
 <ng-template #loading>
-  <div class="container my-10">
+  <div class="container my-20">
     <fe-skeleton [count]="3"></fe-skeleton>
   </div>
 </ng-template>

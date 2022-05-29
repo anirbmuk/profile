@@ -1,17 +1,17 @@
-<section class="my-4 space-y-8">
+<section class="my-4 space-y-3">
   <h3 class="flex justify-center items-center space-x-2">
     <span class="material-symbols-rounded">
       work
     </span>
     <span>{{ block?.designation }}</span>
   </h3>
-  <h4 class="!flex justify-center items-center space-x-2 !mt-2">
+  <h4 class="!flex justify-center items-center space-x-2">
     <span class="material-symbols-rounded">
       corporate_fare
     </span>
     <span>{{ block?.currentjob }}</span>
   </h4>
-  <h6 class="!flex justify-center items-center space-x-2 !mt-2">
+  <h6 class="!flex justify-center items-center space-x-2">
     <span class="material-symbols-rounded">
       my_location
     </span>
@@ -22,7 +22,7 @@
       <fe-icon [icon]="social.type" [url]="social.url"></fe-icon>
     </ng-container>
   </div>
-  <article class="mx-auto md:max-w-2/3">
+  <article class="mx-auto md:max-w-2/3 !mt-8">
     <fe-block>
       <div class="space-y-4 text-md md:text">
         <ng-container *ngFor="let bio of block?.bio">
