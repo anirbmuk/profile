@@ -4,7 +4,7 @@ import { IGitHub } from '@frontend/connector-interfaces';
 @Component({
   selector: 'fe-github',
   templateUrl: './github.component.html',
-  styleUrls: ['./github.component.scss'],
+  styleUrls: ['./github.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GithubComponent {

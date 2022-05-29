@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 @Component({
   selector: 'fe-icon',
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss'],
+  styleUrls: ['./icon.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {

@@ -4,7 +4,7 @@ import { ITechstack } from '@frontend/connector-interfaces';
 @Component({
   selector: 'fe-techstack',
   templateUrl: './techstack.component.html',
-  styleUrls: ['./techstack.component.scss'],
+  styleUrls: ['./techstack.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TechstackComponent {

@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {
+  BlockModule,
   IconModule,
   SanitizerModule,
   SkeletonModule,
@@ -28,6 +29,7 @@ import { TechstackComponent } from './sections/techstack/techstack.component';
     SkeletonModule,
     IconModule,
     SanitizerModule,
+    BlockModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

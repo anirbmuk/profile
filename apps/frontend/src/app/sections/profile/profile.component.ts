@@ -5,7 +5,7 @@ import { IProfile } from '@frontend/connector-interfaces';
 @Component({
   selector: 'fe-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileComponent {

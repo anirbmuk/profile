@@ -1,0 +1,13 @@
+*,
+::before,
+::after {
+  --black: rgba(18, 18, 18, 0.92);
+  --black-light: rgba(18, 18, 18, 0.75);
+  --black-dark: rgb(18, 18, 18);
+  --red: rgb(220, 20, 49);
+  --red-light: rgba(220, 20, 49, 0.75);
+  --yellow: rgb(245, 197, 24);
+  --yellow-light: rgba(245, 197, 24, 0.75);
+  --fluorescent-green: rgb(8, 255, 8);
+  --fluorescent-green-light: rgba(8, 255, 8, 0.75);
+}

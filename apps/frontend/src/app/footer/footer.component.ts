@@ -4,7 +4,7 @@ import { IFooterBlock } from '@frontend/connector-interfaces';
 @Component({
   selector: 'fe-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  styleUrls: ['./footer.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {

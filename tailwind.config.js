@@ -27,7 +27,11 @@ const defaultSizes = {
 };
 
 module.exports = {
-  content: ['./apps/frontend/src/**/*.{html,js,ts}'],
+  mode: 'jit',
+  purge: [
+    './apps/frontend/src/**/*.{html,js,ts}',
+    './libs/components/src/lib/**/*.{html,js,ts}',
+  ],
   theme: {
     container: {
       center: true,
@@ -94,6 +98,25 @@ module.exports = {
         100: '100',
         150: '150',
         200: '200',
+      },
+      colors: {
+        black: {
+          DEFAULT: 'var(--black)',
+          light: 'var(--black-light)',
+          dark: 'var(--black-dark)',
+        },
+        red: {
+          DEFAULT: 'var(--red)',
+          light: 'var(--red-light)',
+        },
+        yellow: {
+          DEFAULT: 'var(--yellow)',
+          light: 'var(--yellow-light)',
+        },
+        'fluorescent-green': {
+          DEFAULT: 'var(--fluorescent-green)',
+          light: 'var(--fluorescent-green-light)',
+        },
       },
     },
   },

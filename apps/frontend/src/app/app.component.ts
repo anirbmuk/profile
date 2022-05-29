@@ -16,7 +16,7 @@ import { ITag, RequestService, Robots, SeoService } from './shared/services';
 @Component({
   selector: 'fe-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
