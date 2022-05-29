@@ -36,6 +36,7 @@ module.exports = {
     container: {
       center: true,
       padding: '1rem',
+      margin: ' 6rem 0',
     },
     screens: {
       sm: '768px',

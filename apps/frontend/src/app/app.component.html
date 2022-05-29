@@ -1,7 +1,6 @@
-<fe-header></fe-header>
 <ng-container *ngIf="bio$ | async as bio; else loading">
-  <div class="container">
-    <h1 class="my-4 flex justify-center items-center">Anirban Mukherjee</h1>
+  <fe-header></fe-header>
+  <div class="container mt-20">
     <fe-profile [block]="bio?.[0]"></fe-profile>
     <fe-techstack [block]="bio?.[1]"></fe-techstack>
     <fe-github [block]="bio?.[2]"></fe-github>

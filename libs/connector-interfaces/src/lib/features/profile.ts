@@ -6,6 +6,7 @@ export interface IProfile extends BaseDocument {
   blog: IBlog[];
   contact: IContact[];
   designation: string;
+  currentjob?: string;
   location: string;
   education: IEducation[];
   social: ISocial[];
