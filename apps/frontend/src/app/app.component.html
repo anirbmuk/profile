@@ -1,11 +1,11 @@
 <fe-header></fe-header>
 <ng-container *ngIf="bio$ | async as bio; else loading">
   <div class="container mt-20">
-    <fe-profile [block]="bio?.[0]"></fe-profile>
-    <fe-techstack [block]="bio?.[1]"></fe-techstack>
+    <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>
+    <fe-techstack [block]="bio?.[1]?.[0]"></fe-techstack>
     <fe-github [block]="bio?.[2]"></fe-github>
   </div>
-  <fe-footer [block]="bio?.[3]"></fe-footer>
+  <fe-footer [block]="bio?.[3]?.[0]"></fe-footer>
 </ng-container>
 <ng-template #loading>
   <div class="container my-20">

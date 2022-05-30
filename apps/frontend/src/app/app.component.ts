@@ -20,17 +20,14 @@ import { ITag, RequestService, Robots, SeoService } from './shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  readonly profile$ = this.request.get<IProfile>(PROFILE);
-  readonly techstack$ = this.request.get<ITechstack>(TECHSTACK);
+  readonly profile$ = this.request.get<[IProfile]>(PROFILE);
+  readonly techstack$ = this.request.get<[ITechstack]>(TECHSTACK);
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
-  readonly footer$ = this.request.get<IFooterBlock>(FOOTER);
+  readonly footer$ = this.request.get<[IFooterBlock]>(FOOTER);
 
-  readonly bio$ = forkJoin<IProfile, ITechstack, IGitHub[], IFooterBlock>([
-    this.request.get<IProfile>(PROFILE),
-    this.request.get<ITechstack>(TECHSTACK),
-    this.request.get<IGitHub[]>(GITHUB),
-    this.request.get<IFooterBlock>(FOOTER),
-  ]);
+  readonly bio$ = forkJoin<[IProfile], [ITechstack], IGitHub[], [IFooterBlock]>(
+    [this.profile$, this.techstack$, this.github$, this.footer$]
+  );
 
   constructor(
     private readonly request: RequestService,

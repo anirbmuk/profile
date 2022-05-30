@@ -35,6 +35,6 @@ export class AppService {
     const items = await this.firebase.fetchCollection<T>({
       collections: [path],
     });
-    return items?.[0];
+    return items;
   }
 }
