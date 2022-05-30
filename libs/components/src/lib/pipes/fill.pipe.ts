@@ -5,7 +5,7 @@ import { PipeTransform } from '@nestjs/common';
   name: 'feFillPipe',
 })
 export class FillNumberPipe implements PipeTransform {
-  transform(value = 1): number[] {
-    return (Array(value) as number[]).fill(value);
+  transform(value: number | string = 1): number[] {
+    return isNaN(+value) ? [] : (Array(+value) as number[]).fill(+value);
   }
 }

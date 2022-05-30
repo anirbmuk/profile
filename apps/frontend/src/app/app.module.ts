@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {
   BlockModule,
   IconModule,
+  PipeModule,
   SanitizerModule,
   SkeletonModule,
 } from '@frontend/components';
@@ -30,6 +31,7 @@ import { TechstackComponent } from './sections/techstack/techstack.component';
     IconModule,
     SanitizerModule,
     BlockModule,
+    PipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
