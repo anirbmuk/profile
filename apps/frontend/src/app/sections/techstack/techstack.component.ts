@@ -8,5 +8,15 @@ import { ITechstack } from '@frontend/connector-interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TechstackComponent {
-  @Input() block?: ITechstack | null;
+  technologies?: ITechstack['technology'];
+  repositories?: ITechstack['repository'];
+  databases?: ITechstack['database'];
+
+  @Input() set block(block: ITechstack | undefined) {
+    this.technologies =
+      block?.technology?.sort((t1, t2) => t1.position - t2.position) || [];
+    this.databases =
+      block?.database?.sort((d1, d2) => d1.position - d2.position) || [];
+    this.repositories = [...(block?.repository || [])];
+  }
 }

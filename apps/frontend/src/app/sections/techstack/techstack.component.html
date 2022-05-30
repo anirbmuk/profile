@@ -1,1 +1,41 @@
-<section class="my-4">{{ block | json }}</section>
+<section class="my-8 space-y-4">
+  <div>
+    <h4>Technologies</h4>
+    <ul class="md:grid md:grid-cols-3 md:gap-3">
+      <li *ngFor="let tech of technologies">
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <fe-icon *ngIf="tech.icon" [icon]="tech.icon"></fe-icon>
+            <h6>{{ tech.name }}</h6>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4>Databases</h4>
+    <ul class="md:grid md:grid-cols-3 md:gap-3">
+      <li *ngFor="let db of databases">
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <fe-icon *ngIf="db.icon" [icon]="db.icon"></fe-icon>
+            <h6>{{ db.name }}</h6>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4>Repositories</h4>
+    <ul class="md:grid md:grid-cols-3 md:gap-3">
+      <li *ngFor="let repo of repositories">
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <fe-icon *ngIf="repo.icon" [icon]="repo.icon"></fe-icon>
+            <h6>{{ repo.name }}</h6>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

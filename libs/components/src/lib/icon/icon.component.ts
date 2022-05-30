@@ -22,7 +22,7 @@ export class IconComponent {
     this.iconClass = `w-${useValue} h-${useValue}`;
   }
 
-  type: 'link' | 'text' = 'link';
+  type: 'link' | 'text' = 'text';
   ariaLabel?: string;
   iconClass = 'w-8 h-8';
   source?: string | undefined;
