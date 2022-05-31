@@ -1,8 +1,11 @@
-<div [ngClass]="{ 'bg-black-dark': style === 'normal' }" class="p-4 flex space-x-2 rounded-t">
+<div [ngClass]="{ 'bg-black-dark': style === 'normal', 'bg-gray-200 border border-gray-300': style === 'inverted' }"
+  class="p-4 flex space-x-2 rounded-t">
   <span class="circle bg-red"></span>
   <span class="circle bg-yellow"></span>
   <span class="circle bg-fluorescent-green"></span>
 </div>
-<div [ngClass]="{ 'bg-black text-white': style === 'normal' }" class="p-5 rounded-b -mt-0.5">
+<div
+  [ngClass]="{ 'bg-black text-white': style === 'normal', 'bg-gray-100 border border-gray-300': style === 'inverted' }"
+  class="p-5 rounded-b -mt-0.5">
   <ng-content></ng-content>
 </div>
