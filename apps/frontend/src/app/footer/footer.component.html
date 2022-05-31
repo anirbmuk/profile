@@ -1,10 +1,12 @@
-<footer>
-  <div class="flex justify-between p-4 bg-gray-50">
-    <div class="flex space-x-2">
-      <ng-container *ngFor="let link of block?.links">
-        <fe-link [link]="link"></fe-link>
-      </ng-container>
+<footer class="fixed bottom-0 w-full">
+  <div class="bg-gray-50 border-t border-gray-100 p-4 text-md">
+    <div class="flex justify-between">
+      <div class="flex space-x-4">
+        <ng-container *ngFor="let link of block?.links">
+          <fe-link [link]="link"></fe-link>
+        </ng-container>
+      </div>
+      <span>&copy; {{ block?.copyright }}</span>
     </div>
-    <span>&copy; {{ block?.copyright }}</span>
   </div>
 </footer>
