@@ -5,7 +5,7 @@
       <li *ngFor="let tech of technologies">
         <div class="space-y-4">
           <div class="flex justify-between items-center">
-            <fe-icon *ngIf="tech.icon" [icon]="tech.icon"></fe-icon>
+            <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
             <h6>{{ tech.name }}</h6>
           </div>
           <div>
@@ -21,7 +21,7 @@
       <li *ngFor="let db of databases">
         <div class="space-y-4">
           <div class="flex justify-between items-center">
-            <fe-icon *ngIf="db.icon" [icon]="db.icon"></fe-icon>
+            <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
             <h6>{{ db.name }}</h6>
           </div>
           <div>
@@ -37,7 +37,7 @@
       <li *ngFor="let repo of repositories">
         <div class="space-y-4">
           <div class="flex justify-between items-center">
-            <fe-icon *ngIf="repo.icon" [icon]="repo.icon"></fe-icon>
+            <fe-icon *ngIf="repo.icon" [icon]="repo.icon" [size]="8"></fe-icon>
             <h6>{{ repo.name }}</h6>
           </div>
         </div>
