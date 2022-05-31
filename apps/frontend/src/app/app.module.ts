@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { GithubComponent } from './sections/github/github.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
+import { RatingModule } from './shared/components/rating';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TechstackComponent } from './sections/techstack/techstack.component';
     SanitizerModule,
     BlockModule,
     PipeModule,
+    RatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

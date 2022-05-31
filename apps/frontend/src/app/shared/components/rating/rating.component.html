@@ -1,0 +1,7 @@
+<div class="flex space-x-1" [title]="_rating">
+  <fe-icon *ngFor="let rating of (_fullRating | feFillPipe)" [icon]="'star-filled'" [size]="4"></fe-icon>
+  <fe-icon *ngIf="_hasHalf" [icon]="'star-half-filled'" [size]="4"></fe-icon>
+  <ng-container *ngIf="_remaining > 0">
+    <fe-icon *ngFor="let rating of (_remaining | feFillPipe)" [icon]="'star-empty'" [size]="4"></fe-icon>
+  </ng-container>
+</div>

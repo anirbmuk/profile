@@ -8,10 +8,8 @@
             <fe-icon *ngIf="tech.icon" [icon]="tech.icon"></fe-icon>
             <h6>{{ tech.name }}</h6>
           </div>
-          <div class="flex space-x-1" [title]="tech.rating">
-            <fe-icon *ngFor="let rating of (tech.rating | feFillPipe)" [icon]="'star-filled'" [size]="4"></fe-icon>
-            <fe-icon *ngFor="let rating of ((10 - +tech.rating) | feFillPipe)" [icon]="'star-empty'" [size]="4">
-            </fe-icon>
+          <div>
+            <fe-rating [rating]="tech.rating"></fe-rating>
           </div>
         </div>
       </li>
@@ -26,10 +24,8 @@
             <fe-icon *ngIf="db.icon" [icon]="db.icon"></fe-icon>
             <h6>{{ db.name }}</h6>
           </div>
-          <div class="flex space-x-1" [title]="db.rating">
-            <fe-icon *ngFor="let rating of (db.rating | feFillPipe)" [icon]="'star-filled'" [size]="4"></fe-icon>
-            <fe-icon *ngFor="let rating of ((10 - +db.rating) | feFillPipe)" [icon]="'star-empty'" [size]="4">
-            </fe-icon>
+          <div>
+            <fe-rating [rating]="db.rating"></fe-rating>
           </div>
         </div>
       </li>
