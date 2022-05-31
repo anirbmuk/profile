@@ -7,4 +7,5 @@ export interface IDocument extends BaseDocument {
   type: SupportedDocTypes;
   category: SupportedCatTypes;
   value: string | number | boolean | Date | undefined;
+  description: string;
 }

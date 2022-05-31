@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {
   BlockModule,
   IconModule,
+  LinkModule,
   PipeModule,
   SanitizerModule,
   SkeletonModule,
@@ -14,7 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { GithubComponent } from './sections/github/github.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
-import { RatingModule } from './shared/components/rating';
+import { PreviewModule, RatingModule } from './shared/components';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { RatingModule } from './shared/components/rating';
     BlockModule,
     PipeModule,
     RatingModule,
+    PreviewModule,
+    LinkModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,3 +1,10 @@
 <footer>
-  {{ block | json }}
+  <div class="flex justify-between p-4 bg-gray-50">
+    <div class="flex space-x-2">
+      <ng-container *ngFor="let link of block?.links">
+        <fe-link [link]="link"></fe-link>
+      </ng-container>
+    </div>
+    <span>&copy; {{ block?.copyright }}</span>
+  </div>
 </footer>

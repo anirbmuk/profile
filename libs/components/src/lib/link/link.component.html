@@ -1,0 +1,10 @@
+<ng-container *ngIf="link?.type === 'internal'; else external">
+  <a [href]="link?.url">
+    {{ link?.text }}
+  </a>
+</ng-container>
+<ng-template #external>
+  <a target="_blank" [href]="link?.url" rel="nofollow">
+    {{ link?.text }}
+  </a>
+</ng-template>

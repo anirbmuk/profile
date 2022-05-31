@@ -1,6 +1,6 @@
 <section class="my-8 space-y-8">
   <div>
-    <h4>Technologies</h4>
+    <h3>Technologies</h3>
     <ul class="md:grid md:grid-cols-3 2xl:grid-cols-4 md:gap-3">
       <li *ngFor="let tech of technologies">
         <div class="space-y-4">
@@ -16,7 +16,7 @@
     </ul>
   </div>
   <div>
-    <h4>Databases</h4>
+    <h3>Databases</h3>
     <ul class="md:grid md:grid-cols-3 md:gap-3">
       <li *ngFor="let db of databases">
         <div class="space-y-4">
@@ -26,19 +26,6 @@
           </div>
           <div>
             <fe-rating [rating]="db.rating"></fe-rating>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h4>Repositories</h4>
-    <ul class="md:grid md:grid-cols-3 md:gap-3">
-      <li *ngFor="let repo of repositories">
-        <div class="space-y-4">
-          <div class="flex justify-between items-center">
-            <fe-icon *ngIf="repo.icon" [icon]="repo.icon" [size]="8"></fe-icon>
-            <h6>{{ repo.name }}</h6>
           </div>
         </div>
       </li>

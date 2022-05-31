@@ -8,5 +8,10 @@ import { IGitHub } from '@frontend/connector-interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GithubComponent {
-  @Input() block?: IGitHub[] | null;
+  _repositories: IGitHub[] = [];
+
+  @Input() set block(block: IGitHub[] | undefined) {
+    this._repositories =
+      block?.sort((r1, r2) => r1.position - r2.position) || [];
+  }
 }

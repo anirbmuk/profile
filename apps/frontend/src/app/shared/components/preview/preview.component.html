@@ -1,0 +1,11 @@
+<a rel="nofollow" target="_blank" [href]="repo?.value">
+  <div *ngIf="repo?.value" class="preview-container">
+    <div class="space-y-2 items-center">
+      <div class="flex space-x-2 items-center">
+        <fe-icon [icon]="'github'" [size]="8"></fe-icon>
+        <h4>{{ repo?.value?.toString() | feExtractNamePipe }}</h4>
+      </div>
+      <h6>{{ repo?.description }}</h6>
+    </div>
+  </div>
+</a>
