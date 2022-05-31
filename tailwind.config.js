@@ -35,8 +35,10 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '1rem',
-      margin: ' 6rem 0',
+      padding: {
+        DEFAULT: '1rem',
+        xl: '2rem',
+      },
     },
     screens: {
       sm: '768px',

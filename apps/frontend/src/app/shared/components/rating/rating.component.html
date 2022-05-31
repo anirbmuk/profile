@@ -1,4 +1,4 @@
-<div class="flex space-x-1" [title]="_rating">
+<div class="flex space-x-1" [title]="_rating + '/' + _maxRating">
   <fe-icon *ngFor="let rating of (_fullRating | feFillPipe)" [icon]="'star-filled'"></fe-icon>
   <fe-icon *ngIf="_hasHalf" [icon]="'star-half-filled'"></fe-icon>
   <ng-container *ngIf="_remaining > 0">

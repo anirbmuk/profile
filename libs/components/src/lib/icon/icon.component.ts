@@ -19,12 +19,12 @@ export class IconComponent {
 
   @Input() set size(value: number | null | undefined) {
     const useValue = value ?? 4;
-    this.iconClass = `w-${useValue} h-${useValue}`;
+    this.iconClass = `!w-${useValue} !h-${useValue}`;
   }
 
   type: 'link' | 'text' = 'text';
   ariaLabel?: string;
-  iconClass = 'w-4 h-4';
+  iconClass = '!w-4 !h-4';
   source?: string | undefined;
   target?: string | undefined;
 }

@@ -11,11 +11,16 @@ export class RatingComponent {
   _fullRating = 1;
   _hasHalf = false;
   _remaining = 0;
+  _minRating = 0;
+  _maxRating = 10;
 
   @Input() set rating(rating: number | string) {
-    this._rating = isNaN(+rating) ? 1 : +rating;
-    this._fullRating = Math.ceil(this._rating);
+    this._rating = Math.max(
+      Math.min(isNaN(+rating) ? 1 : +rating, this._maxRating),
+      this._minRating
+    );
+    this._fullRating = Math.floor(this._rating);
     this._hasHalf = Math.ceil(this._rating) !== this._rating;
-    this._remaining = 10 - Math.ceil(this._rating);
+    this._remaining = this._maxRating - Math.ceil(this._rating);
   }
 }
