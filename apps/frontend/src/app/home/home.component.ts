@@ -28,6 +28,12 @@ export class HomeComponent implements OnInit {
     this.github$,
   ]);
 
+  private readonly callback = (message: string) => console.log(message);
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  readonly callback1 = this.callback.bind(this, 'tracked techstack section');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  readonly callback2 = this.callback.bind(this, 'tracked github section');
+
   constructor(
     private readonly request: RequestService,
     private readonly seo: SeoService

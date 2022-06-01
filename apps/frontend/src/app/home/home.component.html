@@ -1,7 +1,7 @@
 <ng-container *ngIf="bio$ | async as bio; else loading">
   <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>
-  <fe-techstack [block]="bio?.[1]?.[0]"></fe-techstack>
-  <fe-github [block]="bio?.[2]"></fe-github>
+  <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="callback1"></fe-techstack>
+  <fe-github [block]="bio?.[2]" [feTrackable]="callback2"></fe-github>
 </ng-container>
 <ng-template #loading>
   <div class="container my-20">

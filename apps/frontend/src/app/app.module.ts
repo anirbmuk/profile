@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {
   BlockModule,
+  DirectiveModule,
   IconModule,
   LinkModule,
   PipeModule,
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     RatingModule,
     PreviewModule,
     LinkModule,
+    DirectiveModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
