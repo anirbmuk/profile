@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeValue } from '@angular/platform-browser';
-import { SanitizerModule } from './sanitizer.module';
+import { ServiceModule } from './service.module';
 
 @Injectable({
-  providedIn: SanitizerModule,
+  providedIn: ServiceModule,
 })
 export class SanitizerService {
   constructor(private readonly domSanitizer: DomSanitizer) {}

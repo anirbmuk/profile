@@ -9,4 +9,6 @@ import { IFooterBlock } from '@frontend/connector-interfaces';
 })
 export class FooterComponent {
   @Input() block?: IFooterBlock | null;
+
+  readonly year = new Date().getFullYear();
 }

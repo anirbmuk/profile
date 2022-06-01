@@ -3,5 +3,5 @@ export * from './lib/directives';
 export * from './lib/icon';
 export * from './lib/link';
 export * from './lib/pipes';
-export * from './lib/sanitizer';
+export * from './lib/services';
 export * from './lib/skeleton';

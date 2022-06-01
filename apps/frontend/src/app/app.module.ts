@@ -8,7 +8,7 @@ import {
   IconModule,
   LinkModule,
   PipeModule,
-  SanitizerModule,
+  ServiceModule,
   SkeletonModule,
 } from '@frontend/components';
 import { AppComponent } from './app.component';
@@ -52,7 +52,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     SkeletonModule,
     IconModule,
-    SanitizerModule,
+    ServiceModule,
     BlockModule,
     PipeModule,
     RatingModule,

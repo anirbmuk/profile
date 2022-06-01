@@ -6,4 +6,4 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [],
   exports: [],
 })
-export class SanitizerModule {}
+export class ServiceModule {}
