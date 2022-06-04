@@ -18,6 +18,8 @@ export interface IBlog {
   technology: string;
   url: string;
   icon?: string;
+  description?: string;
+  position?: 'start' | 'middle' | 'end' | undefined;
 }
 
 export interface IContact {

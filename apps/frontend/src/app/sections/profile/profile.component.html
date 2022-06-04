@@ -36,4 +36,11 @@
       </div>
     </fe-block>
   </article>
+  <div class="block space-y-2 md:space-y-0 mx-auto md:max-w-2/3 md:flex md:justify-between items-center">
+    <ng-container *ngFor="let blog of block?.blog">
+      <fe-icon [icon]="blog.icon" [url]="blog.url" [size]="10" [position]="blog.position">
+        <span class="text-md md:text">{{ blog.description }}</span>
+      </fe-icon>
+    </ng-container>
+  </div>
 </section>

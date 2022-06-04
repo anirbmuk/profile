@@ -23,3 +23,7 @@
     @apply text md:text-xl;
   }
 }
+
+.heading {
+  @apply ease-in hover:translate-x-1 hover:ease-out hover:tracking-wide duration-200;
+}

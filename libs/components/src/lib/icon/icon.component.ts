@@ -18,8 +18,14 @@ export class IconComponent {
   }
 
   @Input() set size(value: number | null | undefined) {
-    const useValue = value ?? 4;
-    this.iconClass = this.sizeMappers[useValue] || 'w-4 h-4';
+    const defaultValue = 4;
+    const useValue = value ?? defaultValue;
+    this.iconClass =
+      this.sizeMappers[useValue] || this.sizeMappers[defaultValue];
+  }
+
+  @Input() set position(positionValue: 'start' | 'middle' | 'end' | undefined) {
+    this.displayClass = positionValue ? this.displayClasses[positionValue] : '';
   }
 
   type: 'link' | 'text' = 'text';
@@ -27,6 +33,7 @@ export class IconComponent {
   iconClass = 'w-4 h-4';
   source?: string | undefined;
   target?: string | undefined;
+  displayClass?: string;
 
   sizeMappers: Record<number, string> = {
     2: 'h-2 w-2',
@@ -34,10 +41,18 @@ export class IconComponent {
     4: 'h-4 w-4',
     5: 'h-5 w-5',
     6: 'h-6 w-6',
+    7: 'h-7 w-7',
     8: 'h-8 w-8',
+    9: 'h-9 w-9',
     10: 'h-10 w-10',
     12: 'h-12 w-12',
     14: 'h-14 w-14',
     16: 'h-16 w-16',
+  };
+
+  displayClasses: Record<'start' | 'middle' | 'end', string> = {
+    start: 'block md:flex md:justify-start',
+    middle: 'block md:flex md:justify-center',
+    end: 'block md:flex md:justify-end',
   };
 }

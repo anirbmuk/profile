@@ -120,6 +120,9 @@ module.exports = {
           DEFAULT: 'var(--fluorescent-green)',
           light: 'var(--fluorescent-green-light)',
         },
+        mauve: {
+          DEFAULT: 'var(--mauve)',
+        },
       },
     },
   },
