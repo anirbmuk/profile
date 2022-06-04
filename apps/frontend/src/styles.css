@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    scroll-behavior: smooth;
+  }
   h1 {
     @apply text-4xl md:text-6xl;
   }

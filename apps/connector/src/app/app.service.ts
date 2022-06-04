@@ -1,6 +1,8 @@
 import {
+  EDUCATION,
   FOOTER,
   GITHUB,
+  IEducation,
   IFooterBlock,
   IGitHub,
   IProfile,
@@ -29,6 +31,10 @@ export class AppService {
 
   async getTechstack() {
     return this.get<ITechstack>(TECHSTACK);
+  }
+
+  async getEducation() {
+    return this.get<IEducation[]>(EDUCATION);
   }
 
   private async get<T>(path: string) {

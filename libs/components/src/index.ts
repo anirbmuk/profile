@@ -1,3 +1,4 @@
+export * from './lib/accordion';
 export * from './lib/block';
 export * from './lib/directives';
 export * from './lib/icon';

@@ -8,7 +8,6 @@ export interface IProfile extends BaseDocument {
   designation: string;
   currentjob?: string;
   location: string;
-  education: IEducation[];
   social: ISocial[];
   bio?: string[];
   cover?: string[];
@@ -20,21 +19,14 @@ export interface IBlog {
   icon?: string;
   description?: string;
   position?: 'start' | 'middle' | 'end' | undefined;
+  iconSize?: number;
 }
 
 export interface IContact {
   type: 'email' | 'tel';
   value: string;
   icon?: string;
-}
-
-export interface IEducation {
-  degree: string;
-  startyear: number;
-  endyear: number;
-  field: string;
-  school: string;
-  position: number;
+  iconSize?: number;
 }
 
 export interface ISocial {

@@ -1,36 +1,42 @@
-<section class="my-8 space-y-8" id="techstack">
-  <div class="space-y-2">
-    <h3 class="heading">
-      Technologies
-    </h3>
-    <ul class="md:grid md:grid-cols-3 2xl:grid-cols-4 md:gap-3">
-      <li *ngFor="let tech of technologies">
-        <div class="space-y-4">
-          <div class="flex justify-between items-center">
-            <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
-            <h6>{{ tech.name }}</h6>
+<section class="my-8 space-y-8">
+  <div>
+    <fe-accordion>
+      <h3 class="heading" heading>
+        Technologies
+      </h3>
+      <ul class="md:grid md:grid-cols-3 2xl:grid-cols-4 md:gap-3">
+        <li *ngFor="let tech of technologies">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
+              <h6>{{ tech.name }}</h6>
+            </div>
+            <div>
+              <fe-rating [rating]="tech.rating"></fe-rating>
+            </div>
           </div>
-          <div>
-            <fe-rating [rating]="tech.rating"></fe-rating>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </fe-accordion>
   </div>
-  <div class="space-y-2">
-    <h3 class="heading">Databases</h3>
-    <ul class="md:grid md:grid-cols-3 md:gap-3">
-      <li *ngFor="let db of databases">
-        <div class="space-y-4">
-          <div class="flex justify-between items-center">
-            <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
-            <h6>{{ db.name }}</h6>
+  <div>
+    <fe-accordion>
+      <h3 class="heading" heading>
+        Databases
+      </h3>
+      <ul class="md:grid md:grid-cols-3 md:gap-3">
+        <li *ngFor="let db of databases">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
+              <h6>{{ db.name }}</h6>
+            </div>
+            <div>
+              <fe-rating [rating]="db.rating"></fe-rating>
+            </div>
           </div>
-          <div>
-            <fe-rating [rating]="db.rating"></fe-rating>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </fe-accordion>
   </div>
 </section>

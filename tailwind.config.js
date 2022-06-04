@@ -72,6 +72,9 @@ module.exports = {
       sans: ['Noto Sans', 'sans-serif'],
     },
     extend: {
+      transitionProperty: {
+        visibility: 'display',
+      },
       minHeight: {
         ...defaultSizes,
       },

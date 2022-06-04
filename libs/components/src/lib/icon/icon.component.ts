@@ -51,8 +51,8 @@ export class IconComponent {
   };
 
   displayClasses: Record<'start' | 'middle' | 'end', string> = {
-    start: 'block md:flex md:justify-start',
-    middle: 'block md:flex md:justify-center',
-    end: 'block md:flex md:justify-end',
+    start: 'flex justify-start',
+    middle: 'flex justify-center',
+    end: 'flex justify-end',
   };
 }

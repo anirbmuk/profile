@@ -11,6 +11,7 @@ import {
   ServiceModule,
   SkeletonModule,
 } from '@frontend/components';
+import { AccordionModule } from './../../../../libs/components/src/lib/accordion/accordion.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +21,7 @@ import { GithubComponent } from './sections/github/github.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
+import { EducationComponent } from './sections/education/education.component';
 
 const appRoutes: Routes = [
   {
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
     GithubComponent,
     NotFoundComponent,
     HomeComponent,
+    EducationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ const appRoutes: Routes = [
     PreviewModule,
     LinkModule,
     DirectiveModule,
+    AccordionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

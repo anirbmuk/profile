@@ -1,4 +1,5 @@
 import {
+  EDUCATION,
   FOOTER,
   GITHUB,
   PROFILE,
@@ -24,6 +25,11 @@ export class AppController {
   @Get(GITHUB)
   getGitHubLinks() {
     return this.appService.getGitHubLinks();
+  }
+
+  @Get(EDUCATION)
+  getEducation() {
+    return this.appService.getEducation();
   }
 
   @Get(FOOTER)
