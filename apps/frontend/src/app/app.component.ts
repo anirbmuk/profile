@@ -1,6 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { FOOTER, IFooterBlock } from '@frontend/connector-interfaces';
-import { RequestService } from './shared/services';
+import { DeviceService, RequestService } from './shared/services';
 
 @Component({
   selector: 'fe-root',
@@ -11,5 +17,18 @@ import { RequestService } from './shared/services';
 export class AppComponent {
   readonly footer$ = this.request.get<[IFooterBlock]>(FOOTER);
 
-  constructor(private readonly request: RequestService) {}
+  constructor(
+    private readonly request: RequestService,
+    private readonly device: DeviceService,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    @Inject(PLATFORM_ID) readonly platformId: Object
+  ) {
+    if (isPlatformBrowser(platformId)) {
+      this.device.setDeviceWidth();
+    }
+  }
+
+  onResize(): void {
+    this.device.setDeviceWidth();
+  }
 }

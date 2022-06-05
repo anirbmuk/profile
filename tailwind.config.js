@@ -1,5 +1,9 @@
 const defaultSizes = {
   '1/10': '10%',
+  '1/9': '11.11%',
+  '1/8': '12.5%',
+  '1/7': '14.2%',
+  '1/6': '16.67%',
   '1/5': '20%',
   '1/4': '25%',
   '1/3': '33.33%',
@@ -41,8 +45,9 @@ module.exports = {
       },
     },
     screens: {
-      sm: '768px',
-      md: '1024px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
       xl: '1280px',
       '2xl': '1440px',
       '3xl': '1680px',
@@ -75,6 +80,11 @@ module.exports = {
       transitionProperty: {
         visibility: 'display',
       },
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '16/9': '16 / 9',
+        '9/16': '9 / 16',
+      },
       minHeight: {
         ...defaultSizes,
       },
@@ -99,6 +109,9 @@ module.exports = {
         '30vh': '30vh',
         '40vh': '40vh',
         '50vh': '50vh',
+      },
+      width: {
+        'fit-content': 'fit-content',
       },
       zIndex: {
         100: '100',

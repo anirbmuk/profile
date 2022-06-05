@@ -1,5 +1,5 @@
 <fe-header></fe-header>
-<div class="container my-20">
+<div class="container my-20" (window:resize)="onResize()">
   <router-outlet></router-outlet>
 </div>
 <fe-footer [block]="(footer$ | async)?.[0]"></fe-footer>

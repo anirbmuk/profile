@@ -22,6 +22,7 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
 import { EducationComponent } from './sections/education/education.component';
+import { HeadshotComponent } from './sections/headshot/headshot.component';
 
 const appRoutes: Routes = [
   {
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     NotFoundComponent,
     HomeComponent,
     EducationComponent,
+    HeadshotComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<ng-container *ngIf="frame$ | async as frame">
+  <div class="relative">
+    <img [src]="frame.asset" [alt]="frame"
+      [ngClass]="{ '!w-80': frame.form ==='SFF', 'w-[720px]': frame.form ==='LFF' }" />
+    <div class="centered">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-container>
