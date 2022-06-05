@@ -6,16 +6,19 @@ export interface ITechstack extends BaseDocument {
     rating: number;
     position: number;
     icon?: string;
+    url?: string | undefined;
   }[];
   repository: {
     name: string;
     position: number;
     icon?: string;
+    url?: string | undefined;
   }[];
   database: {
     name: string;
     rating: number;
     position: number;
     icon?: string;
+    url?: string | undefined;
   }[];
 }

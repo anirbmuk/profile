@@ -1,7 +1,3 @@
-h6 {
-  @apply text-black-light text;
-}
-
 .preview-container {
   @apply cursor-pointer border border-gray-300 p-4 m-2.5 md:m-1 rounded hover:bg-gray-50 ease-out hover:ease-in hover:scale-105 duration-300;
 }

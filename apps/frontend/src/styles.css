@@ -6,6 +6,7 @@
 @layer base {
   body {
     scroll-behavior: smooth;
+    /* @apply bg-gradient-to-t to-gradient-start from-gradient-end !text-md; */
   }
   h1 {
     @apply text-4xl md:text-6xl;

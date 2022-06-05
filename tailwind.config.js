@@ -126,6 +126,11 @@ module.exports = {
         mauve: {
           DEFAULT: 'var(--mauve)',
         },
+        gradient: {
+          start: 'var(--grad-start)',
+          middle: 'var(--grad-middle)',
+          end: 'var(--grad-end)',
+        },
       },
     },
   },

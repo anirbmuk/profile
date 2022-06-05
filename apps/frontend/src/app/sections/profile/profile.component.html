@@ -22,21 +22,21 @@
       <fe-icon [icon]="social.type" [url]="social.url" [size]="10"></fe-icon>
     </ng-container>
   </div>
-  <article class="mx-auto md:max-w-2/3 !mt-8">
+  <article class="mx-auto md:max-w-2/3 2xl:max-w-1/3 !mt-8">
     <fe-block [style]="'inverted'">
-      <div class="space-y-4 text-md md:text">
+      <div class="space-y-3 text-md md:text">
         <ng-container *ngFor="let bio of block?.bio">
           <div class="md:flex md:space-x-4 md:items-center">
             <span class="hidden md:block material-symbols-rounded">
               bookmark
             </span>
-            <span [innerHtml]="sanitizer.sanitizeHtml(bio)"></span>
+            <span class="text-justify" [innerHtml]="sanitizer.sanitizeHtml(bio)"></span>
           </div>
         </ng-container>
       </div>
     </fe-block>
   </article>
-  <div class="mx-auto md:max-w-2/3 flex justify-between items-center">
+  <div class="mx-auto md:max-w-2/3 2xl:max-w-1/3 flex justify-between items-center">
     <div *ngFor="let blog of block?.blog">
       <fe-icon [icon]="blog.icon" [url]="blog.url" [size]="blog.iconSize ?? 10" [position]="blog.position">
         <span class="text-md md:text">{{ blog.description }}</span>
