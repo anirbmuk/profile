@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     'tracked techstack section'
   );
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  readonly ghCallback = this.data.callback.bind(this, 'tracked github section');
+  readonly ghCallback = this.data.fetchCallback.bind(this.data, 'github');
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly edCallback = this.data.fetchCallback.bind(this.data, 'education');

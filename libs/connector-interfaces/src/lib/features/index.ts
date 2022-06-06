@@ -1,3 +1,4 @@
+export * from './career';
 export * from './education';
 export * from './footer';
 export * from './github';

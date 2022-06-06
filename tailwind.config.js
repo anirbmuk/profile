@@ -77,6 +77,23 @@ module.exports = {
       sans: ['Noto Sans', 'sans-serif'],
     },
     extend: {
+      spacing: {
+        '1/10': '10%',
+        '1/9': '11.11%',
+        '1/8': '12.5%',
+        '1/7': '14.2%',
+        '1/6': '16.67%',
+        '1/5': '20%',
+        '1/4': '25%',
+        '1/3': '33.33%',
+        '2/5': '40%',
+        '1/2': '50%',
+        '3/5': '60%',
+        '2/3': '66.66%',
+        '3/4': '75%',
+        '4/5': '80%',
+        '9/10': '90%',
+      },
       transitionProperty: {
         visibility: 'display',
       },
@@ -111,7 +128,8 @@ module.exports = {
         '50vh': '50vh',
       },
       width: {
-        'fit-content': 'fit-content',
+        fit: 'fit-content',
+        max: 'max-content',
       },
       zIndex: {
         100: '100',

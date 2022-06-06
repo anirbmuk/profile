@@ -10,7 +10,7 @@ import { IGitHub } from '@frontend/connector-interfaces';
 export class GithubComponent {
   _repositories: IGitHub[] = [];
 
-  @Input() set block(block: IGitHub[] | undefined) {
+  @Input() set block(block: IGitHub[] | null) {
     this._repositories =
       block?.sort((r1, r2) => r1.position - r2.position) || [];
   }

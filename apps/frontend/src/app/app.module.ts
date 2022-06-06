@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {
+  AccordionModule,
   BlockModule,
   DirectiveModule,
   IconModule,
@@ -10,19 +11,20 @@ import {
   PipeModule,
   ServiceModule,
   SkeletonModule,
+  TimelineModule,
 } from '@frontend/components';
-import { AccordionModule } from './../../../../libs/components/src/lib/accordion/accordion.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EducationComponent } from './sections/education/education.component';
 import { GithubComponent } from './sections/github/github.component';
+import { HeadshotComponent } from './sections/headshot/headshot.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
-import { EducationComponent } from './sections/education/education.component';
-import { HeadshotComponent } from './sections/headshot/headshot.component';
+import { CareerComponent } from './sections/career/career.component';
 
 const appRoutes: Routes = [
   {
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     HomeComponent,
     EducationComponent,
     HeadshotComponent,
+    CareerComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ const appRoutes: Routes = [
     LinkModule,
     DirectiveModule,
     AccordionModule,
+    TimelineModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

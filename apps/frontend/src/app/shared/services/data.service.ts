@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {
+  CAREER,
   EDUCATION,
   GITHUB,
+  ICareer,
   IEducation,
   IGitHub,
   IProfile,
@@ -20,16 +22,20 @@ export class DataService {
   readonly profile$ = this.request.get<[IProfile]>(PROFILE);
   readonly techstack$ = this.request.get<[ITechstack]>(TECHSTACK);
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
+  readonly career$ = this.request.get<ICareer[]>(CAREER);
   readonly education$ = this.request.get<IEducation[]>(EDUCATION);
 
-  readonly bio$ = forkJoin<[IProfile], [ITechstack], IGitHub[]>([
+  readonly bio$ = forkJoin<[IProfile], [ITechstack], ICareer[]>([
     this.profile$,
     this.techstack$,
-    this.github$,
+    this.career$,
   ]);
 
   private edActionS = new BehaviorSubject<string | undefined>('');
   private edAction$ = this.edActionS.asObservable();
+
+  private ghActionS = new BehaviorSubject<string | undefined>('');
+  private ghAction$ = this.ghActionS.asObservable();
 
   readonly educationData$ = this.edAction$.pipe(
     filter((value) => !!value),
@@ -40,13 +46,27 @@ export class DataService {
     )
   );
 
-  readonly fetchCallback = (data: 'education') => {
+  readonly githubData$ = this.ghAction$.pipe(
+    filter((value) => !!value),
+    switchMap(() => this.github$)
+  );
+
+  readonly fetchCallback = (data: 'education' | 'github') => {
     this.fetchData(data);
   };
   readonly callback = (message: string) => console.log(message);
 
-  private fetchData(set: 'education') {
-    set === 'education' ? this.edActionS.next(set) : undefined;
+  private fetchData(set: 'education' | 'github') {
+    switch (set) {
+      case 'education':
+        this.edActionS.next(set);
+        break;
+      case 'github':
+        this.ghActionS.next(set);
+        break;
+      default:
+        undefined;
+    }
   }
 
   constructor(private readonly request: RequestService) {}
