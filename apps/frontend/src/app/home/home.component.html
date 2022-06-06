@@ -1,9 +1,17 @@
-<ng-container *ngIf="data.bio$ | async as bio; else loading">
-  <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>
-  <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="tsCallback"></fe-techstack>
-  <fe-github [block]="bio?.[2]" [feTrackable]="ghCallback"></fe-github>
-  <fe-education [block]="data.educationData$ | async" [feTrackable]="edCallback"></fe-education>
-</ng-container>
+<div *ngIf="data.bio$ | async as bio; else loading" class="space-y-16">
+  <div>
+    <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>
+  </div>
+  <div>
+    <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="tsCallback"></fe-techstack>
+  </div>
+  <div>
+    <fe-github [block]="bio?.[2]" [feTrackable]="ghCallback"></fe-github>
+  </div>
+  <div>
+    <fe-education [block]="data.educationData$ | async" [feTrackable]="edCallback"></fe-education>
+  </div>
+</div>
 <ng-template #loading>
   <div class="container my-20">
     <fe-skeleton [count]="3"></fe-skeleton>

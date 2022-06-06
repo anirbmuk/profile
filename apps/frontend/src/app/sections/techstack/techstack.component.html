@@ -1,37 +1,35 @@
-<section class="my-8 space-y-8">
-  <div>
-    <fe-accordion>
-      <h3 class="heading" heading>
-        Technologies
-      </h3>
-      <ul class="md:grid md:grid-cols-4 2xl:grid-cols-6 md:gap-3">
-        <li *ngFor="let tech of technologies">
-          <a [href]="tech.url" rel="nofollow" target="_blank">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center">
-                <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
-                <h6>{{ tech.name }}</h6>
-              </div>
-              <div>
-                <fe-rating [rating]="tech.rating"></fe-rating>
-              </div>
+<section>
+  <fe-accordion>
+    <h3 class="heading" heading>
+      Technologies
+    </h3>
+    <ul class="md:grid md:grid-cols-4 2xl:grid-cols-6 md:gap-2">
+      <li *ngFor="let tech of technologies">
+        <a [href]="tech.url" rel="nofollow" target="_blank">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
+              <h6>{{ tech.name }}</h6>
             </div>
-          </a>
-        </li>
-        <li *ngFor="let db of databases">
-          <a [href]="db.url" rel="nofollow" target="_blank">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center">
-                <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
-                <h6>{{ db.name }}</h6>
-              </div>
-              <div>
-                <fe-rating [rating]="db.rating"></fe-rating>
-              </div>
+            <div>
+              <fe-rating [rating]="tech.rating"></fe-rating>
             </div>
-          </a>
-        </li>
-      </ul>
-    </fe-accordion>
-  </div>
+          </div>
+        </a>
+      </li>
+      <li *ngFor="let db of databases">
+        <a [href]="db.url" rel="nofollow" target="_blank">
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
+              <h6>{{ db.name }}</h6>
+            </div>
+            <div>
+              <fe-rating [rating]="db.rating"></fe-rating>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </fe-accordion>
 </section>
