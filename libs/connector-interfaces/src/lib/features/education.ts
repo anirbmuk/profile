@@ -5,4 +5,5 @@ export interface IEducation {
   field: string;
   school: string;
   position: number;
+  location: string;
 }

@@ -8,7 +8,10 @@
         <li *ngFor="let education of block">
           <div class="space-y-2">
             <div class="flex justify-between items-center">
-              <h5>{{ education.school }}</h5>
+              <div>
+                <h5>{{ education.school }}</h5>
+                <div class="text-md text-gray-600">{{ education.location }}</div>
+              </div>
               <div>{{ education.startyear }} - {{ education.endyear }}</div>
             </div>
             <div class="flex justify-between items-center">
