@@ -9,22 +9,30 @@ type IHover = {
   selector: '[feHover]',
 })
 export class HoverDirective {
-  @Input() feHover?: IHover;
+  @Input() set feHover(content: IHover) {
+    this._elements = content?.elements ? [...content?.elements] : [];
+    this._classes = content?.classList?.split(' ') || [];
+  }
+
+  _classes?: string[] = [];
+  _elements?: HTMLDivElement[] = [];
 
   @HostListener('mouseenter') onMouseover() {
-    if (this.feHover?.elements) {
-      for (const element of this.feHover?.elements) {
-        this.feHover?.classList &&
-          element.classList?.add?.(this.feHover?.classList);
+    if (this._elements && this._classes) {
+      for (const element of this._elements) {
+        for (const userClass of this._classes) {
+          userClass && element.classList?.add?.(userClass);
+        }
       }
     }
   }
 
   @HostListener('mouseleave') onMouseleave() {
-    if (this.feHover?.elements) {
-      for (const element of this.feHover?.elements) {
-        this.feHover?.classList &&
-          element.classList?.remove?.(this.feHover?.classList);
+    if (this._elements && this._classes) {
+      for (const element of this._elements) {
+        for (const userClass of this._classes) {
+          userClass && element.classList?.remove?.(userClass);
+        }
       }
     }
   }
