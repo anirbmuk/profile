@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SanitizerService } from '@frontend/components';
 import { environment } from '../../environments/environment';
-import { ITag, Robots, SeoService } from '../shared/services';
+import { DataService, ITag, Robots, SeoService } from '../shared/services';
 
 @Component({
   selector: 'fe-about',
@@ -8,7 +9,11 @@ import { ITag, Robots, SeoService } from '../shared/services';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  constructor(private readonly seo: SeoService) {}
+  constructor(
+    private readonly seo: SeoService,
+    readonly data: DataService,
+    readonly sanitizer: SanitizerService
+  ) {}
 
   ngOnInit(): void {
     this.seo.setMetaTags({

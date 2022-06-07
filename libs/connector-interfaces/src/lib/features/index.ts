@@ -1,3 +1,4 @@
+export * from './about';
 export * from './career';
 export * from './education';
 export * from './footer';

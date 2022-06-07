@@ -1,4 +1,10 @@
-<a rel="nofollow" target="_blank" [href]="repo?.value">
+<a rel="nofollow" target="_blank" [href]="repo?.value" *ngIf="repo?.type === 'link'; else showDiv">
+  <ng-container [ngTemplateOutlet]="main"></ng-container>
+</a>
+<ng-template #showDiv>
+  <ng-container [ngTemplateOutlet]="main"></ng-container>
+</ng-template>
+<ng-template #main>
   <div *ngIf="repo?.value" class="preview-container">
     <div class="space-y-2 items-center">
       <div class="flex space-x-2 items-center">
@@ -8,4 +14,4 @@
       <div class="text-md text-gray-600">{{ repo?.description }}</div>
     </div>
   </div>
-</a>
+</ng-template>

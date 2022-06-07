@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
+  ABOUTME,
   CAREER,
   EDUCATION,
   GITHUB,
+  IAboutme,
   ICareer,
   IEducation,
   IGitHub,
@@ -24,6 +26,12 @@ export class DataService {
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
   readonly career$ = this.request.get<ICareer[]>(CAREER);
   readonly education$ = this.request.get<IEducation[]>(EDUCATION);
+
+  readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
+    map((about) => {
+      return about?.sort((a1, a2) => a1.position - a2.position);
+    })
+  );
 
   readonly bio$ = forkJoin<[IProfile], [ITechstack], ICareer[]>([
     this.profile$,

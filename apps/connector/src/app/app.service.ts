@@ -1,8 +1,10 @@
 import {
+  ABOUTME,
   CAREER,
   EDUCATION,
   FOOTER,
   GITHUB,
+  IAboutme,
   ICareer,
   IEducation,
   IFooterBlock,
@@ -41,6 +43,10 @@ export class AppService {
 
   async getEducation() {
     return this.get<IEducation[]>(EDUCATION);
+  }
+
+  async getAboutme() {
+    return this.get<IAboutme[]>(ABOUTME);
   }
 
   private async get<T>(path: string) {

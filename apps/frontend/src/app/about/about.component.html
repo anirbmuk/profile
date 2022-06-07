@@ -1,3 +1,12 @@
-<div class="my-20">
-  <p>about works!</p>
+<div class="my-40">
+  <article *ngIf="data.aboutme$ | async as aboutme; else loading" class="mx-auto xl:max-w-1/2">
+    <p *ngFor="let content of aboutme" class="text-md md:text text-justify py-6 px-4"
+      [innerHtml]="sanitizer.sanitizeHtml(content?.description || '')">
+    </p>
+  </article>
+  <ng-template #loading>
+    <div class="container my-20">
+      <fe-skeleton [count]="3"></fe-skeleton>
+    </div>
+  </ng-template>
 </div>

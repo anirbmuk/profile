@@ -1,7 +1,7 @@
 import { BaseDocument } from '../base';
 
-export type SupportedDocTypes = 'link';
-export type SupportedCatTypes = 'github';
+export type SupportedDocTypes = 'link' | 'text';
+export type SupportedCatTypes = 'github' | 'about';
 
 export interface IDocument extends BaseDocument {
   type: SupportedDocTypes;

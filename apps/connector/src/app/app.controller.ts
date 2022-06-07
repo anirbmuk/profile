@@ -1,4 +1,5 @@
 import {
+  ABOUTME,
   CAREER,
   EDUCATION,
   FOOTER,
@@ -36,6 +37,11 @@ export class AppController {
   @Get(EDUCATION)
   getEducation() {
     return this.appService.getEducation();
+  }
+
+  @Get(ABOUTME)
+  getAboutme() {
+    return this.appService.getAboutme();
   }
 
   @Get(FOOTER)
