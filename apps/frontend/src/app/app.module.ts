@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,17 +14,19 @@ import {
   TimelineModule,
 } from '@frontend/components';
 import { AppComponent } from './app.component';
+import { ErrorComponent, ErrorResolver } from './error';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CareerComponent } from './sections/career/career.component';
 import { EducationComponent } from './sections/education/education.component';
 import { GithubComponent } from './sections/github/github.component';
 import { HeadshotComponent } from './sections/headshot/headshot.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
-import { CareerComponent } from './sections/career/career.component';
+import { RequestInterceptor } from './shared/services';
 
 const appRoutes: Routes = [
   {
@@ -36,6 +38,13 @@ const appRoutes: Routes = [
     path: 'about',
     loadChildren: () => import('./about').then((module) => module.AboutModule),
   },
+  {
+    path: 'error',
+    component: ErrorComponent,
+    resolve: {
+      errorData: ErrorResolver,
+    },
+  },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
 ];
@@ -43,6 +52,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorComponent,
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
@@ -70,7 +80,13 @@ const appRoutes: Routes = [
     AccordionModule,
     TimelineModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
