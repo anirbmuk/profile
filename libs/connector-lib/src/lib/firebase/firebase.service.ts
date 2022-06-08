@@ -1,10 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import 'firebase/analytics';
 import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
 import 'firebase/firestore';
-import 'firebase/storage';
 import { FirebaseConfig, FIREBASE_CONFIG } from '.';
 
 export interface FirestoreWhere {
@@ -33,7 +29,7 @@ export class FirebaseService {
   constructor(
     @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig
   ) {
-    this.initFirebaseApp(config);
+    this.initFirebaseApp(this.config);
   }
 
   initFirebaseApp(firebaseConfig: FirebaseConfig) {
@@ -76,31 +72,36 @@ export class FirebaseService {
     return {} as T;
   }
 
-  private _getUnitDataFromFireStore(collections: string[], keys: string[]) {
+  private _getUnitDataFromFireStore(
+    collections: string[] | undefined,
+    keys: string[] | undefined
+  ) {
     const db = this.getFirestoreDb();
     if (!collections || !collections[0]) {
       return Promise.reject('Collection cannot be empty');
     }
-    if (collections.length === 1) {
-      if (!keys || !keys[0]) {
+    if (collections?.length === 1) {
+      if (!keys || !keys?.[0]) {
         return Promise.reject('Parent key path cannot be empty');
-      } else if (keys[0]) {
-        const collectionRootDocRef = db.collection(collections[0]).doc(keys[0]);
+      } else if (keys?.[0]) {
+        const collectionRootDocRef = db
+          .collection(collections?.[0])
+          .doc(keys?.[0]);
         return collectionRootDocRef.get();
       }
     }
     if (collections.length === 2) {
-      if (!collections[1]) {
+      if (!collections?.[1]) {
         return Promise.reject('Child collection cannot be empty');
       }
-      if (!keys[1]) {
+      if (!keys?.[1]) {
         return Promise.reject('Child key path cannot be empty');
       } else {
         const collectionChilDocdRef = db
-          .collection(collections[0])
+          .collection(collections?.[0])
           .doc(keys[0])
-          .collection(collections[1])
-          .doc(keys[1]);
+          .collection(collections?.[1])
+          .doc(keys?.[1]);
         return collectionChilDocdRef.get();
       }
     }
@@ -108,8 +109,8 @@ export class FirebaseService {
   }
 
   private _getCollectionDataFromFireStore(
-    collections: string[],
-    keys: string[],
+    collections: string[] | undefined,
+    keys: string[] | undefined,
     whereClause?: FirestoreWhere[],
     orderByClause?: FirestoreOrderBy[],
     limit?: number,
@@ -117,11 +118,11 @@ export class FirebaseService {
     endAt?: string | number | Date | undefined
   ) {
     const db = this.getFirestoreDb();
-    if (!collections || !collections[0]) {
+    if (!collections || !collections?.[0]) {
       return Promise.reject('Collection cannot be empty');
     }
     if (collections.length === 1) {
-      const collectionRootRef = db.collection(collections[0]);
+      const collectionRootRef = db.collection(collections?.[0]);
       let collectionRootQuery = collectionRootRef as firebase.firestore.Query;
       if (whereClause) {
         whereClause.forEach(
@@ -153,17 +154,17 @@ export class FirebaseService {
       }
       return collectionRootQuery.get();
     }
-    if (collections.length === 2) {
-      if (!collections[1]) {
+    if (collections?.length === 2) {
+      if (!collections?.[1]) {
         return Promise.reject('Child collection cannot be empty');
       }
       if (!keys?.[0]) {
         return Promise.reject('Parent collection key cannot be empty');
       }
       const collectionChildRef = db
-        .collection(collections[0])
-        .doc(keys[0])
-        .collection(collections[1]);
+        .collection(collections?.[0])
+        .doc(keys?.[0])
+        .collection(collections?.[1]);
       let collectionRootQuery = collectionChildRef as firebase.firestore.Query;
       if (whereClause) {
         whereClause.forEach(
@@ -198,15 +199,7 @@ export class FirebaseService {
     return Promise.reject('Incorrect data set for firestore query');
   }
 
-  private initAnalytics(): firebase.analytics.Analytics {
-    return firebase.analytics();
-  }
-
   private getFirestoreDb(): firebase.firestore.Firestore {
     return firebase.firestore();
-  }
-
-  private getFirestoreStorage(): firebase.storage.Reference {
-    return firebase.storage().ref();
   }
 }

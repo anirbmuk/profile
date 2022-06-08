@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,7 +26,6 @@ import { HeadshotComponent } from './sections/headshot/headshot.component';
 import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
-import { RequestInterceptor } from './shared/services';
 
 const appRoutes: Routes = [
   {
@@ -65,9 +64,12 @@ const appRoutes: Routes = [
     CareerComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {
+      initialNavigation: 'enabledBlocking',
+      scrollPositionRestoration: 'top',
+    }),
     SkeletonModule,
     IconModule,
     ServiceModule,
@@ -80,13 +82,7 @@ const appRoutes: Routes = [
     AccordionModule,
     TimelineModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -26,7 +26,7 @@ export class RequestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(req).pipe(
       catchError((error) => {
-        const { code, message } = error.error;
+        const { code, message } = error?.error ?? {};
         this.errorService.addError({
           code:
             code || error instanceof HttpErrorResponse

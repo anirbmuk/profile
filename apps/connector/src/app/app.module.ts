@@ -1,8 +1,12 @@
 import {
   ConnectorLibraryModule,
+  FirebaseConfig,
   FirebaseService,
 } from '@frontend/connector-lib';
 import { Module } from '@nestjs/common';
+import { AngularUniversalModule } from '@nestjs/ng-universal';
+import { join } from 'path';
+import { AppServerModule } from './../../../frontend/src/app/app.server.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -14,12 +18,16 @@ const config = {
   messagingSenderId: process.env.messagingSenderId,
   appId: process.env.appId,
   measurementId: process.env.measurementId,
-};
+} as FirebaseConfig;
 
 @Module({
   imports: [
     ConnectorLibraryModule.forRoot({
       firebaseConfig: config,
+    }),
+    AngularUniversalModule.forRoot({
+      bootstrap: AppServerModule,
+      viewsPath: join(process.cwd(), 'dist/frontend/browser'),
     }),
   ],
   controllers: [AppController],

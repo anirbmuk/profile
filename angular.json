@@ -120,7 +120,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/frontend",
+            "outputPath": "dist/frontend/browser",
             "index": "apps/frontend/src/index.html",
             "main": "apps/frontend/src/main.ts",
             "polyfills": "apps/frontend/src/polyfills.ts",
@@ -134,7 +134,11 @@
               "apps/frontend/src/root.css",
               "apps/frontend/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "firebase/analytics"
+            ]
           },
           "configurations": {
             "production": {
@@ -206,6 +210,73 @@
             "jestConfig": "apps/frontend/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/frontend/server",
+            "main": "apps/frontend/server.ts",
+            "tsConfig": "apps/frontend/tsconfig.server.json",
+            "inlineStyleLanguage": "css",
+            "externalDependencies": [
+              "@nestjs/microservices",
+              "@nestjs/microservices/microservices-module",
+              "@nestjs/websockets",
+              "@nestjs/websockets/socket-module",
+              "cache-manager",
+              "firebase/app",
+              "firebase/firestore"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/src/environments/environment.ts",
+                  "with": "apps/frontend/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": false
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "frontend:build:development",
+              "serverTarget": "frontend:server:development"
+            },
+            "production": {
+              "browserTarget": "frontend:build:production",
+              "serverTarget": "frontend:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "frontend:build:production",
+              "serverTarget": "frontend:server:production"
+            },
+            "development": {
+              "browserTarget": "frontend:build:development",
+              "serverTarget": "frontend:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     },
