@@ -30,27 +30,24 @@ export class TrackableDirective implements OnDestroy {
     private readonly elementRef: ElementRef
   ) {
     if (isPlatformBrowser(this.platformId)) {
-      const options = {
-        root: this.document,
-        rootMargin: '0px',
-        threshold: 1.0,
-      };
-
-      const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.intersectionRatio === 1 && !this.tracked) {
-              this._callback?.();
-              this.tracked = true;
-            }
-          }
-        });
-      };
-
-      this.observer = new IntersectionObserver(intersectionCallback, options);
-
-      const target = this.elementRef?.nativeElement;
-      target && this.observer?.observe(target);
+      // const options: IntersectionObserverInit = {
+      //   root: this.document,
+      //   rootMargin: '0px',
+      //   threshold: 1.0,
+      // };
+      // const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
+      //   entries.forEach((entry) => {
+      //     if (entry.isIntersecting) {
+      //       if (entry.intersectionRatio === 1 && !this.tracked) {
+      //         this._callback?.();
+      //         this.tracked = true;
+      //       }
+      //     }
+      //   });
+      // };
+      // this.observer = new IntersectionObserver(intersectionCallback, options);
+      // const target = this.elementRef?.nativeElement;
+      // target && this.observer?.observe(target);
     }
   }
 

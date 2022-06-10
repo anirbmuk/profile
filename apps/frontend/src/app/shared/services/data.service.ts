@@ -15,7 +15,7 @@ import {
 } from '@frontend/connector-interfaces';
 import { BehaviorSubject, forkJoin } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { RequestService } from '.';
+import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root',
