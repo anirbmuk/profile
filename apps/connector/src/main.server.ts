@@ -1,10 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { config } from 'dotenv';
-import { AppModule } from './app/app.module';
+import { ServerModule } from './app/app.server.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(ServerModule);
   app.setGlobalPrefix('api');
   const port = process.env.PORT || 4300;
   await app.listen(port, () => {

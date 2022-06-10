@@ -28,9 +28,11 @@
     "help": "nx help",
     "frontend:serve": "nx serve frontend",
     "connector:serve": "nx serve connector",
+    "frontend:build:production": "nx run frontend:build:production",
+    "connector:build:production": "nx run connector:build-ssr:production",
     "dev:ssr": "ng run frontend:serve-ssr",
-    "serve:ssr": "node dist/frontend/server/main.js",
-    "build:ssr": "ng build && ng run frontend:server",
+    "build:ssr": "yarn frontend:build:production && yarn connector:build:production",
+    "serve:ssr": "node dist/apps/connector/main.js",
     "prerender": "ng run frontend:prerender",
     "prebuild:ssr": "ngcc"
   },
@@ -47,9 +49,9 @@
     "@angular/router": "^12.0.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
-    "@nestjs/ng-universal": "^6.0.0",
+    "@nestjs/ng-universal": "^5.0.0",
     "@nestjs/platform-express": "^7.0.0",
-    "@nguniversal/express-engine": "^13.0.1",
+    "@nguniversal/express-engine": "^12.1.3",
     "@nrwl/angular": "12.4.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
@@ -61,6 +63,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^12.0.0",
     "@angular-devkit/build-angular": "^12.0.0",
     "@angular-eslint/eslint-plugin": "~12.0.0",
     "@angular-eslint/eslint-plugin-template": "~12.0.0",
@@ -98,6 +101,7 @@
     "tailwindcss": "^2.2.19",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
-    "typescript": "~4.2.4"
+    "typescript": "~4.2.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }

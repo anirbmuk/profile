@@ -42,17 +42,57 @@
           },
           "configurations": {
             "production": {
+              "tsConfig": "apps/connector/tsconfig.app.server.json",
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
+              "outputHashing": "media",
               "fileReplacements": [
                 {
                   "replace": "apps/connector/src/environments/environment.ts",
                   "with": "apps/connector/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/connector/src/app/app.module.ts",
+                  "with": "apps/connector/src/app/app.server.module.ts"
                 }
               ]
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": true,
+              "inspect": false
             }
-          }
+          },
+          "defaultConfiguration": "development"
+        },
+        "build-ssr": {
+          "builder": "@angular-builders/custom-webpack:server",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/connector",
+            "main": "apps/connector/server.ssr.ts",
+            "tsConfig": "apps/connector/tsconfig.app.server.json",
+            "customWebpackConfig": {
+              "path": "./webpack.partial.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/connector/src/environments/environment.ts",
+                  "with": "apps/connector/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/frontend/src/environments/environment.ts",
+                  "with": "apps/frontend/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "media"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -120,7 +160,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/frontend/browser",
+            "outputPath": "dist/apps/frontend",
             "index": "apps/frontend/src/index.html",
             "main": "apps/frontend/src/main.ts",
             "polyfills": "apps/frontend/src/polyfills.ts",
@@ -137,7 +177,7 @@
             "scripts": [],
             "allowedCommonJsDependencies": [
               "firebase/app",
-              "firebase/analytics"
+              "firebase/firestore"
             ]
           },
           "configurations": {
@@ -160,7 +200,7 @@
                   "with": "apps/frontend/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "media"
             },
             "development": {
               "buildOptimizer": false,
@@ -218,15 +258,7 @@
             "main": "apps/frontend/server.ts",
             "tsConfig": "apps/frontend/tsconfig.server.json",
             "inlineStyleLanguage": "css",
-            "externalDependencies": [
-              "@nestjs/microservices",
-              "@nestjs/microservices/microservices-module",
-              "@nestjs/websockets",
-              "@nestjs/websockets/socket-module",
-              "cache-manager",
-              "firebase/app",
-              "firebase/firestore"
-            ]
+            "externalDependencies": ["firebase/app", "firebase/firestore"]
           },
           "configurations": {
             "production": {

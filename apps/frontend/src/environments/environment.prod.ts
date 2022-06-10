@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  hostUrl: 'http://localhost:4200',
+  hostUrl: 'http://localhost:4300',
   config: null,
   google: {
     verified: false,
