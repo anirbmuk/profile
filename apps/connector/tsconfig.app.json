@@ -8,8 +8,13 @@
     "experimentalDecorators": true,
     "target": "es2015"
   },
-  "include": ["./src/app/**/*.ts", "server.ts"],
-  "exclude": ["**/*.spec.ts", "src/app/app.server.module.ts", "server.ssr.ts"],
+  "files": ["server.ts"],
+  "exclude": [
+    "**/*.spec.ts",
+    "src/app/app.server.module.ts",
+    "server.ssr.ts",
+    "src/main.server.ts"
+  ],
   "angularCompilerOptions": {
     "entryModule": "./../frontend/src/app/app.server.module#AppServerModule"
   }

@@ -1,14 +1,15 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { config } from 'dotenv';
-import { AppModule } from './app/app.module';
 
 async function bootstrap() {
+  config();
+  const { AppModule } = await import('./app/app.module');
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   const port = process.env.PORT || 4300;
   await app.listen(port, () => {
-    Logger.log(`NestJS started on http://localhost:${port}`);
+    Logger.log(`NestJS development started on http://localhost:${port}`);
   });
 }
 
@@ -19,6 +20,5 @@ declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
 const moduleFilename = (mainModule && mainModule.filename) || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
-  config();
   bootstrap().catch((err) => console.error(err));
 }
