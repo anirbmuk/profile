@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  hostUrl: 'https://anirbmuk.appspot.com',
+  hostUrl: 'http://localhost:4300',
   config: null,
   google: {
     verified: false,

@@ -78,6 +78,19 @@
             }
           },
           "configurations": {
+            "prodlike": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/connector/src/environments/environment.ts",
+                  "with": "apps/connector/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "apps/frontend/src/environments/environment.ts",
+                  "with": "apps/frontend/src/environments/environment.prodlike.ts"
+                }
+              ],
+              "outputHashing": "media"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -181,6 +194,27 @@
             ]
           },
           "configurations": {
+            "prodlike": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/frontend/src/environments/environment.ts",
+                  "with": "apps/frontend/src/environments/environment.prodlike.ts"
+                }
+              ],
+              "outputHashing": "media"
+            },
             "production": {
               "budgets": [
                 {

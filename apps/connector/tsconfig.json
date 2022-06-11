@@ -2,12 +2,5 @@
   "extends": "../../tsconfig.base.json",
   "files": [],
   "include": ["src/app/**/*.ts"],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.app.server.json"
-    }
-  ]
+  "references": []
 }
