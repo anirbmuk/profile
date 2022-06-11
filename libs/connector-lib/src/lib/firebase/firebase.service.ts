@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { FirebaseConfig, FIREBASE_CONFIG } from '.';
+import { FIREBASE_CONFIG } from './firebase.constants';
+import { FirebaseConfig } from './firebase.types';
 
 export interface FirestoreWhere {
   column: string;

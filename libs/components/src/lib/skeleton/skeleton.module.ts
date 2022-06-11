@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SkeletonComponent } from '.';
 import { PipeModule } from '../pipes';
+import { SkeletonComponent } from './skeleton.component';
 
 @NgModule({
   declarations: [SkeletonComponent],

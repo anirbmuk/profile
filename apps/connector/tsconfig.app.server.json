@@ -5,15 +5,16 @@
     "module": "commonjs",
     "types": ["node"],
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2015"
+    "target": "es2015",
+    "experimentalDecorators": true
   },
-  "files": ["server.ts"],
+  "files": ["server.ssr.ts"],
+  "include": [],
   "exclude": [
     "**/*.spec.ts",
-    "src/app/app.server.module.ts",
-    "server.ssr.ts",
-    "src/main.server.ts"
+    "src/app/app.module.ts",
+    "server.ts",
+    "src/main.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "./../frontend/src/app/app.server.module#AppServerModule"

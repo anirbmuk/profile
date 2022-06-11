@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonModule } from '@frontend/components';
-import { AboutComponent } from '.';
+import { AboutComponent } from './about.component';
 
 const aboutRoutes: Routes = [{ path: '', component: AboutComponent }];
 

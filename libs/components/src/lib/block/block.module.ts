@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BlockComponent } from '.';
+import { BlockComponent } from './block.component';
 
 @NgModule({
   declarations: [BlockComponent],
