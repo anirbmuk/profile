@@ -4,12 +4,12 @@ import { config } from 'dotenv';
 
 async function bootstrap() {
   config();
-  const { AppModule } = await import('./app/app.module');
-  const app = await NestFactory.create(AppModule);
+  const { ServerModule } = await import('./app/app.server.module');
+  const app = await NestFactory.create(ServerModule);
   app.setGlobalPrefix('api');
   const port = process.env.PORT || 4300;
   await app.listen(port, () => {
-    Logger.log(`NestJS development started on http://localhost:${port}`);
+    Logger.log(`NestJS server started on http://localhost:${port}`);
   });
 }
 
