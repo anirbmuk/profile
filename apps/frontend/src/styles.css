@@ -28,6 +28,30 @@
   }
 }
 
+em {
+  @apply not-italic;
+}
+
+.linkedin {
+  color: rgb(10, 102, 194);
+}
+
+.twitter {
+  color: rgb(29, 161, 242);
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    45deg,
+    var(--blue),
+    var(--red) 60%,
+    var(--blue) 80%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .heading {
   @apply ease-in hover:translate-x-1 hover:ease-out hover:tracking-wide duration-200;
 }

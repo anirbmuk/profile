@@ -1,11 +1,17 @@
 <section>
   <fe-accordion>
-    <h3 class="heading" heading>
+    <h3 class="md:heading gradient-text" heading>
       Technologies
     </h3>
     <ul class="md:grid md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
       <li *ngFor="let tech of technologies">
-        <a [href]="tech.url" rel="nofollow" target="_blank">
+        <a [href]="tech.url" rel="nofollow" target="_blank" *ngIf="tech.url; else showDiv">
+          <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
+        </a>
+        <ng-template #showDiv>
+          <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
+        </ng-template>
+        <ng-template #innerContent>
           <div class="space-y-4">
             <div class="flex justify-between items-center">
               <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
@@ -15,7 +21,7 @@
               <fe-rating [rating]="tech.rating"></fe-rating>
             </div>
           </div>
-        </a>
+        </ng-template>
       </li>
       <li *ngFor="let db of databases">
         <a [href]="db.url" rel="nofollow" target="_blank">

@@ -61,11 +61,11 @@ module.exports = {
       xl: ['1.125rem', '1.5rem'],
       '2xl': ['1.25rem', '1.75rem'],
       '3xl': ['1.5rem', '2rem'],
-      '4xl': ['2rem', '2.25rem'],
+      '4xl': ['2rem', '2.5rem'],
       '5xl': ['2.5rem', '2.5rem'],
-      '6xl': ['3rem', '2.5rem'],
-      '7xl': ['3.5rem', '2.5rem'],
-      '8xl': ['4rem', '2.5rem'],
+      '6xl': ['3rem', '3rem'],
+      '7xl': ['3.5rem', '3rem'],
+      '8xl': ['4rem', '4rem'],
       massive: ['10rem', '10rem'],
     },
     fontWeight: {
@@ -156,6 +156,9 @@ module.exports = {
         },
         mauve: {
           DEFAULT: 'var(--mauve)',
+        },
+        blue: {
+          DEFAULT: 'var(--blue)',
         },
         gradient: {
           start: 'var(--grad-start)',

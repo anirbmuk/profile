@@ -11,12 +11,12 @@ export class TimelineComponent<T extends ITimeline> {
   _mappedTimelines: T[] = [];
 
   readonly heights: Record<number, string> = {
-    1: 'h-32',
-    2: 'h-40',
-    3: 'h-48',
-    4: 'h-56',
-    5: 'h-64',
-    6: 'h-72',
+    1: 'h-24 md:h-32',
+    2: 'h-32 md:h-40',
+    3: 'h-40 md:h-48',
+    4: 'h-48 md:h-56',
+    5: 'h-56 md:h-64',
+    6: 'h-64 md:h-72',
   };
 
   sortFn(start: string, end = this.getCurrentTimeline()) {

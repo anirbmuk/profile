@@ -17,7 +17,7 @@ export class DeviceService {
     .pipe(startWith(this.getDeviceSize()), distinctUntilChanged());
 
   getDeviceSize(): string {
-    return this.deviceSize || 'md';
+    return this.deviceSize || 'xs';
   }
 
   isSFF(): boolean {
