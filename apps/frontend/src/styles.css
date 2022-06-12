@@ -47,9 +47,9 @@ mark {
 .gradient-text {
   background-image: linear-gradient(
     45deg,
-    var(--blue),
-    var(--red) 60%,
-    var(--blue) 80%
+    rgba(13, 91, 175, 0.9),
+    rgba(220, 20, 49, 0.8) 55%,
+    rgba(13, 91, 175, 0.9) 75%
   );
   color: transparent;
   -webkit-background-clip: text;
@@ -64,15 +64,42 @@ a.navlink {
   @apply no-underline relative;
 }
 
-a.navlink::after {
-  @apply absolute left-0 bottom-0 w-full h-[1px] bg-current;
-  content: '';
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 250ms ease-in;
+@media (hover: hover) {
+  a.navlink::after {
+    @apply absolute left-0 bottom-0 w-full h-[1px] bg-current;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+  }
+
+  a.navlink:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
-a.navlink:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+li[fehover] {
+  @apply relative rounded p-2 m-2.5 md:m-1 z-1 cursor-pointer border border-gray-300;
+}
+
+@media (hover: hover) {
+  li[fehover]::after {
+    @apply absolute left-0 top-0 bottom-0 w-full z-minus1 rounded;
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+    background-image: linear-gradient(
+      45deg,
+      rgba(13, 91, 175, 0.11),
+      rgba(220, 20, 49, 0.09) 55%,
+      rgba(13, 91, 175, 0.11) 75%
+    );
+  }
+
+  li[fehover]:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }

@@ -4,7 +4,7 @@
       Technologies
     </h3>
     <ul class="md:grid md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
-      <li *ngFor="let tech of technologies">
+      <li *ngFor="let tech of technologies" fehover>
         <a [href]="tech.url" rel="nofollow" target="_blank" *ngIf="tech.url; else showDiv">
           <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
         </a>
@@ -15,7 +15,7 @@
           <div class="space-y-4">
             <div class="flex justify-between items-center">
               <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
-              <h6>{{ tech.name }}</h6>
+              <h6 class="text-md md:text">{{ tech.name }}</h6>
             </div>
             <div>
               <fe-rating [rating]="tech.rating"></fe-rating>
@@ -23,7 +23,7 @@
           </div>
         </ng-template>
       </li>
-      <li *ngFor="let db of databases">
+      <li *ngFor="let db of databases" fehover>
         <a [href]="db.url" rel="nofollow" target="_blank" *ngIf="db.url; else showDiv">
           <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
         </a>
@@ -34,7 +34,7 @@
           <div class="space-y-4">
             <div class="flex justify-between items-center">
               <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
-              <h6>{{ db.name }}</h6>
+              <h6 class="text-md md:text">{{ db.name }}</h6>
             </div>
             <div>
               <fe-rating [rating]="db.rating"></fe-rating>
