@@ -24,7 +24,13 @@
         </ng-template>
       </li>
       <li *ngFor="let db of databases">
-        <a [href]="db.url" rel="nofollow" target="_blank">
+        <a [href]="db.url" rel="nofollow" target="_blank" *ngIf="db.url; else showDiv">
+          <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
+        </a>
+        <ng-template #showDiv>
+          <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
+        </ng-template>
+        <ng-template #innerContent>
           <div class="space-y-4">
             <div class="flex justify-between items-center">
               <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
@@ -34,7 +40,7 @@
               <fe-rating [rating]="db.rating"></fe-rating>
             </div>
           </div>
-        </a>
+        </ng-template>
       </li>
     </ul>
   </fe-accordion>

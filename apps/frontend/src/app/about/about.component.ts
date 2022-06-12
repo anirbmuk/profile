@@ -22,6 +22,7 @@ export class AboutComponent implements OnInit {
       title: 'Anirban Mukherjee | All about me',
       description: environment.about,
       robots: `${Robots.INDEX},${Robots.FOLLOW}`,
+      image: '/assets/images/seo.jpg',
     } as ITag);
     this.seo.setTitle('All about me');
     this.seo.setCanonical('/about');

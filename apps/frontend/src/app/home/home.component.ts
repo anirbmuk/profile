@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
       title: environment.about,
       description: environment.about,
       robots: `${Robots.INDEX},${Robots.FOLLOW}`,
+      image: '/assets/images/seo.jpg',
     } as ITag);
     this.seo.setCanonical('/');
     this.seo.setTitle(environment.title);
