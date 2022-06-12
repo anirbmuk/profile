@@ -32,6 +32,10 @@ em {
   @apply not-italic;
 }
 
+mark {
+  @apply bg-fluorescent-green-light;
+}
+
 .linkedin {
   color: rgb(10, 102, 194);
 }
@@ -54,4 +58,21 @@ em {
 
 .heading {
   @apply ease-in hover:translate-x-1 hover:ease-out hover:tracking-wide duration-200;
+}
+
+a.navlink {
+  @apply no-underline relative;
+}
+
+a.navlink::after {
+  @apply absolute left-0 bottom-0 w-full h-[1px] bg-current;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in;
+}
+
+a.navlink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

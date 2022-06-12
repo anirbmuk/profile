@@ -7,6 +7,5 @@ export const environment = {
     id: null,
   },
   title: 'Senior Frontend Developer | Professional Bio',
-  about:
-    'Anirban Mukherjee | anirbmuk | Senior Frontend Developer | Professional Bio',
+  about: 'Anirban Mukherjee | Senior Frontend Developer | Professional Bio',
 };

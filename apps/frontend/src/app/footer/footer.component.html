@@ -3,10 +3,10 @@
     <div class="flex justify-between">
       <div class="flex space-x-4 lg:space-x-8">
         <ng-container *ngFor="let link of block?.links">
-          <fe-link [link]="link"></fe-link>
+          <fe-link [link]="link"><span>{{ link?.text }}</span></fe-link>
         </ng-container>
       </div>
-      <span>&copy; {{ block?.copyright }}, {{ year }}</span>
+      <span>&copy; {{ block?.copyright }}, <time [dateTime]="block?.publishdate">{{ year }}</time></span>
     </div>
   </div>
 </footer>

@@ -1,5 +1,4 @@
-import { Pipe } from '@angular/core';
-import { PipeTransform } from '@nestjs/common';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'feExtractNamePipe',

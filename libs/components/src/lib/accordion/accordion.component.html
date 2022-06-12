@@ -1,4 +1,4 @@
-<a class="md:p-1 cursor-pointer" (click)="toggle()">
+<a class="p-0.5 cursor-pointer" (click)="toggle()">
   <div class="flex justify-between items-center">
     <ng-content select="[heading]"></ng-content>
     <div [ngClass]="{ 'block': expanded, 'hidden': !expanded }" aria-expanded="true" title="Collapse">
@@ -13,6 +13,6 @@
     </div>
   </div>
 </a>
-<ng-container *ngIf="expanded">
+<div [ngClass]="{ 'open': expanded, 'close': !expanded }">
   <ng-content></ng-content>
-</ng-container>
+</div>

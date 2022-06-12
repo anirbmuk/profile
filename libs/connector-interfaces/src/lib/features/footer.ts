@@ -5,4 +5,5 @@ export interface IFooterBlock extends BaseDocument {
   documentid: string;
   links?: ILink[];
   copyright: string;
+  publishdate?: string;
 }

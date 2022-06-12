@@ -1,6 +1,5 @@
 <ng-container *ngIf="link?.type === 'internal'; else external">
-  <a [routerLink]="link?.url" [title]="link?.text"
-    class="md:hover:border-b md:border-black-light ease-linear duration-200">
+  <a [routerLink]="link?.url" [title]="link?.text" class="navlink">
     {{ link?.text }}
   </a>
 </ng-container>

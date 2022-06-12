@@ -33,8 +33,8 @@ const defaultSizes = {
 module.exports = {
   mode: 'jit',
   purge: [
-    './apps/frontend/src/**/*.{html,js,ts}',
-    './libs/components/src/lib/**/*.{html,js,ts}',
+    './apps/frontend/src/**/*.{html,js,ts,css}',
+    './libs/components/src/lib/**/*.{html,js,ts,css}',
   ],
   theme: {
     container: {
