@@ -37,7 +37,7 @@
     "dev:ssr": "ng run frontend:serve-ssr",
     "build:ssr:prod": "yarn frontend:build:production && yarn connector:build:production",
     "build:ssr:prodlike": "yarn frontend:build:prodlike && yarn connector:build:prodlike",
-    "serve:ssr": "node dist/apps/connector/main.js",
+    "serve:ssr": "yarn clean && yarn build:ssr:prodlike && node dist/apps/connector/main.js",
     "setenv:gae": "gcloud config set project anirbmuk",
     "deploy:gae": "gcloud app deploy --quiet",
     "deploy": "yarn clean && yarn build:ssr:prod && yarn setenv:gae && yarn deploy:gae && yarn clean",
