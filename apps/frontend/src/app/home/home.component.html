@@ -1,3 +1,6 @@
+<ng-container *ngIf="showScroll$ | async">
+  <fe-scroll (scrollToTop)="onScrollToTop()"></fe-scroll>
+</ng-container>
 <div *ngIf="data.bio$ | async as bio; else loading" class="space-y-16 mx-auto xl:max-w-3/4 2xl:max-w-4/5">
   <div>
     <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>

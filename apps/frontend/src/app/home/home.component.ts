@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
+import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from './../shared/services';
 
@@ -20,7 +28,16 @@ export class HomeComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly edCallback = this.data.fetchCallback.bind(this.data, 'education');
 
-  constructor(readonly data: DataService, private readonly seo: SeoService) {}
+  readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
+    map(() => this.viewport.getScrollPosition()?.[1] > 500)
+  );
+
+  constructor(
+    readonly data: DataService,
+    private readonly seo: SeoService,
+    @Inject(DOCUMENT) private readonly document: Document,
+    private readonly viewport: ViewportScroller
+  ) {}
 
   ngOnInit(): void {
     this.seo.setMetaTags({
@@ -32,5 +49,9 @@ export class HomeComponent implements OnInit {
     } as ITag);
     this.seo.setCanonical('/');
     this.seo.setTitle(environment.title);
+  }
+
+  onScrollToTop(): void {
+    this.viewport.scrollToPosition([0, 0]);
   }
 }
