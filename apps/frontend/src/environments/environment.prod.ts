@@ -4,7 +4,7 @@ export const environment = {
   config: null,
   google: {
     verified: true,
-    id: 'DMtYPKDk5cW6R49-Lz8EhWtUjtYfTJbSABBNXJaQ47Y',
+    id: 'W2ZbsaQgL_QYRXPjJcxtVWXVY5cg6ZbVnibWMOngoj4',
   },
   title: 'Senior Frontend Developer | Professional Bio',
   about: 'Anirban Mukherjee | Senior Frontend Developer | Professional Bio',
