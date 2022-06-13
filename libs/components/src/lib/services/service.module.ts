@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { GTM_ID, IService } from './config';
+import { GTM_ID, IService } from './tracking/config';
 
 @NgModule({
   imports: [BrowserModule],

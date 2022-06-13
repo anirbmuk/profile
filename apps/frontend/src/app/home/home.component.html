@@ -9,13 +9,13 @@
     <fe-career [block]="bio?.[2]"></fe-career>
   </div>
   <div>
-    <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="tsCallback"></fe-techstack>
+    <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="[tsCallback]"></fe-techstack>
   </div>
   <div>
-    <fe-github [block]="data.githubData$ | async" [feTrackable]="ghCallback"></fe-github>
+    <fe-github [block]="data.githubData$ | async" [feTrackable]="[ghCallback, ghTrackingCallback]"></fe-github>
   </div>
   <div>
-    <fe-education [block]="data.educationData$ | async" [feTrackable]="edCallback"></fe-education>
+    <fe-education [block]="data.educationData$ | async" [feTrackable]="[edCallback, edTrackingCallback]"></fe-education>
   </div>
 </div>
 <ng-template #loading>

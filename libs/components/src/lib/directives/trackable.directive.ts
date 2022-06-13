@@ -14,12 +14,14 @@ import {
 export class TrackableDirective implements OnDestroy {
   observer?: IntersectionObserver;
   tracked = false;
-  _callback?: (() => void) | undefined;
+  _callbacks?: (() => void)[] | undefined;
 
-  @Input() set feTrackable(callback: (() => void) | undefined) {
-    this._callback = callback;
+  @Input() set feTrackable(callbacks: (() => void)[] | undefined) {
+    this._callbacks = callbacks ?? [];
     if (isPlatformServer(this.platformId)) {
-      callback?.();
+      for (const callback of this._callbacks) {
+        callback?.();
+      }
     }
   }
 
@@ -39,7 +41,9 @@ export class TrackableDirective implements OnDestroy {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.intersectionRatio === 1 && !this.tracked) {
-              this._callback?.();
+              for (const callback of this._callbacks ?? []) {
+                callback?.();
+              }
               this.tracked = true;
             }
           }
