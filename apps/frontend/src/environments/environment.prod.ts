@@ -6,6 +6,7 @@ export const environment = {
     verified: true,
     id: 'W2ZbsaQgL_QYRXPjJcxtVWXVY5cg6ZbVnibWMOngoj4',
   },
+  gtmId: 'N9N6VPW',
   title: 'Senior Frontend Developer | Professional Bio',
   about: 'Anirban Mukherjee | Senior Frontend Developer | Professional Bio',
 };

@@ -14,6 +14,7 @@ import {
   SkeletonModule,
   TimelineModule,
 } from '@frontend/components';
+import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { ErrorComponent, ErrorResolver } from './error';
 import { FooterComponent } from './footer/footer.component';
@@ -73,7 +74,9 @@ const appRoutes: Routes = [
     }),
     SkeletonModule,
     IconModule,
-    ServiceModule,
+    ServiceModule.forRoot({
+      gtmId: environment.gtmId,
+    }),
     BlockModule,
     PipeModule,
     RatingModule,

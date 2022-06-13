@@ -5,6 +5,7 @@
   --black-light: rgba(18, 18, 18, 0.75);
   --black-dark: rgb(18, 18, 18);
   --red: rgb(220, 20, 49);
+  --red-raw: 220, 20, 49;
   --red-light: rgba(220, 20, 49, 0.75);
   --yellow: rgb(245, 197, 24);
   --yellow-light: rgba(245, 197, 24, 0.75);
@@ -12,7 +13,10 @@
   --fluorescent-green-light: rgba(8, 255, 8, 0.6);
   --mauve: rgb(71, 34, 86);
   --blue: rgb(13, 91, 175);
+  --blue-raw: 13, 91, 175;
   --grad-start: rgb(1, 6, 33);
   --grad-middle: rgb(151, 100, 109);
   --grad-end: rgb(158, 104, 113);
+  --linkedin: rgb(10, 102, 194);
+  --twitter: rgb(29, 161, 242);
 }
