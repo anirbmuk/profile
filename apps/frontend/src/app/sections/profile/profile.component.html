@@ -35,16 +35,18 @@
       <div class="space-y-2 text-md md:text">
         <ng-container *ngFor="let bio of block?.bio">
           <div class="md:flex md:space-x-3">
-            <span class="hidden md:block material-symbols-rounded md:mt-0.5">
+            <div class="hidden md:block material-symbols-rounded md:mt-0.5">
               bookmark
-            </span>
-            <span class="text-justify" [innerHtml]="sanitizer.sanitizeHtml(bio)"></span>
+            </div>
+            <div class="text-justify" [innerHtml]="sanitizer.sanitizeHtml(bio)"
+              (click)="onLinkClickEvent($event, 'external')"></div>
           </div>
         </ng-container>
       </div>
       <div class="mx-auto flex justify-between items-center mt-4">
         <div *ngFor="let blog of block?.blog">
-          <fe-icon [icon]="blog.icon" [url]="blog.url" [size]="blog.iconSize ?? 10" [position]="blog.position">
+          <fe-icon [icon]="blog.icon" [url]="blog.url" [size]="blog.iconSize ?? 10" [position]="blog.position"
+            (linkClick)="onLinkClickFromEmitter($event, 'external')">
             <span class="text-md md:text">{{ blog.description }}</span>
           </fe-icon>
         </div>

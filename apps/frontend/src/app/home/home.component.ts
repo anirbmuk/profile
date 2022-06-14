@@ -8,11 +8,7 @@ import {
 import { TrackingService } from '@frontend/components';
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {
-  EducationImpressionParams,
-  GitHubImpressionParams,
-  TechstackImpressionParams,
-} from '../shared/types';
+import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from './../shared/services';
 
@@ -28,8 +24,8 @@ export class HomeComponent implements OnInit {
     pageTitle: this.tracker.pageTitle,
     pageType: 'home',
     pageUrl: '/',
-    section: 'techstack',
-  } as TechstackImpressionParams);
+    section: 'techstack_section',
+  } as ImpressionEventParams);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly ghCallback = this.data.fetchCallback.bind(this.data, 'github');
@@ -39,8 +35,8 @@ export class HomeComponent implements OnInit {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: '/',
-      section: 'github',
-    } as GitHubImpressionParams
+      section: 'github_section',
+    } as ImpressionEventParams
   );
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -51,8 +47,8 @@ export class HomeComponent implements OnInit {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: '/',
-      section: 'education',
-    } as EducationImpressionParams
+      section: 'education_section',
+    } as ImpressionEventParams
   );
 
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(

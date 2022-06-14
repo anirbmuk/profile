@@ -1,17 +1,10 @@
 import { BaseEventParams } from '@frontend/components';
 
-export interface CustomParams extends BaseEventParams {
-  section: 'techstack' | 'github' | 'education';
+export interface ImpressionEventParams extends BaseEventParams {
+  section: 'techstack_section' | 'github_section' | 'education_section';
 }
 
-export interface TechstackImpressionParams extends CustomParams {
-  section: 'techstack';
-}
-
-export interface GitHubImpressionParams extends CustomParams {
-  section: 'github';
-}
-
-export interface EducationImpressionParams extends CustomParams {
-  section: 'education';
+export interface ClickEventParams extends BaseEventParams {
+  source?: string;
+  url?: string;
 }

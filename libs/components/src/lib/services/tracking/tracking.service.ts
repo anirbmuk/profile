@@ -3,13 +3,7 @@ import { Inject, Injectable, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ServiceModule } from '../service.module';
 import { GTM_ID } from './config';
-import {
-  BaseEventParams,
-  ExternalClickEvent,
-  ImpressionEvent,
-  PageViewEvent,
-  UIToggleEvent,
-} from './tracking.type';
+import { BaseEvent, BaseEventParams } from './tracking.type';
 
 @Injectable({
   providedIn: ServiceModule,
@@ -28,7 +22,7 @@ export class TrackingService {
   }
 
   private async track<T extends BaseEventParams>(
-    event: PageViewEvent | ImpressionEvent | ExternalClickEvent | UIToggleEvent,
+    event: BaseEvent,
     metadata: T
   ) {
     if (this.isBrowser()) {
@@ -39,6 +33,10 @@ export class TrackingService {
           dataLayer.push({
             ...event,
             ...metadata,
+            clientTimestamp: this.clientTimestamp,
+            locale: window.navigator.language,
+            agent: window.navigator.userAgent,
+            vendor: window.navigator.vendor,
           });
           resolve(dataLayer);
         } catch (error) {
@@ -50,6 +48,17 @@ export class TrackingService {
     } else {
       return Promise.resolve();
     }
+  }
+
+  get clientTimestamp() {
+    const date = new Date();
+    const dd = `${date.getDate()}`.padStart(2, '0');
+    const mm = `${date.getMonth() + 1}`.padStart(2, '0');
+    const yyyy = `${date.getUTCFullYear()}`;
+    const hh = `${date.getHours()}`.padStart(2, '0');
+    const mi = `${date.getMinutes()}`.padStart(2, '0');
+    const ss = `${date.getSeconds()}`.padStart(2, '0');
+    return `${dd}/${mm}/${yyyy} ${hh}:${mi}:${ss}`;
   }
 
   buildHeadScript(renderer: Renderer2) {
@@ -76,19 +85,23 @@ export class TrackingService {
   }
 
   trackPageViewEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'pageview' } as PageViewEvent, metaData);
+    this.track({ event: 'pageview' }, metaData);
   }
 
   trackImpressionEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'impression' } as ImpressionEvent, metaData);
+    this.track({ event: 'impression' }, metaData);
+  }
+
+  internalClickEvent<T extends BaseEventParams>(metaData: T) {
+    this.track({ event: 'internalclick' }, metaData);
   }
 
   externalClickEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'click' } as ExternalClickEvent, metaData);
+    this.track({ event: 'externalclick' }, metaData);
   }
 
   uiToggleEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'toggle' } as UIToggleEvent, metaData);
+    this.track({ event: 'toggle' }, metaData);
   }
 
   get pageTitle(): string {

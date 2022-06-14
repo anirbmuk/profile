@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'fe-icon',
@@ -7,6 +13,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
+  @Output() linkClick = new EventEmitter<string | undefined>();
+
   @Input() set url(value: string | undefined) {
     this.type = value ? 'link' : 'text';
     this.target = value;
@@ -55,4 +63,8 @@ export class IconComponent {
     middle: 'flex justify-center',
     end: 'flex justify-end',
   };
+
+  onLinkClick(href: string | undefined) {
+    this.linkClick.emit(href);
+  }
 }

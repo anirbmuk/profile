@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SanitizerService } from '@frontend/components';
+import { SanitizerService, TrackingService } from '@frontend/components';
 import { IProfile } from '@frontend/connector-interfaces';
 import { map } from 'rxjs/operators';
 import { DeviceService } from '../../shared/services';
+import { ClickEventParams } from '../../shared/types';
 
 @Component({
   selector: 'fe-profile',
@@ -17,8 +18,47 @@ export class ProfileComponent {
     map(() => (this.device.isSFF() ? 8 : 10))
   );
 
+  private readonly trackableTagNames = ['A', 'SPAN'];
+
   constructor(
     readonly sanitizer: SanitizerService,
-    private readonly device: DeviceService
+    private readonly device: DeviceService,
+    private readonly tracker: TrackingService
   ) {}
+
+  onLinkClickFromEmitter(url: string | undefined, type: 'external') {
+    const metadata: ClickEventParams = {
+      pageTitle: this.tracker.pageTitle,
+      pageType: 'home',
+      pageUrl: '/',
+      source: 'profile_section',
+      url,
+    };
+    type === 'external' && this.tracker.externalClickEvent({ ...metadata });
+  }
+
+  onLinkClickEvent(event: Event, type: 'external') {
+    const tagName = (event?.target as HTMLElement)?.tagName;
+    console.log(2, tagName);
+    const trackable = this.trackableTagNames.includes(tagName);
+    let url: string;
+
+    if (trackable) {
+      const metadata: ClickEventParams = {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'home',
+        pageUrl: '/',
+        source: 'profile_section',
+      };
+      if (tagName === 'A') {
+        url = (event?.target as HTMLAnchorElement)?.href;
+        metadata.url = url;
+      } else if (tagName === 'SPAN') {
+        url = ((event?.target as HTMLSpanElement)
+          ?.parentElement as HTMLAnchorElement)?.href;
+        metadata.url = url;
+      }
+      type === 'external' && this.tracker.externalClickEvent({ ...metadata });
+    }
+  }
 }

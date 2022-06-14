@@ -1,4 +1,5 @@
-<a rel="nofollow" target="_blank" [href]="repo?.value" *ngIf="repo?.type === 'link'; else showDiv">
+<a rel="nofollow" target="_blank" [href]="repo?.value" *ngIf="repo?.type === 'link'; else showDiv"
+  (click)="onLinkClick('external', repo?.value?.toString())">
   <ng-container [ngTemplateOutlet]="main"></ng-container>
 </a>
 <ng-template #showDiv>

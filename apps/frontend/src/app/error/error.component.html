@@ -4,7 +4,8 @@
     <p class="text-red-700">{{ error.message }} at {{ error.url }}</p>
     <p class="text-center">
       Sorry, the page you are looking for isn't available. The best way to fix this is to visit the
-      <fe-link [link]="{ type: 'internal', text: 'home page', url: '/' }"></fe-link>. Good luck!
+      <fe-link [link]="{ type: 'internal', text: 'home page', url: '/' }" (linkClick)="onLinkClick('internal')">
+      </fe-link>. Good luck!
     </p>
   </section>
 </ng-container>

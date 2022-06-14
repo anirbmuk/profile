@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { SanitizerService } from '@frontend/components';
+import { SanitizerService, TrackingService } from '@frontend/components';
 import { environment } from '../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from '../shared/services';
+import { ClickEventParams } from '../shared/types';
 
 @Component({
   selector: 'fe-about',
@@ -10,10 +11,13 @@ import { DataService, ITag, Robots, SeoService } from '../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements OnInit {
+  private readonly trackableTagNames = ['A', 'SPAN'];
+
   constructor(
     private readonly seo: SeoService,
     readonly data: DataService,
-    readonly sanitizer: SanitizerService
+    readonly sanitizer: SanitizerService,
+    private readonly tracker: TrackingService
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +30,34 @@ export class AboutComponent implements OnInit {
     } as ITag);
     this.seo.setTitle('All about me');
     this.seo.setCanonical('/about');
+    this.tracker.trackPageViewEvent({
+      pageTitle: this.seo.pageTitle,
+      pageType: 'about',
+      pageUrl: '/about',
+    });
+  }
+
+  onLinkClick(event: Event, type: 'external') {
+    const tagName = (event?.target as HTMLElement)?.tagName;
+    const trackable = this.trackableTagNames.includes(tagName);
+    let url: string;
+
+    if (trackable) {
+      const metadata: ClickEventParams = {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'about',
+        pageUrl: '/about',
+        source: 'about_me_section',
+      };
+      if (tagName === 'A') {
+        url = (event?.target as HTMLAnchorElement)?.href;
+        metadata.url = url;
+      } else if (tagName === 'SPAN') {
+        url = ((event?.target as HTMLSpanElement)
+          ?.parentElement as HTMLAnchorElement)?.href;
+        metadata.url = url;
+      }
+      type === 'external' && this.tracker.externalClickEvent({ ...metadata });
+    }
   }
 }
