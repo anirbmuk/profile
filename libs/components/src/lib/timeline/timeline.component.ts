@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ITimeline } from '.';
+import { ITimeline } from '@frontend/connector-interfaces';
 
 @Component({
   selector: 'fe-timeline',

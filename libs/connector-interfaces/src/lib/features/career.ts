@@ -1,4 +1,4 @@
-import { ITimeline } from '@frontend/components';
+import { ITimeline } from '../components';
 
 export interface ICareer extends ITimeline {
   documentid: string;
