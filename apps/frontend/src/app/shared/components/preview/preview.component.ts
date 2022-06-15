@@ -18,8 +18,9 @@ export class PreviewComponent {
     const metadata: ClickEventParams = {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
-      pageUrl: '/home',
-      source: 'github_section',
+      pageUrl: this.tracker.pageUrl,
+      section: 'github_section',
+      url: undefined,
     };
     if (typeof url === 'string') {
       metadata.url = url;

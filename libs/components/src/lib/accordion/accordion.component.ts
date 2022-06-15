@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'fe-accordion',
@@ -9,7 +14,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 export class AccordionComponent {
   expanded = true;
 
+  @Output() toggleState = new EventEmitter<boolean>();
+
   toggle() {
     this.expanded = !this.expanded;
+    this.toggleState.emit(this.expanded);
   }
 }

@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
     this.tracker.trackPageViewEvent({
       pageTitle: this.seo.pageTitle,
       pageType: 'about',
-      pageUrl: '/about',
+      pageUrl: this.tracker.pageUrl,
     });
   }
 
@@ -46,8 +46,9 @@ export class AboutComponent implements OnInit {
       const metadata: ClickEventParams = {
         pageTitle: this.tracker.pageTitle,
         pageType: 'about',
-        pageUrl: '/about',
-        source: 'about_me_section',
+        pageUrl: this.tracker.pageUrl,
+        section: 'aboutme_section',
+        url: undefined,
       };
       if (tagName === 'A') {
         url = (event?.target as HTMLAnchorElement)?.href;

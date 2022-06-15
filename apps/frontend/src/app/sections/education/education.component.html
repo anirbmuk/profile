@@ -1,6 +1,6 @@
 <section class="space-y-8">
   <div>
-    <fe-accordion>
+    <fe-accordion (toggleState)="trackToggleState($event, 'external')">
       <h3 class="md:heading gradient-text" heading>
         Education
       </h3>

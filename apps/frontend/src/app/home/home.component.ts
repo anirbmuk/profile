@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   readonly tsCallback = this.tracker.trackImpressionEvent.bind(this.tracker, {
     pageTitle: this.tracker.pageTitle,
     pageType: 'home',
-    pageUrl: '/',
+    pageUrl: this.tracker.pageUrl,
     section: 'techstack_section',
   } as ImpressionEventParams);
 
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
-      pageUrl: '/',
+      pageUrl: this.tracker.pageUrl,
       section: 'github_section',
     } as ImpressionEventParams
   );
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
-      pageUrl: '/',
+      pageUrl: this.tracker.pageUrl,
       section: 'education_section',
     } as ImpressionEventParams
   );
@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
     this.tracker.trackPageViewEvent({
       pageTitle: this.seo.pageTitle,
       pageType: 'home',
-      pageUrl: '/',
+      pageUrl: this.tracker.pageUrl,
     });
   }
 

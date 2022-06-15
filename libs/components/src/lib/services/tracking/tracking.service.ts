@@ -107,4 +107,8 @@ export class TrackingService {
   get pageTitle(): string {
     return this.title.getTitle();
   }
+
+  get pageUrl(): string {
+    return this.isBrowser() ? window.location.href : '';
+  }
 }

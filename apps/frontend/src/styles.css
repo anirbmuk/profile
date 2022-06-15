@@ -66,7 +66,7 @@ a.navlink {
   @apply no-underline relative;
 }
 
-@media all and (hover: hover) {
+@media screen and (min-width: 768px) and (hover: hover) {
   a.navlink::after {
     @apply absolute left-0 bottom-0 w-full h-[1px] bg-current origin-right scale-x-0;
     content: '';
@@ -82,7 +82,7 @@ li[fehover] {
   @apply relative rounded p-2 m-2.5 md:m-1 z-1 cursor-pointer border border-gray-300;
 }
 
-@media all and (hover: hover) {
+@media screen and (min-width: 768px) and (hover: hover) {
   li[fehover]::after {
     @apply absolute left-0 top-0 bottom-0 w-full z-minus1 rounded origin-right scale-x-0;
     content: '';

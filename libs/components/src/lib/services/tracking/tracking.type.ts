@@ -1,11 +1,3 @@
-// export enum TrackingEvents {
-//   pageview = 'pageview',
-//   impression = 'impression',
-//   toggle = 'toggle',
-//   internalclick = 'internalclick',
-//   externalclick = 'externalclick',
-// }
-
 export type TrackingEvents =
   | 'pageview'
   | 'impression'
@@ -26,23 +18,3 @@ export interface BaseEventParams {
   pageUrl: string;
   pageTitle: string;
 }
-
-// export interface PageViewEvent extends BaseEvent {
-//   event: TrackingEvents.pageview;
-// }
-
-// export interface ImpressionEvent extends BaseEvent {
-//   event: TrackingEvents.impression;
-// }
-
-// export interface InternalClickEvent extends BaseEvent {
-//   event: TrackingEvents.internalclick;
-// }
-
-// export interface ExternalClickEvent extends BaseEvent {
-//   event: TrackingEvents.externalclick;
-// }
-
-// export interface UIToggleEvent extends BaseEvent {
-//   event: TrackingEvents.toggle;
-// }

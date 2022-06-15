@@ -23,7 +23,8 @@
           </div>
           <div class="flex justify-center items-center space-x-4">
             <ng-container *ngFor="let social of block?.social">
-              <fe-icon [icon]="social.type" [url]="social.url" [size]="size$ | async"></fe-icon>
+              <fe-icon [icon]="social.type" [url]="social.url" [size]="size$ | async"
+                (linkClick)="onLinkClickFromEmitter($event, 'external')"></fe-icon>
             </ng-container>
           </div>
         </div>

@@ -30,8 +30,8 @@ export class ProfileComponent {
     const metadata: ClickEventParams = {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
-      pageUrl: '/',
-      source: 'profile_section',
+      pageUrl: this.tracker.pageUrl,
+      section: 'profile_section',
       url,
     };
     type === 'external' && this.tracker.externalClickEvent({ ...metadata });
@@ -39,7 +39,6 @@ export class ProfileComponent {
 
   onLinkClickEvent(event: Event, type: 'external') {
     const tagName = (event?.target as HTMLElement)?.tagName;
-    console.log(2, tagName);
     const trackable = this.trackableTagNames.includes(tagName);
     let url: string;
 
@@ -47,8 +46,9 @@ export class ProfileComponent {
       const metadata: ClickEventParams = {
         pageTitle: this.tracker.pageTitle,
         pageType: 'home',
-        pageUrl: '/',
-        source: 'profile_section',
+        pageUrl: this.tracker.pageUrl,
+        section: 'profile_section',
+        url: undefined,
       };
       if (tagName === 'A') {
         url = (event?.target as HTMLAnchorElement)?.href;

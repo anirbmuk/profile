@@ -62,7 +62,6 @@ export class DataService {
   readonly fetchCallback = (data: 'education' | 'github') => {
     this.fetchData(data);
   };
-  readonly callback = (message: string) => console.log(message);
 
   private fetchData(set: 'education' | 'github') {
     switch (set) {

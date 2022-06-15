@@ -20,8 +20,8 @@ export class FooterComponent {
     const metadata: ClickEventParams = {
       pageTitle: this.tracker.pageTitle,
       pageType: 'footer',
-      pageUrl: '/',
-      source: 'footer_ection',
+      pageUrl: this.tracker.pageUrl,
+      section: 'footer_section',
       url,
     };
     type === 'internal'

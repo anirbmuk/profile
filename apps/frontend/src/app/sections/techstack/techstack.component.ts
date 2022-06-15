@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { TrackingService } from '@frontend/components';
 import { ITechstack } from '@frontend/connector-interfaces';
+import { ToggleEventParams } from '../../shared/types';
 
 @Component({
   selector: 'fe-techstack',
@@ -16,5 +18,18 @@ export class TechstackComponent {
       block?.technology?.sort((t1, t2) => t1.position - t2.position) || [];
     this.databases =
       block?.database?.sort((d1, d2) => d1.position - d2.position) || [];
+  }
+
+  constructor(private readonly tracker: TrackingService) {}
+
+  trackToggleState(state: boolean, type: 'external') {
+    const metadata: ToggleEventParams = {
+      pageTitle: this.tracker.pageTitle,
+      pageType: 'home',
+      pageUrl: this.tracker.pageUrl,
+      section: 'techstack_section',
+      state,
+    };
+    type === 'external' && this.tracker.uiToggleEvent({ ...metadata });
   }
 }
