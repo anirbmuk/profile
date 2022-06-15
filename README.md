@@ -11,7 +11,7 @@
 What I wanted   | What I got  
 --------------- | --------------
 IDE             | MS Visual Studio Code  
-Front-end       | Angular 12  
+Front-end       | Angular 12 / Tailwindcss 
 Database        | Google Firestore
 SSR & BFF       | NestJS  
 Hosting         | Google app engine  
