@@ -3,4 +3,4 @@
 /dist
 /coverage
 /node_modules
-/README.md
+/**/README.md
