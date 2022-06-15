@@ -1,3 +1,3 @@
 # connector-interfaces
+This library can be imported from `@frontend/connector-interfaces`.
 
-This library was generated with [Nx](https://nx.dev).
