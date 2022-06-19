@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {
   AccordionModule,
   BlockModule,
@@ -14,6 +14,7 @@ import {
   SkeletonModule,
   TimelineModule,
 } from '@frontend/components';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { ErrorComponent, ErrorResolver } from './error';
@@ -67,9 +68,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, {
-      initialNavigation: 'enabledBlocking',
+      initialNavigation: 'enabled',
+      preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
     }),
     SkeletonModule,

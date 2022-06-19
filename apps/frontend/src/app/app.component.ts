@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   Inject,
-  OnInit,
   PLATFORM_ID,
   Renderer2,
 } from '@angular/core';
@@ -17,7 +16,7 @@ import { DeviceService, RequestService } from './shared/services';
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   readonly footer$ = this.request.get<[IFooterBlock]>(FOOTER);
 
   constructor(
@@ -30,12 +29,9 @@ export class AppComponent implements OnInit {
   ) {
     if (isPlatformBrowser(platformId)) {
       this.device.setDeviceWidth();
+      this.tracking.buildHeadScript(this.renderer);
+      this.tracking.buildBodyScript(this.renderer);
     }
-  }
-
-  ngOnInit() {
-    this.tracking.buildHeadScript(this.renderer);
-    this.tracking.buildBodyScript(this.renderer);
   }
 
   onResize(): void {
