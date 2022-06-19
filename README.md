@@ -15,7 +15,7 @@ Front-end       | Angular 12 / Tailwindcss
 Database        | Google Firestore
 SSR & BFF       | NestJS  
 Hosting         | Google app engine  
-Analytics       | G4A analytics / GTM
+Analytics       | G4A / GTM
 
 ## Production: Angular Universal (SSR)   
 https://anirbmuk.appspot.com   
@@ -23,17 +23,20 @@ https://anirbmuk.appspot.com
 ## Quick Start & Documentation
 Local development server:  
 ```
-yarn dev
+yarn dev  
+http://localhost:4200  
 ```
   
 Local SSR run:  
 ```
-yarn dev:ssr
+yarn dev:ssr  
+http://localhost:4300  
 ```
   
 Production build and deployment:  
 ```
-yarn deploy
+yarn deploy  
+https://anirbmuk.appspot.com  
 ```
 
 - - - -
