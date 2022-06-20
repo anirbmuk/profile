@@ -1,6 +1,8 @@
-<ng-container *ngFor="let i of (count | feFillPipe)">
+<ng-container *ngFor="let i of count | feFillPipe">
   <div class="flex justify-between items-center space-x-4 my-2">
-    <div class="w-16 h-14 animate-pulse rounded-full bg-gray-100 inline-block"></div>
+    <div
+      class="w-16 h-14 animate-pulse rounded-full bg-gray-100 inline-block"
+    ></div>
     <div class="w-full h-16 animate-pulse rounded my-2 bg-gray-100"></div>
   </div>
 </ng-container>

@@ -29,7 +29,7 @@ export class TrackableDirective implements OnDestroy {
     @Inject(DOCUMENT) private readonly document: Document,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    private readonly elementRef: ElementRef
+    private readonly elementRef: ElementRef,
   ) {
     if (isPlatformBrowser(this.platformId)) {
       const options: IntersectionObserverInit = {

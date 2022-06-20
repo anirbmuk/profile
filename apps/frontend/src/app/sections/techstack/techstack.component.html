@@ -1,11 +1,14 @@
 <section>
   <fe-accordion (toggleState)="trackToggleState($event, 'external')">
-    <h3 class="md:heading gradient-text" heading>
-      Technologies
-    </h3>
+    <h3 class="md:heading gradient-text" heading>Technologies</h3>
     <ul class="md:grid md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
       <li *ngFor="let tech of technologies" fehover>
-        <a [href]="tech.url" rel="nofollow" target="_blank" *ngIf="tech.url; else showDiv">
+        <a
+          [href]="tech.url"
+          rel="nofollow"
+          target="_blank"
+          *ngIf="tech.url; else showDiv"
+        >
           <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
         </a>
         <ng-template #showDiv>
@@ -14,7 +17,11 @@
         <ng-template #innerContent>
           <div class="space-y-4">
             <div class="flex justify-between items-center">
-              <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
+              <fe-icon
+                *ngIf="tech.icon"
+                [icon]="tech.icon"
+                [size]="8"
+              ></fe-icon>
               <h6 class="text-md md:text">{{ tech.name }}</h6>
             </div>
             <div>
@@ -24,7 +31,12 @@
         </ng-template>
       </li>
       <li *ngFor="let db of databases" fehover>
-        <a [href]="db.url" rel="nofollow" target="_blank" *ngIf="db.url; else showDiv">
+        <a
+          [href]="db.url"
+          rel="nofollow"
+          target="_blank"
+          *ngIf="db.url; else showDiv"
+        >
           <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
         </a>
         <ng-template #showDiv>

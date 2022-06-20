@@ -3,28 +3,32 @@
     <div class="flex justify-center">
       <fe-headshot>
         <div class="space-y-2 lg:space-y-3">
-          <div class="flex justify-center items-center space-x-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-            <span class="material-symbols-rounded">
-              work
-            </span>
+          <div
+            class="flex justify-center items-center space-x-1 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+          >
+            <span class="material-symbols-rounded"> work </span>
             <span>{{ block?.designation }}</span>
           </div>
-          <div class="!flex justify-center items-center space-x-1 text sm:text-xl md:text-2xl lg:text-3xl">
-            <span class="material-symbols-rounded">
-              corporate_fare
-            </span>
+          <div
+            class="!flex justify-center items-center space-x-1 text sm:text-xl md:text-2xl lg:text-3xl"
+          >
+            <span class="material-symbols-rounded"> corporate_fare </span>
             <span>{{ block?.currentjob }}</span>
           </div>
-          <div class="!flex justify-center items-center space-x-1 text-md sm:text lg:text-xl">
-            <span class="material-symbols-rounded">
-              my_location
-            </span>
+          <div
+            class="!flex justify-center items-center space-x-1 text-md sm:text lg:text-xl"
+          >
+            <span class="material-symbols-rounded"> my_location </span>
             <span>{{ block?.location }}</span>
           </div>
           <div class="flex justify-center items-center space-x-4">
             <ng-container *ngFor="let social of block?.social">
-              <fe-icon [icon]="social.type" [url]="social.url" [size]="size$ | async"
-                (linkClick)="onLinkClickFromEmitter($event, 'external')"></fe-icon>
+              <fe-icon
+                [icon]="social.type"
+                [url]="social.url"
+                [size]="size$ | async"
+                (linkClick)="onLinkClickFromEmitter($event, 'external')"
+              ></fe-icon>
             </ng-container>
           </div>
         </div>
@@ -39,15 +43,23 @@
             <div class="hidden md:block material-symbols-rounded md:mt-0.5">
               bookmark
             </div>
-            <div class="text-justify" [innerHtml]="sanitizer.sanitizeHtml(bio)"
-              (click)="onLinkClickEvent($event, 'external')"></div>
+            <div
+              class="text-justify"
+              [innerHtml]="sanitizer.sanitizeHtml(bio)"
+              (click)="onLinkClickEvent($event, 'external')"
+            ></div>
           </div>
         </ng-container>
       </div>
       <div class="mx-auto flex justify-between items-center mt-4">
         <div *ngFor="let blog of block?.blog">
-          <fe-icon [icon]="blog.icon" [url]="blog.url" [size]="blog.iconSize ?? 10" [position]="blog.position"
-            (linkClick)="onLinkClickFromEmitter($event, 'external')">
+          <fe-icon
+            [icon]="blog.icon"
+            [url]="blog.url"
+            [size]="blog.iconSize ?? 10"
+            [position]="blog.position"
+            (linkClick)="onLinkClickFromEmitter($event, 'external')"
+          >
             <span class="text-md md:text">{{ blog.description }}</span>
           </fe-icon>
         </div>

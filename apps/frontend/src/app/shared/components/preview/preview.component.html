@@ -1,5 +1,10 @@
-<a rel="nofollow" target="_blank" [href]="repo?.value" *ngIf="repo?.type === 'link'; else showDiv"
-  (click)="onLinkClick('external', repo?.value?.toString())">
+<a
+  rel="nofollow"
+  target="_blank"
+  [href]="repo?.value"
+  *ngIf="repo?.type === 'link'; else showDiv"
+  (click)="onLinkClick('external', repo?.value?.toString())"
+>
   <ng-container [ngTemplateOutlet]="main"></ng-container>
 </a>
 <ng-template #showDiv>
@@ -12,7 +17,9 @@
         <fe-icon [icon]="'github'" [size]="7"></fe-icon>
         <h5 class="-mt-1">{{ repo?.value?.toString() | feExtractNamePipe }}</h5>
       </div>
-      <div class="text-md text-gray-500">{{ repo?.technologies | feArrayNamePipe }}</div>
+      <div class="text-md text-gray-500">
+        {{ repo?.technologies | feArrayNamePipe }}
+      </div>
       <div class="text-md text-gray-900">{{ repo?.description }}</div>
     </div>
   </div>

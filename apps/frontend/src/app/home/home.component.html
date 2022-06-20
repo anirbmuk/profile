@@ -1,7 +1,10 @@
 <ng-container *ngIf="showScroll$ | async">
   <fe-scroll (scrollToTop)="onScrollToTop()"></fe-scroll>
 </ng-container>
-<div *ngIf="data.bio$ | async as bio; else loading" class="space-y-16 mx-auto xl:max-w-3/4 2xl:max-w-4/5">
+<div
+  *ngIf="data.bio$ | async as bio; else loading"
+  class="space-y-16 mx-auto xl:max-w-3/4 2xl:max-w-4/5"
+>
   <div>
     <fe-profile [block]="bio?.[0]?.[0]"></fe-profile>
   </div>
@@ -9,13 +12,22 @@
     <fe-career [block]="bio?.[2]"></fe-career>
   </div>
   <div>
-    <fe-techstack [block]="bio?.[1]?.[0]" [feTrackable]="[tsCallback]"></fe-techstack>
+    <fe-techstack
+      [block]="bio?.[1]?.[0]"
+      [feTrackable]="[tsCallback]"
+    ></fe-techstack>
   </div>
   <div>
-    <fe-github [block]="data.githubData$ | async" [feTrackable]="[ghCallback, ghTrackingCallback]"></fe-github>
+    <fe-github
+      [block]="data.githubData$ | async"
+      [feTrackable]="[ghCallback, ghTrackingCallback]"
+    ></fe-github>
   </div>
   <div>
-    <fe-education [block]="data.educationData$ | async" [feTrackable]="[edCallback, edTrackingCallback]"></fe-education>
+    <fe-education
+      [block]="data.educationData$ | async"
+      [feTrackable]="[edCallback, edTrackingCallback]"
+    ></fe-education>
   </div>
 </div>
 <ng-template #loading>

@@ -12,7 +12,7 @@ import { ClickEventParams } from '../shared/types';
 export class NotFoundComponent implements OnInit {
   constructor(
     private readonly seo: SeoService,
-    private readonly tracker: TrackingService
+    private readonly tracker: TrackingService,
   ) {}
 
   ngOnInit(): void {

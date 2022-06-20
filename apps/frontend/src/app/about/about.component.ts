@@ -17,7 +17,7 @@ export class AboutComponent implements OnInit {
     private readonly seo: SeoService,
     readonly data: DataService,
     readonly sanitizer: SanitizerService,
-    private readonly tracker: TrackingService
+    private readonly tracker: TrackingService,
   ) {}
 
   ngOnInit(): void {

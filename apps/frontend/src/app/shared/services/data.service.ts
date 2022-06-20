@@ -30,7 +30,7 @@ export class DataService {
   readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
     map((about) => {
       return about?.sort((a1, a2) => a1.position - a2.position);
-    })
+    }),
   );
 
   readonly bio$ = forkJoin<[IProfile], [ITechstack], ICareer[]>([
@@ -49,14 +49,14 @@ export class DataService {
     filter((value) => !!value),
     switchMap(() =>
       this.education$.pipe(
-        map((data) => data?.sort((e1, e2) => e2.position - e1.position))
-      )
-    )
+        map((data) => data?.sort((e1, e2) => e2.position - e1.position)),
+      ),
+    ),
   );
 
   readonly githubData$ = this.ghAction$.pipe(
     filter((value) => !!value),
-    switchMap(() => this.github$)
+    switchMap(() => this.github$),
   );
 
   readonly fetchCallback = (data: 'education' | 'github') => {

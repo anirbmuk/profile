@@ -28,7 +28,7 @@ export interface FirestoreQuery {
 @Injectable()
 export class FirebaseService {
   constructor(
-    @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig
+    @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig,
   ) {
     this.initFirebaseApp(this.config);
   }
@@ -55,7 +55,7 @@ export class FirebaseService {
       orderByClause,
       limit,
       startAt,
-      endAt
+      endAt,
     );
     const data: T[] = [];
     fetchData.forEach((each) => data.push(each.data() as T));
@@ -75,7 +75,7 @@ export class FirebaseService {
 
   private _getUnitDataFromFireStore(
     collections: string[] | undefined,
-    keys: string[] | undefined
+    keys: string[] | undefined,
   ) {
     const db = this.getFirestoreDb();
     if (!collections || !collections[0]) {
@@ -116,7 +116,7 @@ export class FirebaseService {
     orderByClause?: FirestoreOrderBy[],
     limit?: number,
     startAt?: string | number | Date | undefined,
-    endAt?: string | number | Date | undefined
+    endAt?: string | number | Date | undefined,
   ) {
     const db = this.getFirestoreDb();
     if (!collections || !collections?.[0]) {
@@ -131,8 +131,8 @@ export class FirebaseService {
             (collectionRootQuery = collectionRootQuery.where(
               clause.column,
               clause.operator,
-              clause.condition
-            ))
+              clause.condition,
+            )),
         );
       }
       if (orderByClause) {
@@ -140,8 +140,8 @@ export class FirebaseService {
           (clause: FirestoreOrderBy) =>
             (collectionRootQuery = collectionRootQuery.orderBy(
               clause.attr,
-              clause.dir
-            ))
+              clause.dir,
+            )),
         );
       }
       if (!!limit && limit !== 0) {
@@ -173,8 +173,8 @@ export class FirebaseService {
             (collectionRootQuery = collectionRootQuery.where(
               clause.column,
               clause.operator,
-              clause.condition
-            ))
+              clause.condition,
+            )),
         );
       }
       if (orderByClause) {
@@ -182,8 +182,8 @@ export class FirebaseService {
           (clause: FirestoreOrderBy) =>
             (collectionRootQuery = collectionRootQuery.orderBy(
               clause.attr,
-              clause.dir
-            ))
+              clause.dir,
+            )),
         );
       }
       if (!!limit && limit !== 0) {

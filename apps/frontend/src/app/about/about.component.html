@@ -1,9 +1,14 @@
 <div class="my-24 md:my-40">
-  <article *ngIf="data.aboutme$ | async as aboutme; else loading"
-    class="text-md md:text text-justify mx-auto xl:max-w-1/2">
-    <p *ngFor="let content of aboutme" class="py-4 md:py-6 px-4"
-      [innerHtml]="sanitizer.sanitizeHtml(content?.description || '')" (click)="onLinkClick($event, 'external')">
-    </p>
+  <article
+    *ngIf="data.aboutme$ | async as aboutme; else loading"
+    class="text-md md:text text-justify mx-auto xl:max-w-1/2"
+  >
+    <p
+      *ngFor="let content of aboutme"
+      class="py-4 md:py-6 px-4"
+      [innerHtml]="sanitizer.sanitizeHtml(content?.description || '')"
+      (click)="onLinkClick($event, 'external')"
+    ></p>
   </article>
   <ng-template #loading>
     <div class="container my-20">

@@ -17,7 +17,7 @@ export class RatingComponent {
   @Input() set rating(rating: number | string) {
     this._rating = Math.max(
       Math.min(isNaN(+rating) ? 1 : +rating, this._maxRating),
-      this._minRating
+      this._minRating,
     );
     this._fullRating = Math.floor(this._rating);
     this._hasHalf = Math.ceil(this._rating) !== this._rating;

@@ -25,7 +25,7 @@ export class AppComponent {
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) readonly platformId: Object,
     private readonly tracking: TrackingService,
-    private readonly renderer: Renderer2
+    private readonly renderer: Renderer2,
   ) {
     if (isPlatformBrowser(platformId)) {
       this.device.setDeviceWidth();

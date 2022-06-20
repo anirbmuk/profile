@@ -1,18 +1,20 @@
 <section class="space-y-8">
   <div>
     <fe-accordion (toggleState)="trackToggleState($event, 'external')">
-      <h3 class="md:heading gradient-text" heading>
-        Education
-      </h3>
+      <h3 class="md:heading gradient-text" heading>Education</h3>
       <ul class="md:grid md:grid-cols-2 2xl:grid-cols-3 md:gap-3">
         <li *ngFor="let education of block">
           <div class="space-y-2">
             <div class="flex justify-between items-center">
               <div>
                 <h5>{{ education.school }}</h5>
-                <div class="text-md text-gray-500">{{ education.location }}</div>
+                <div class="text-md text-gray-500">
+                  {{ education.location }}
+                </div>
               </div>
-              <div class="text-md text-gray-900">{{ education.startyear }} - {{ education.endyear }}</div>
+              <div class="text-md text-gray-900">
+                {{ education.startyear }} - {{ education.endyear }}
+              </div>
             </div>
             <div class="text-md">
               <div>{{ education.degree }} in {{ education.field }}</div>

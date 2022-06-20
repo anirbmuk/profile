@@ -14,7 +14,7 @@ export class TrackingService {
     @Inject(DOCUMENT) private readonly document: Document,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    private readonly title: Title
+    private readonly title: Title,
   ) {}
 
   private isBrowser() {
@@ -23,7 +23,7 @@ export class TrackingService {
 
   private async track<T extends BaseEventParams>(
     event: BaseEvent,
-    metadata: T
+    metadata: T,
   ) {
     if (this.isBrowser()) {
       return new Promise((resolve, reject) => {

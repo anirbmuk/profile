@@ -8,9 +8,8 @@ describe('HeadshotComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeadshotComponent ]
-    })
-    .compileComponents();
+      declarations: [HeadshotComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

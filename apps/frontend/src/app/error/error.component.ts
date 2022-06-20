@@ -15,14 +15,14 @@ import { ClickEventParams } from '../shared/types';
 export class ErrorComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly tracker: TrackingService
+    private readonly tracker: TrackingService,
   ) {}
 
   data: Observable<IError | undefined> = EMPTY;
 
   ngOnInit(): void {
     this.data = this.route.data.pipe(
-      map((data) => (data.errorData as IError) || undefined)
+      map((data) => (data.errorData as IError) || undefined),
     );
   }
 

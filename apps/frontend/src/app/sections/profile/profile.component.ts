@@ -15,7 +15,7 @@ export class ProfileComponent {
   @Input() block?: IProfile | null;
 
   readonly size$ = this.device.device$.pipe(
-    map(() => (this.device.isSFF() ? 8 : 10))
+    map(() => (this.device.isSFF() ? 8 : 10)),
   );
 
   private readonly trackableTagNames = ['A', 'SPAN'];
@@ -23,7 +23,7 @@ export class ProfileComponent {
   constructor(
     readonly sanitizer: SanitizerService,
     private readonly device: DeviceService,
-    private readonly tracker: TrackingService
+    private readonly tracker: TrackingService,
   ) {}
 
   onLinkClickFromEmitter(url: string | undefined, type: 'external') {

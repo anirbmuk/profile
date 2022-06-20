@@ -58,7 +58,7 @@ export class SeoService {
     private readonly meta: Meta,
     private readonly title: Title,
     private readonly rendererFactory: RendererFactory2,
-    @Inject(DOCUMENT) private readonly document: Document
+    @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
   setMetaTags(tags: ITag): void {
@@ -74,7 +74,7 @@ export class SeoService {
           value &&
             this.meta.updateTag(
               { name: tag.key, content: value },
-              `name='${tag.key}'`
+              `name='${tag.key}'`,
             );
         }
       } else {
@@ -91,7 +91,7 @@ export class SeoService {
               name: 'google-site-verification',
               content: environment.google.id || '',
             },
-            `name='google-site-verification'`
+            `name='google-site-verification'`,
           );
       } else {
         environment.google.id &&

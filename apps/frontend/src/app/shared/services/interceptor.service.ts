@@ -17,12 +17,12 @@ import { ErrorService } from './error.service';
 export class RequestInterceptor implements HttpInterceptor {
   constructor(
     private readonly router: Router,
-    private readonly errorService: ErrorService
+    private readonly errorService: ErrorService,
   ) {}
 
   intercept(
     req: HttpRequest<unknown>,
-    next: HttpHandler
+    next: HttpHandler,
   ): Observable<HttpEvent<unknown>> {
     return next.handle(req).pipe(
       catchError((error) => {
@@ -43,7 +43,7 @@ export class RequestInterceptor implements HttpInterceptor {
         });
         this.router.navigate(['/error'], { skipLocationChange: true });
         return EMPTY;
-      })
+      }),
     );
   }
 }

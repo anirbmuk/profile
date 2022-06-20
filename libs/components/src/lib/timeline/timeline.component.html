@@ -1,17 +1,28 @@
 <ng-container *ngFor="let timeline of _mappedTimelines; let idx = index">
   <div class="grid grid-cols-5 gap-3 md:gap-0">
-    <div class="
-     col-span-2 flex justify-end items-start pt-2 md:hover:-translate-x-2 ease-in-out duration-300 text-right"
-      [class]="timeline.size ?? 'h-24'" #left>
+    <div
+      class="col-span-2 flex justify-end items-start pt-2 md:hover:-translate-x-2 ease-in-out duration-300 text-right"
+      [class]="timeline.size ?? 'h-24'"
+      #left
+    >
       <ng-container *ngIf="timeline.alignment === 'left'">
         <div class="block relative -right-1/6 md:-right-1/5">
-          <div class="text-md text-gray-700">{{ timeline.start }} - {{ timeline.end || 'present' }}</div>
-          <div class="text-sm md:text"><span>{{ timeline.designation }}</span>, <span
-              class="text-black-dark font-semiBold">{{ timeline.provider
-              }}</span></div>
+          <div class="text-md text-gray-700">
+            {{ timeline.start }} - {{ timeline.end || 'present' }}
+          </div>
+          <div class="text-sm md:text">
+            <span>{{ timeline.designation }}</span
+            >,
+            <span class="text-black-dark font-semiBold">{{
+              timeline.provider
+            }}</span>
+          </div>
           <div class="text-sm text-gray-700">{{ timeline.location }}</div>
-          <div *ngIf="timeline.description" class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit">{{
-            timeline.description }}
+          <div
+            *ngIf="timeline.description"
+            class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit"
+          >
+            {{ timeline.description }}
           </div>
         </div>
       </ng-container>
@@ -19,21 +30,42 @@
     <div
       class="mx-auto w-4 bg-gray-400 border-2 border-gray-400 md:hover:bg-gray-700 md:hover:border-gray-700 flex justify-center items-center cursor-pointer ease-in-out duration-300"
       [class]="timeline.size ?? 'h-24'"
-      [ngClass]="{ 'rounded-t': idx === 0, 'rounded-b': idx === _mappedTimelines.length - 1 }"
-      [feHover]="{ elements: [timeline.alignment === 'left' ? left : right], classList: timeline.alignment === 'left' ? 'md:-translate-x-2' : 'md:translate-x-2' }"
-      #middle>
-    </div>
-    <div class="col-span-2 flex justify-start items-start pt-1 md:hover:translate-x-2 ease-in-out duration-300"
-      [class]="timeline.size ?? 'h-24'" #right>
+      [ngClass]="{
+        'rounded-t': idx === 0,
+        'rounded-b': idx === _mappedTimelines.length - 1
+      }"
+      [feHover]="{
+        elements: [timeline.alignment === 'left' ? left : right],
+        classList:
+          timeline.alignment === 'left'
+            ? 'md:-translate-x-2'
+            : 'md:translate-x-2'
+      }"
+      #middle
+    ></div>
+    <div
+      class="col-span-2 flex justify-start items-start pt-1 md:hover:translate-x-2 ease-in-out duration-300"
+      [class]="timeline.size ?? 'h-24'"
+      #right
+    >
       <ng-container *ngIf="timeline.alignment === 'right'">
         <div class="block relative -left-1/6 md:-left-1/5">
-          <div class="text-md text-gray-700">{{ timeline.start }} - {{ timeline.end }}</div>
-          <div class="text-sm md:text"><span>{{ timeline.designation }}</span>, <span
-              class="text-black-dark font-semiBold">{{ timeline.provider
-              }}</span></div>
+          <div class="text-md text-gray-700">
+            {{ timeline.start }} - {{ timeline.end }}
+          </div>
+          <div class="text-sm md:text">
+            <span>{{ timeline.designation }}</span
+            >,
+            <span class="text-black-dark font-semiBold">{{
+              timeline.provider
+            }}</span>
+          </div>
           <div class="text-sm text-gray-700">{{ timeline.location }}</div>
-          <div *ngIf="timeline.description" class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit">{{
-            timeline.description }}
+          <div
+            *ngIf="timeline.description"
+            class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit"
+          >
+            {{ timeline.description }}
           </div>
         </div>
       </ng-container>

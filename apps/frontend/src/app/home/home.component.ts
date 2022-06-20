@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'github_section',
-    } as ImpressionEventParams
+    } as ImpressionEventParams,
   );
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'education_section',
-    } as ImpressionEventParams
+    } as ImpressionEventParams,
   );
 
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
-    map(() => this.viewport.getScrollPosition()?.[1] > 500)
+    map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
 
   constructor(
@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
     private readonly seo: SeoService,
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller,
-    private readonly tracker: TrackingService
+    private readonly tracker: TrackingService,
   ) {}
 
   ngOnInit(): void {

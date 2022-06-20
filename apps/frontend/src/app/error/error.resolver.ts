@@ -16,7 +16,7 @@ import { ErrorService } from '../shared/services';
 export class ErrorResolver implements Resolve<IError | null> {
   constructor(
     private readonly errorService: ErrorService,
-    private readonly router: Router
+    private readonly router: Router,
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -31,7 +31,7 @@ export class ErrorResolver implements Resolve<IError | null> {
       catchError(() => {
         this.router.navigate(['/']);
         return of(null);
-      })
+      }),
     );
   }
 }
