@@ -1,5 +1,6 @@
 <ng-container *ngIf="link?.type === 'internal'; else external">
-  <a [routerLink]="link?.url" [title]="link?.text" class="navlink" (click)="onLinkClick('internal')">
+  <a [routerLink]="link?.url" [title]="link?.text" class="navlink" (click)="onLinkClick('internal')"
+    routerLinkActive="font-bold" [routerLinkActiveOptions]="{ exact: true }">
     {{ link?.text }}
   </a>
 </ng-container>
