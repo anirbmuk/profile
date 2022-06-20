@@ -23,10 +23,10 @@
     @apply text-xl md:text-3xl;
   }
   h5 {
-    @apply text-xl md:text-2xl;
+    @apply text md:text-2xl;
   }
   h6 {
-    @apply text md:text-xl;
+    @apply text-md md:text;
   }
 }
 
