@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     TransferHttpCacheModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, {
-      initialNavigation: 'enabled',
+      initialNavigation: 'enabledBlocking',
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
     }),
