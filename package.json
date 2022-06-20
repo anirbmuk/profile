@@ -34,7 +34,7 @@
     "connector:build:production": "nx run connector:build-ssr:production",
     "frontend:build:prodlike": "nx run frontend:build:prodlike",
     "connector:build:prodlike": "nx run connector:build-ssr:prodlike",
-    "build:ssr:prod": "yarn lint && yarn format:check && yarn frontend:build:production && yarn connector:build:production",
+    "build:ssr:prod": "yarn frontend:build:production && yarn connector:build:production",
     "build:ssr:prodlike": "yarn frontend:build:prodlike && yarn connector:build:prodlike",
     "dev:ssr": "yarn clean && yarn build:ssr:prodlike && node dist/apps/connector/main.js",
     "setenv:gae": "gcloud config set project anirbmuk",

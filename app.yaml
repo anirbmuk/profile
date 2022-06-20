@@ -1,13 +1,13 @@
 runtime: nodejs14
 
 env_variables:
-  apiKey: $ENV_API_KEY
-  authDomain: $ENV_AUTH_DOMAIN
-  projectId: $ENV_PROJECT_ID
-  storageBucket: $ENV_STORAGE_BUCKET
-  messagingSenderId: $ENV_MESSAGING_SENDER_ID
-  appId: $ENV_APP_ID
-  measurementId: $ENV_MEASUREMENT_ID
+  apiKey: 'AIzaSyCRzXjOMtEC-OI6DLOPL9MxD5pOpbANTWs'
+  authDomain: 'anirbmuk.firebaseapp.com'
+  projectId: 'anirbmuk'
+  storageBucket: 'anirbmuk.appspot.com'
+  messagingSenderId: '468979340135'
+  appId: '1:468979340135:web:6a551129b6806274edd5c2'
+  measurementId: 'G-R1DT03T0TL'
 
 handlers:
   - url: /sitemap.xml
