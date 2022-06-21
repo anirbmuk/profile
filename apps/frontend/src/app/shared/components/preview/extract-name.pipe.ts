@@ -10,7 +10,7 @@ export class ExtractNamePipe implements PipeTransform {
     }
     const urlParts = value.split('/');
     const repo = urlParts?.pop();
-    const author = urlParts?.pop();
-    return `${author}/${repo}`;
+    // const author = urlParts?.pop();
+    return `${repo}`;
   }
 }
