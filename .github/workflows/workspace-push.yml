@@ -88,4 +88,6 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
       - name: Deploy anirbmuk project
-        run: yarn deploy:gae
+        run: |
+          cd ${{ github.workspace }}
+          yarn deploy:gae
