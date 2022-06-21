@@ -73,7 +73,7 @@ mark {
 }
 
 .heading {
-  @apply ease-in hover:translate-x-1 hover:ease-out hover:tracking-wide duration-200;
+  @apply ease-in lg:hover:translate-x-1 lg:hover:ease-out lg:hover:tracking-wide duration-200;
 }
 
 a.navlink {
