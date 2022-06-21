@@ -353,6 +353,13 @@
   dependencies:
     tslib "^2.2.0"
 
+"@angular/service-worker@^12.0.0":
+  version "12.2.16"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-12.2.16.tgz#b88ada26cb04ac31cfb6bd7bcfb197efc409367d"
+  integrity sha512-N8UcmL3zf8Kl1pxWHcB2U6zRIMNTRrDCBy4x2ROUKjA6RtxHFw51bldQ8WvU/83JrELtJj60I2RS/ecztHJQxA==
+  dependencies:
+    tslib "^2.2.0"
+
 "@assemblyscript/loader@^0.10.1":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.10.1.tgz#70e45678f06c72fa2e350e8553ec4a4d72b92e06"

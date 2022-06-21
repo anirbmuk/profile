@@ -181,7 +181,8 @@
             "inlineStyleLanguage": "css",
             "assets": [
               "apps/frontend/src/favicon.ico",
-              "apps/frontend/src/assets"
+              "apps/frontend/src/assets",
+              "apps/frontend/src/manifest.webmanifest"
             ],
             "styles": [
               "apps/frontend/src/root.css",
@@ -191,7 +192,9 @@
             "allowedCommonJsDependencies": [
               "firebase/app",
               "firebase/firestore"
-            ]
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "apps/frontend/ngsw-config.json"
           },
           "configurations": {
             "prodlike": {

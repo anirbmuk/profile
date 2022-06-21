@@ -30,6 +30,7 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
 import { RequestInterceptor } from './shared/services';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const appRoutes: Routes = [
   {
@@ -90,6 +91,12 @@ const appRoutes: Routes = [
     AccordionModule,
     TimelineModule,
     ScrollModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
   providers: [
     {
