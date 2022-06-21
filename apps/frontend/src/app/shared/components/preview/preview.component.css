@@ -4,6 +4,6 @@
 
 @media screen and (min-width: 768px) and (hover: hover) {
   .preview-container:hover {
-    @apply md:bg-gray-50 lg:hover:ease-in md:scale-105;
+    @apply bg-gray-50 ease-in scale-105;
   }
 }

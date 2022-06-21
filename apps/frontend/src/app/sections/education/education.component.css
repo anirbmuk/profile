@@ -1,9 +1,9 @@
-ul > li {
+li {
   @apply cursor-pointer border border-gray-300 p-4 m-2.5 md:m-1 rounded ease-out duration-300;
 }
 
 @media screen and (min-width: 768px) and (hover: hover) {
-  .ul > li:hover {
-    @apply lg:hover:bg-gray-50 lg:hover:ease-in lg:hover:scale-105;
+  li:hover {
+    @apply bg-gray-50 ease-in scale-105;
   }
 }
