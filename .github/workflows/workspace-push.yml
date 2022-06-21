@@ -74,7 +74,6 @@ jobs:
         with:
           name: dist-anirbmuk
           path: dist
-      - uses: actions/checkout@v1
       - uses: golang-enthusiast/app-yaml-env-compiler@v1.0
         env:
           ENV_API_KEY: ${{ secrets.ENV_API_KEY }}
@@ -88,7 +87,5 @@ jobs:
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
-      - uses: 'google-github-actions/deploy-appengine@v0'
-        with:
-          deliverables: 'app.yaml'
-          working_directory: 'dist'
+      - name: Deploy anirbmuk project
+        run: yarn deploy:gae
