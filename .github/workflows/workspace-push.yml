@@ -91,4 +91,4 @@ jobs:
       - uses: 'google-github-actions/deploy-appengine@v0'
         with:
           deliverables: 'app.yaml'
-          working_directory: ${{ github.workspace }}/dist
+          working_directory: 'dist'
