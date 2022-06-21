@@ -1,8 +1,14 @@
 <ng-container *ngFor="let i of count | feFillPipe">
   <div class="flex justify-between items-center space-x-4 my-2">
     <div
-      class="w-16 h-14 animate-pulse rounded-full bg-gray-100 inline-block"
+      class="w-20 h-16 animate-pulse rounded-full bg-gray-100 inline-block"
     ></div>
-    <div class="w-full h-16 animate-pulse rounded my-2 bg-gray-100"></div>
+    <div class="w-full align-top items-top space-y-0">
+      <div class="flex space-x-2 md:space-x-3 lg:space-x-4">
+        <div class="w-1/4 h-6 animate-pulse rounded mb-2 bg-gray-100"></div>
+        <div class="w-3/4 h-6 animate-pulse rounded mb-2 bg-gray-100"></div>
+      </div>
+      <div class="w-full h-6 animate-pulse rounded my-2 bg-gray-100"></div>
+    </div>
   </div>
 </ng-container>
