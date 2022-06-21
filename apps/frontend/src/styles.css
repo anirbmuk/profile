@@ -58,6 +58,20 @@ mark {
   -webkit-text-fill-color: transparent;
 }
 
+.email-text {
+  background-image: linear-gradient(
+    to right,
+    #4285f4 0 31%,
+    #ea4335 31% 52%,
+    #fbbc05 52% 59%,
+    #4285f4 59% 82%,
+    #34a853 82% 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .heading {
   @apply ease-in hover:translate-x-1 hover:ease-out hover:tracking-wide duration-200;
 }
