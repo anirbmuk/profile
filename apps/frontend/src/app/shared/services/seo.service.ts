@@ -28,19 +28,65 @@ export interface ITag {
   googleid?: string;
 }
 
+interface ISupportedTag {
+  key: string;
+  value: keyof ITag;
+  type: 'string' | 'url';
+  metatag: 'name' | 'property';
+  metaname?: string;
+}
+
 const rootTitle = 'Anirban Mukherjee (anirbmuk)';
 
-const supportedTags: { key: string; value: keyof ITag; type: string }[] = [
-  { key: metaTags.DESCRIPTION, value: 'description', type: 'string' },
-  { key: metaTags.TWITTER_TITLE, value: 'title', type: 'string' },
-  { key: metaTags.OG_TITLE, value: 'title', type: 'string' },
-  { key: metaTags.TWITTER_IMAGE, value: 'image', type: 'url' },
-  { key: metaTags.OG_IMAGE, value: 'image', type: 'url' },
-  { key: metaTags.TWITTER_IMAGE_ALT, value: 'imageAlt', type: 'string' },
-  { key: metaTags.TWITTER_DESCRIPTION, value: 'description', type: 'string' },
-  { key: metaTags.OG_DESCRIPTION, value: 'description', type: 'string' },
-  { key: metaTags.OG_URL, value: 'url', type: 'url' },
-  { key: metaTags.ROBOTS, value: 'robots', type: 'string' },
+const supportedTags: ISupportedTag[] = [
+  {
+    key: metaTags.DESCRIPTION,
+    value: 'description',
+    type: 'string',
+    metatag: 'name',
+  },
+  {
+    key: metaTags.TWITTER_TITLE,
+    value: 'title',
+    type: 'string',
+    metatag: 'name',
+  },
+  {
+    key: metaTags.OG_TITLE,
+    value: 'title',
+    type: 'string',
+    metatag: 'property',
+    metaname: 'title',
+  },
+  { key: metaTags.TWITTER_IMAGE, value: 'image', type: 'url', metatag: 'name' },
+  {
+    key: metaTags.OG_IMAGE,
+    value: 'image',
+    type: 'url',
+    metatag: 'property',
+    metaname: 'image',
+  },
+  {
+    key: metaTags.TWITTER_IMAGE_ALT,
+    value: 'imageAlt',
+    type: 'string',
+    metatag: 'name',
+  },
+  {
+    key: metaTags.TWITTER_DESCRIPTION,
+    value: 'description',
+    type: 'string',
+    metatag: 'name',
+  },
+  {
+    key: metaTags.OG_DESCRIPTION,
+    value: 'description',
+    type: 'string',
+    metatag: 'property',
+    metaname: 'description',
+  },
+  { key: metaTags.OG_URL, value: 'url', type: 'url', metatag: 'property' },
+  { key: metaTags.ROBOTS, value: 'robots', type: 'string', metatag: 'name' },
 ];
 
 export enum Robots {
@@ -68,18 +114,27 @@ export class SeoService {
         if (tag.type === 'url') {
           value = `${environment.hostUrl}${tags[tag.value]}`;
         }
-        if (!this.meta.getTag(`name='${tag.key}'`)) {
-          value && this.meta.addTag({ name: tag.key, content: value });
+        if (!this.meta.getTag(`${[tag.metatag]}='${tag.key}'`)) {
+          value &&
+            this.meta.addTag({
+              [tag.metatag]: tag.key,
+              content: value,
+              ...(tag.metaname && { name: tag.metaname }),
+            });
         } else {
           value &&
             this.meta.updateTag(
-              { name: tag.key, content: value },
-              `name='${tag.key}'`,
+              {
+                [tag.metatag]: tag.key,
+                content: value,
+                ...(tag.metaname && { name: tag.metaname }),
+              },
+              `${[tag.metatag]}='${tag.key}'`,
             );
         }
       } else {
-        if (this.meta.getTag(`name='${tag.key}'`)) {
-          this.meta.removeTag(`name='${tag.key}'`);
+        if (this.meta.getTag(`${[tag.metatag]}='${tag.key}'`)) {
+          this.meta.removeTag(`${[tag.metatag]}='${tag.key}'`);
         }
       }
     }
