@@ -1,5 +1,5 @@
 # anirbmuk:profile
-**Anirban Mukherjee | Senior Frontend Developer | Professional Bio**  
+**Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio**  
 
 ## Key features
 :heavy_check_mark: Nx monorepo  
