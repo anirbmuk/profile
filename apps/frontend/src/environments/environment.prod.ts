@@ -8,5 +8,6 @@ export const environment = {
   },
   gtmId: 'N9N6VPW',
   title: 'Senior Frontend Developer | Professional Bio',
-  about: 'Anirban Mukherjee | Senior Frontend Developer | Professional Bio',
+  about:
+    'Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio',
 };

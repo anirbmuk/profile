@@ -28,7 +28,7 @@ export interface ITag {
   googleid?: string;
 }
 
-const rootTitle = 'Anirban Mukherjee';
+const rootTitle = 'Anirban Mukherjee (anirbmuk)';
 
 const supportedTags: { key: string; value: keyof ITag; type: string }[] = [
   { key: metaTags.DESCRIPTION, value: 'description', type: 'string' },
