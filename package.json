@@ -2,6 +2,16 @@
   "name": "frontend",
   "version": "1.0.0",
   "license": "MIT",
+  "description": "Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio",
+  "author": {
+    "email": "anirban.mjee@gmail.com",
+    "name": "anirbmuk",
+    "url": "https://anirbmuk.appspot.com"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/anirbmuk/profile.git"
+  },
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
