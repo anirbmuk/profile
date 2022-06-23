@@ -1,7 +1,7 @@
 <section>
   <fe-accordion (toggleState)="trackToggleState($event, 'external')">
     <h3 class="md:heading gradient-text" heading>Technologies</h3>
-    <ul class="md:grid md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
+    <ul class="grid grid-cols-2 gap-0 md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
       <li *ngFor="let tech of technologies" fehover>
         <a
           [href]="tech.url"
