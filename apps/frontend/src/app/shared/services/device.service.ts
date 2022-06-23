@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { distinctUntilChanged, startWith } from 'rxjs/operators';
+import { distinctUntilChanged, shareReplay, startWith } from 'rxjs/operators';
 
 export const SMALL_FORM_FACTOR = 'SFF';
 export const LARGE_FORM_FACTOR = 'LFF';
@@ -14,14 +14,18 @@ export class DeviceService {
 
   readonly device$ = this.deviceSizeChanged
     .asObservable()
-    .pipe(startWith(this.getDeviceSize()), distinctUntilChanged());
+    .pipe(
+      startWith(this.getDeviceSize()),
+      distinctUntilChanged(),
+      shareReplay(1),
+    );
 
   getDeviceSize(): string {
     return this.deviceSize || 'xs';
   }
 
   isSFF(): boolean {
-    return ['xs', 'sm'].includes(this.getDeviceSize());
+    return ['xs', 'sm', 'md'].includes(this.getDeviceSize());
   }
 
   getFormFactor() {

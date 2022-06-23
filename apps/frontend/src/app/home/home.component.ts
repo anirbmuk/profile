@@ -6,11 +6,17 @@ import {
   OnInit,
 } from '@angular/core';
 import { TrackingService } from '@frontend/components';
-import { fromEvent } from 'rxjs';
+import { combineLatest, fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
-import { DataService, ITag, Robots, SeoService } from './../shared/services';
+import {
+  DataService,
+  DeviceService,
+  ITag,
+  Robots,
+  SeoService,
+} from './../shared/services';
 
 @Component({
   selector: 'fe-home',
@@ -55,12 +61,25 @@ export class HomeComponent implements OnInit {
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
 
+  readonly biography$ = combineLatest([
+    this.device.device$.pipe(map(() => !this.device.isSFF())),
+    this.data.bio$,
+  ]).pipe(
+    map(([apply, [profile, techstack, career]]) => ({
+      apply,
+      profile,
+      techstack,
+      career,
+    })),
+  );
+
   constructor(
     readonly data: DataService,
     private readonly seo: SeoService,
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller,
     private readonly tracker: TrackingService,
+    private readonly device: DeviceService,
   ) {}
 
   ngOnInit(): void {
