@@ -7,7 +7,6 @@ enum metaTags {
   OG_URL = 'og:url',
   TWITTER_TITLE = 'twitter:title',
   OG_TITLE = 'og:title',
-  DESCRIPTION = 'description',
   TWITTER_DESCRIPTION = 'twitter:description',
   OG_DESCRIPTION = 'og:description',
   TWITTER_IMAGE = 'twitter:image',
@@ -39,12 +38,6 @@ interface ISupportedTag {
 const rootTitle = 'Anirban Mukherjee (anirbmuk)';
 
 const supportedTags: ISupportedTag[] = [
-  {
-    key: metaTags.DESCRIPTION,
-    value: 'description',
-    type: 'string',
-    metatag: 'name',
-  },
   {
     key: metaTags.TWITTER_TITLE,
     value: 'title',
