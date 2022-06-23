@@ -10,6 +10,7 @@
         [src]="source"
         [alt]="ariaLabel"
         (click)="onLinkClick(target)"
+        loading="lazy"
     /></a>
   </div>
   <div [class]="displayClass">
@@ -17,5 +18,5 @@
   </div>
 </ng-container>
 <ng-template #div>
-  <img [class]="iconClass" [src]="source" [alt]="ariaLabel" />
+  <img [class]="iconClass" [src]="source" [alt]="ariaLabel" loading="lazy" />
 </ng-template>
