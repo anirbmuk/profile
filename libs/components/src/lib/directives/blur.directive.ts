@@ -16,7 +16,6 @@ import {
 })
 export class BlurDirective implements OnInit, OnChanges, OnDestroy {
   @Input() set feBlur(apply: boolean) {
-    console.log('setter', apply);
     this._apply = apply;
   }
 

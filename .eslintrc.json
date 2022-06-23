@@ -7,7 +7,7 @@
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
-          "error",
+          "warn",
           {
             "enforceBuildableLibDependency": true,
             "allow": ["@frontend/connector-interfaces"],
@@ -18,7 +18,10 @@
               }
             ]
           }
-        ]
+        ],
+        "no-console": ["error", { "allow": ["error"] }],
+        "no-undef": "off",
+        "semi": ["error", "always"]
       }
     },
     {
