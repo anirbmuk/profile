@@ -1,0 +1,4 @@
+.profile-image {
+  background: url('/assets/images/seo.jpg') no-repeat center;
+  @apply h-50vh rounded bg-fixed bg-cover;
+}
