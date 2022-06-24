@@ -74,7 +74,8 @@ module.exports = {
       bold: 700,
     },
     fontFamily: {
-      sans: ['Noto Sans', 'sans-serif'],
+      sans: ['Noto Sans', 'sans-serif', 'monospace'],
+      material: ['Material Symbols Rounded', 'monospace'],
     },
     extend: {
       spacing: {
