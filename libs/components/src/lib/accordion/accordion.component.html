@@ -1,6 +1,8 @@
-<a class="p-0.5 cursor-pointer" (click)="toggle()">
+<a class="cursor-pointer" (click)="toggle()">
   <div class="flex justify-between items-center">
-    <ng-content select="[heading]"></ng-content>
+    <div class="py-2">
+      <ng-content select="[heading]"></ng-content>
+    </div>
     <div
       [ngClass]="{ block: expanded, hidden: !expanded }"
       aria-expanded="true"
