@@ -15,6 +15,7 @@ import {
 } from '@frontend/connector-interfaces';
 import { BehaviorSubject, forkJoin } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
+import { ImpressionSections } from '../types';
 import { RequestService } from './request.service';
 
 @Injectable({
@@ -59,11 +60,11 @@ export class DataService {
     switchMap(() => this.github$),
   );
 
-  readonly fetchCallback = (data: 'education' | 'github') => {
+  readonly fetchCallback = (data: ImpressionSections) => {
     this.fetchData(data);
   };
 
-  private fetchData(set: 'education' | 'github') {
+  private fetchData(set: ImpressionSections) {
     switch (set) {
       case 'education':
         this.edActionS.next(set);

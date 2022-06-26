@@ -4,6 +4,8 @@ export interface ImpressionEventParams extends BaseEventParams {
   section:
     | 'footer_section'
     | 'profile_section'
+    | 'profile_image_section'
+    | 'career_section'
     | 'techstack_section'
     | 'github_section'
     | 'education_section'
@@ -19,3 +21,5 @@ export interface ClickEventParams extends ImpressionEventParams {
 export interface ToggleEventParams extends ImpressionEventParams {
   state: boolean;
 }
+
+export type ImpressionSections = 'education' | 'github' | 'profile' | 'career';
