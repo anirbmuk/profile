@@ -1,4 +1,6 @@
-export interface IEducation {
+import { BaseDocument } from '../base';
+
+export interface IEducation extends BaseDocument {
   degree: string;
   startyear: number;
   endyear: number;

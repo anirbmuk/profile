@@ -1,4 +1,6 @@
-export interface ITimeline {
+import { BaseDocument } from '../base';
+
+export interface ITimeline extends BaseDocument {
   start: string;
   end?: string | undefined;
   provider?: string | undefined;

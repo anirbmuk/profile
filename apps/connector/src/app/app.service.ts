@@ -52,6 +52,9 @@ export class AppService {
   private async get<T>(path: string) {
     const items = await this.firebase.fetchCollection<T>({
       collections: [path],
+      whereClause: [
+        { column: 'visibility', operator: '==', condition: 'public' },
+      ],
     });
     return items;
   }
