@@ -9,8 +9,10 @@ export const LARGE_FORM_FACTOR = 'LFF';
   providedIn: 'root',
 })
 export class DeviceService {
-  private deviceSize?: string;
+  private deviceWidth?: string;
   private deviceSizeChanged = new Subject<string>();
+
+  private _orientation: 'portrait' | 'landscape' | undefined;
 
   readonly device$ = this.deviceSizeChanged
     .asObservable()
@@ -21,11 +23,15 @@ export class DeviceService {
     );
 
   getDeviceSize(): string {
-    return this.deviceSize || 'xs';
+    return this.deviceWidth || 'xs';
   }
 
   isSFF(): boolean {
     return ['xs', 'sm', 'md'].includes(this.getDeviceSize());
+  }
+
+  get orientation(): 'portrait' | 'landscape' | undefined {
+    return this._orientation;
   }
 
   getFormFactor() {
@@ -33,24 +39,30 @@ export class DeviceService {
   }
 
   setDeviceWidth(): void {
-    const deviceSize = window.innerWidth;
+    const deviceWidth = window.innerWidth;
+    const deviceHeight = window.innerHeight;
     let size: string;
-    if (deviceSize < 640) {
+    if (deviceWidth < 640) {
       size = 'xs';
-    } else if (deviceSize >= 640 && deviceSize < 768) {
+    } else if (deviceWidth >= 640 && deviceWidth < 768) {
       size = 'sm';
-    } else if (deviceSize >= 768 && deviceSize < 1024) {
+    } else if (deviceWidth >= 768 && deviceWidth < 1024) {
       size = 'md';
-    } else if (deviceSize >= 1024 && deviceSize < 1280) {
+    } else if (deviceWidth >= 1024 && deviceWidth < 1280) {
       size = 'lg';
     } else {
       size = 'xl';
     }
     this.setDeviceSize(size);
+    this.setOrientation(deviceWidth > deviceHeight ? 'landscape' : 'portrait');
     this.deviceSizeChanged.next(size);
   }
 
   private setDeviceSize(deviceSize: string): void {
-    this.deviceSize = deviceSize;
+    this.deviceWidth = deviceSize;
+  }
+
+  private setOrientation(orientation: 'portrait' | 'landscape'): void {
+    this._orientation = orientation;
   }
 }
