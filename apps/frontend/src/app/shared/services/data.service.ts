@@ -14,7 +14,7 @@ import {
   TECHSTACK,
 } from '@frontend/connector-interfaces';
 import { BehaviorSubject, forkJoin } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { ImpressionSections } from '../types';
 import { RequestService } from './request.service';
 
@@ -27,6 +27,20 @@ export class DataService {
   readonly github$ = this.request.get<IGitHub[]>(GITHUB);
   readonly career$ = this.request.get<ICareer[]>(CAREER);
   readonly education$ = this.request.get<IEducation[]>(EDUCATION);
+
+  private loaders: ('github' | 'education')[] = [];
+
+  private loading = new BehaviorSubject<{ source: ('github' | 'education')[] }>(
+    { source: [] },
+  );
+
+  readonly ghLoading$ = this.loading
+    .asObservable()
+    .pipe(map((value) => value.source?.includes('github')));
+
+  readonly edLoading$ = this.loading
+    .asObservable()
+    .pipe(map((value) => value.source?.includes('education')));
 
   readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
     map((about) => {
@@ -48,16 +62,21 @@ export class DataService {
 
   readonly educationData$ = this.edAction$.pipe(
     filter((value) => !!value),
+    tap(() => this.toggleLoading('show', 'education')),
     switchMap(() =>
       this.education$.pipe(
         map((data) => data?.sort((e1, e2) => e2.position - e1.position)),
+        tap(() => this.toggleLoading('hide', 'education')),
       ),
     ),
   );
 
   readonly githubData$ = this.ghAction$.pipe(
     filter((value) => !!value),
-    switchMap(() => this.github$),
+    tap(() => this.toggleLoading('show', 'github')),
+    switchMap(() =>
+      this.github$.pipe(tap(() => this.toggleLoading('hide', 'github'))),
+    ),
   );
 
   readonly fetchCallback = (data: ImpressionSections) => {
@@ -75,6 +94,19 @@ export class DataService {
       default:
         undefined;
     }
+  }
+
+  private toggleLoading(
+    action: 'show' | 'hide',
+    section: 'github' | 'education',
+  ) {
+    if (action === 'show') {
+      this.loaders = [...this.loaders, section];
+    } else {
+      const index = this.loaders.findIndex((each) => each === section);
+      index > -1 && this.loaders.splice(index, 1);
+    }
+    this.loading.next({ source: this.loaders });
   }
 
   constructor(private readonly request: RequestService) {}

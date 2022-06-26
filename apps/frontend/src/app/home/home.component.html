@@ -31,6 +31,9 @@
       [block]="data.githubData$ | async"
       [feTrackable]="[ghCallback, ghTrackingCallback]"
     ></fe-github>
+    <div *ngIf="data.ghLoading$ | async" class="lg:w-1/2 mx-auto">
+      <fe-skeleton></fe-skeleton>
+    </div>
   </div>
   <div>
     <fe-education
@@ -38,10 +41,13 @@
       [feTrackable]="[edCallback, edTrackingCallback]"
     >
     </fe-education>
+    <div *ngIf="data.edLoading$ | async" class="lg:w-1/2 mx-auto">
+      <fe-skeleton></fe-skeleton>
+    </div>
   </div>
 </div>
 <ng-template #loading>
-  <div class="container my-24 md:my-40 mx-auto xl:max-w-1/2">
+  <div class="container my-24 md:my-40 mx-auto lg:w-1/2">
     <fe-skeleton [count]="3"></fe-skeleton>
   </div>
 </ng-template>
