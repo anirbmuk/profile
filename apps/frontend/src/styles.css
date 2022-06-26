@@ -93,7 +93,7 @@ a.navlink {
 }
 
 li[fehover] {
-  @apply relative rounded p-2 m-1 z-1 cursor-pointer border border-gray-300;
+  @apply relative rounded p-2 m-0.5 z-1 cursor-pointer border border-gray-300;
 }
 
 @media screen and (min-width: 768px) and (hover: hover) {

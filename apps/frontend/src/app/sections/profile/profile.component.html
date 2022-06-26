@@ -22,13 +22,15 @@
             <span>{{ block?.location }}</span>
           </div>
           <div class="flex justify-center items-center space-x-4">
-            <ng-container *ngFor="let social of block?.social">
-              <fe-icon
-                [icon]="social.type"
-                [url]="social.url"
-                [size]="size$ | async"
-                (linkClick)="onLinkClickFromEmitter($event, 'external')"
-              ></fe-icon>
+            <ng-container *ngIf="size$ | async as size">
+              <ng-container *ngFor="let social of block?.social">
+                <fe-icon
+                  [icon]="social.type"
+                  [url]="social.url"
+                  [size]="size"
+                  (linkClick)="onLinkClickFromEmitter($event, 'external')"
+                ></fe-icon>
+              </ng-container>
             </ng-container>
           </div>
         </div>
