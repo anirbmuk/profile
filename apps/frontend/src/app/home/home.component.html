@@ -31,8 +31,8 @@
       [block]="data.githubData$ | async"
       [feTrackable]="[ghCallback, ghTrackingCallback]"
     ></fe-github>
-    <div *ngIf="data.ghLoading$ | async" class="lg:w-1/2 mx-auto">
-      <fe-skeleton></fe-skeleton>
+    <div *ngIf="data.ghLoading$ | async">
+      <ng-container [ngTemplateOutlet]="circularLoading"></ng-container>
     </div>
   </div>
   <div>
@@ -41,8 +41,8 @@
       [feTrackable]="[edCallback, edTrackingCallback]"
     >
     </fe-education>
-    <div *ngIf="data.edLoading$ | async" class="lg:w-1/2 mx-auto">
-      <fe-skeleton></fe-skeleton>
+    <div *ngIf="data.edLoading$ | async">
+      <ng-container [ngTemplateOutlet]="circularLoading"></ng-container>
     </div>
   </div>
 </div>
@@ -50,4 +50,11 @@
   <div class="container my-24 md:my-40 mx-auto lg:w-1/2">
     <fe-skeleton [count]="3"></fe-skeleton>
   </div>
+</ng-template>
+<ng-template #circularLoading>
+  <span
+    class="material-symbols-rounded animate-spin text-gray-400 text-3xl md:text-4xl lg:text-5xl"
+  >
+    cached
+  </span>
 </ng-template>

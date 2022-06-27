@@ -7,15 +7,13 @@
     >
       <ng-container *ngIf="timeline.alignment === 'left'">
         <div class="block relative -right-1/6 md:-right-1/5">
-          <div class="text-md text-gray-700">
+          <div class="text-sm text-gray-700">
             {{ timeline.start }} - {{ timeline.end || 'present' }}
           </div>
-          <div class="text-sm md:text">
+          <div class="text-black-dark text-sm md:text">
             <span>{{ timeline.designation }}</span
             >,
-            <span class="text-black-dark font-semiBold">{{
-              timeline.provider
-            }}</span>
+            <span class="font-semiBold">{{ timeline.provider }}</span>
           </div>
           <div class="text-sm text-gray-700">{{ timeline.location }}</div>
           <div
@@ -50,15 +48,13 @@
     >
       <ng-container *ngIf="timeline.alignment === 'right'">
         <div class="block relative -left-1/6 md:-left-1/5">
-          <div class="text-md text-gray-700">
+          <div class="text-sm text-gray-700">
             {{ timeline.start }} - {{ timeline.end }}
           </div>
-          <div class="text-sm md:text">
+          <div class="text-black-dark text-sm md:text">
             <span>{{ timeline.designation }}</span
             >,
-            <span class="text-black-dark font-semiBold">{{
-              timeline.provider
-            }}</span>
+            <span class="font-semiBold">{{ timeline.provider }}</span>
           </div>
           <div class="text-sm text-gray-700">{{ timeline.location }}</div>
           <div
