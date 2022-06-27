@@ -75,7 +75,10 @@ export class DataService {
     filter((value) => !!value),
     tap(() => this.toggleLoading('show', 'github')),
     switchMap(() =>
-      this.github$.pipe(tap(() => this.toggleLoading('hide', 'github'))),
+      this.github$.pipe(
+        map((data) => data?.sort((g1, g2) => g1.position - g2.position)),
+        tap(() => this.toggleLoading('hide', 'github')),
+      ),
     ),
   );
 

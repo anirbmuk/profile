@@ -13,8 +13,7 @@ export class GithubComponent {
   _repositories: IGitHub[] = [];
 
   @Input() set block(block: IGitHub[] | null) {
-    this._repositories =
-      block?.sort((r1, r2) => r1.position - r2.position) || [];
+    this._repositories = [...(block || [])];
   }
 
   constructor(private readonly tracker: TrackingService) {}
