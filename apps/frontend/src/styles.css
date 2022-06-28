@@ -7,9 +7,6 @@
   html {
     scroll-behavior: smooth;
   }
-  body {
-    /* @apply bg-gradient-to-t to-gradient-start from-gradient-end !text-md; */
-  }
   h1 {
     @apply text-4xl md:text-6xl;
   }
@@ -54,6 +51,7 @@ mark {
     rgba(var(--blue-raw), 0.9) 75%
   );
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -68,6 +66,7 @@ mark {
     #34a853 82% 100%
   );
   color: transparent;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

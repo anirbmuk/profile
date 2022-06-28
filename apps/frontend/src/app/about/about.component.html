@@ -5,7 +5,7 @@
   >
     <p
       *ngFor="let content of aboutme"
-      class="py-4 md:py-6 px-4"
+      class="py-4 md:py-5 px-4"
       [innerHtml]="sanitizer.sanitizeHtml(content?.description || '')"
       (click)="onLinkClick($event, 'external')"
     ></p>

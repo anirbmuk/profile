@@ -1,9 +1,9 @@
 *,
 ::before,
 ::after {
-  --black: rgba(18, 18, 18, 0.92);
-  --black-light: rgba(18, 18, 18, 0.75);
-  --black-dark: rgb(18, 18, 18);
+  --black: rgba(0, 0, 0, 0.9);
+  --black-light: rgba(0, 0, 0, 0.75);
+  --black-dark: rgb(0, 0, 0);
   --red: rgb(220, 20, 49);
   --red-raw: 220, 20, 49;
   --red-light: rgba(220, 20, 49, 0.75);
