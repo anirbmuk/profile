@@ -1,0 +1,5 @@
+@media (prefers-color-scheme: dark) {
+  div[skeletonitem] {
+    @apply !bg-transparent !border-2;
+  }
+}

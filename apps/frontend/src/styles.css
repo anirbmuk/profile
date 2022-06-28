@@ -112,3 +112,27 @@ li[fehover] {
     @apply scale-x-100 origin-left;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .text-black-dark,
+  .text-gray-500,
+  .text-gray-600,
+  .text-gray-700,
+  .text-gray-900 {
+    @apply text-white;
+  }
+
+  header,
+  footer {
+    @apply border-none;
+  }
+
+  header > *,
+  footer > * {
+    background-color: #121212 !important;
+  }
+
+  div[ratingcontainer] {
+    @apply hidden;
+  }
+}

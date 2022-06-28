@@ -7,3 +7,18 @@ li {
     @apply bg-gray-50 ease-in scale-105;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  li {
+    @apply bg-transparent;
+  }
+
+  li:hover {
+    @apply bg-gray-50 ease-in scale-105 !text-black-light;
+  }
+
+  li:hover .text-gray-500,
+  li:hover .text-gray-900 {
+    @apply !text-black;
+  }
+}
