@@ -7,6 +7,7 @@
 :heavy_check_mark: Progressive web application (PWA) enabled  
 :heavy_check_mark: Angular universal (SSR) enabled  
 :heavy_check_mark: Google analytics  
+:heavy_check_mark: Dark mode support  
 
 ## Technical mumbo-jumbo  
 What I wanted   | What I got  
