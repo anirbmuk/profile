@@ -146,6 +146,9 @@ module.exports = {
           light: 'var(--black-light)',
           dark: 'var(--black-dark)',
         },
+        'black-alt': {
+          DEFAULT: 'var(--black-alt)',
+        },
         red: {
           DEFAULT: 'var(--red)',
           light: 'var(--red-light)',
