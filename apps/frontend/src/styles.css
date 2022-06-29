@@ -132,7 +132,7 @@ li[fehover] {
     background-color: #121212 !important;
   }
 
-  div[ratingcontainer] {
+  [ratingcontainer] {
     @apply hidden;
   }
 }

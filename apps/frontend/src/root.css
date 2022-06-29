@@ -1,7 +1,6 @@
 *,
 ::before,
 ::after {
-  color-scheme: dark light;
   --black: rgba(0, 0, 0, 0.9);
   --black-light: rgba(0, 0, 0, 0.75);
   --black-dark: rgb(0, 0, 0);
