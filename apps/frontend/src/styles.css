@@ -79,6 +79,22 @@ a.navlink {
   @apply no-underline relative;
 }
 
+abbr {
+  @apply !no-underline cursor-help;
+  border-bottom: 1px dashed #adadad;
+}
+
+@media screen and (max-width: 1023px) and (hover: none) {
+  abbr {
+    @apply !no-underline;
+    border-bottom: 1px dashed #adadad;
+  }
+
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+}
+
 @media screen and (min-width: 768px) and (hover: hover) {
   a.navlink::after {
     @apply absolute left-0 bottom-0 w-full h-[1px] bg-current origin-right scale-x-0;
