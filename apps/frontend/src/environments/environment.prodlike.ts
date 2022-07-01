@@ -6,7 +6,7 @@ export const environment = {
     verified: false,
     id: null,
   },
-  gtmId: null,
+  gtmId: 'N9N6VPW',
   title: 'Senior Frontend Developer | Professional Bio',
   about:
     'Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio',

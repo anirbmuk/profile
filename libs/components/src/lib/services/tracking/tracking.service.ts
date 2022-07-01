@@ -100,10 +100,6 @@ export class TrackingService {
     this.track({ event: 'externalclick' }, metaData);
   }
 
-  uiToggleEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'toggle' }, metaData);
-  }
-
   get pageTitle(): string {
     return this.title.getTitle();
   }

@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TrackingService } from '@frontend/components';
 import { IGitHub } from '@frontend/connector-interfaces';
-import { ToggleEventParams } from '../../shared/types';
 
 @Component({
   selector: 'fe-github',
@@ -14,19 +12,6 @@ export class GithubComponent {
 
   @Input() set block(block: IGitHub[] | null) {
     this._repositories = [...(block || [])];
-  }
-
-  constructor(private readonly tracker: TrackingService) {}
-
-  trackToggleState(state: boolean, type: 'external') {
-    const metadata: ToggleEventParams = {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'github_section',
-      state,
-    };
-    type === 'external' && this.tracker.uiToggleEvent({ ...metadata });
   }
 
   trackByKeyFn(_: number, data: IGitHub) {

@@ -1,6 +1,6 @@
 <section class="space-y-8">
   <div>
-    <fe-accordion (toggleState)="trackToggleState($event, 'external')">
+    <fe-accordion>
       <h3 class="md:heading gradient-text" heading>Education</h3>
       <ul class="md:grid md:grid-cols-2 2xl:grid-cols-3 md:gap-3">
         <li *ngFor="let education of block; trackBy: trackByKeyFn">

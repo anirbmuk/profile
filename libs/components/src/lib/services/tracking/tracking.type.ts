@@ -1,7 +1,6 @@
 export type TrackingEvents =
   | 'pageview'
   | 'impression'
-  | 'toggle'
   | 'internalclick'
   | 'externalclick';
 
