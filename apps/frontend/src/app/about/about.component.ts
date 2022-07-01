@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SanitizerService, TrackingService } from '@frontend/components';
+import { IAboutme } from '@frontend/connector-interfaces';
 import { environment } from '../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from '../shared/services';
 import { ClickEventParams } from '../shared/types';
@@ -35,6 +36,10 @@ export class AboutComponent implements OnInit {
       pageType: 'about',
       pageUrl: this.tracker.pageUrl,
     });
+  }
+
+  trackByKeyFn(_: number, data: IAboutme) {
+    return data.documentid;
   }
 
   onLinkClick(event: Event, type: 'external') {

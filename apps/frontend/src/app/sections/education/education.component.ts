@@ -24,4 +24,8 @@ export class EducationComponent {
     };
     type === 'external' && this.tracker.uiToggleEvent({ ...metadata });
   }
+
+  trackByKeyFn(_: number, data: IEducation) {
+    return data.documentid;
+  }
 }

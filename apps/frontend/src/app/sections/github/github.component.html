@@ -2,7 +2,7 @@
   <fe-accordion (toggleState)="trackToggleState($event, 'external')">
     <h3 class="md:heading gradient-text" heading>Popular Repositories</h3>
     <div class="md:grid md:grid-cols-2 2xl:grid-cols-3 md:gap-3">
-      <ng-container *ngFor="let repo of _repositories">
+      <ng-container *ngFor="let repo of _repositories; trackBy: trackByKeyFn">
         <fe-preview [repo]="repo"></fe-preview>
       </ng-container>
     </div>

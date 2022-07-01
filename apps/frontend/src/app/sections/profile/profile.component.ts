@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SanitizerService, TrackingService } from '@frontend/components';
-import { IProfile } from '@frontend/connector-interfaces';
+import { IBlog, IProfile, ISocial } from '@frontend/connector-interfaces';
 import { map } from 'rxjs/operators';
 import { DeviceService } from '../../shared/services';
 import { ClickEventParams } from '../../shared/types';
@@ -60,5 +60,17 @@ export class ProfileComponent {
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });
     }
+  }
+
+  trackBySocialFn(_: number, data: ISocial) {
+    return data.icon;
+  }
+
+  trackByIndexFn(index: number) {
+    return index;
+  }
+
+  trackByBlogFn(_: number, data: IBlog) {
+    return data.url;
   }
 }

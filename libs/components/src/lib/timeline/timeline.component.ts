@@ -49,4 +49,8 @@ export class TimelineComponent<T extends ITimeline> {
     const yyyy = date.getFullYear();
     return `${mm}/${yyyy}`;
   }
+
+  trackByTimelineFn(_: number, data: T) {
+    return `${data.provider}_${data.start}`;
+  }
 }

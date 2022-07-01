@@ -29,7 +29,9 @@
           </div>
           <div class="flex justify-center items-center space-x-4">
             <ng-container *ngIf="size$ | async as size">
-              <ng-container *ngFor="let social of block?.social">
+              <ng-container
+                *ngFor="let social of block?.social; trackBy: trackBySocialFn"
+              >
                 <fe-icon
                   [icon]="social.type"
                   [url]="social.url"
@@ -46,7 +48,7 @@
   <article class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-8 drop-shadow-md">
     <fe-block [style]="'inverted'">
       <div class="space-y-4 md:space-y-2 text-md md:text">
-        <ng-container *ngFor="let bio of block?.bio">
+        <ng-container *ngFor="let bio of block?.bio; trackBy: trackByIndexFn">
           <div class="md:flex md:space-x-3">
             <div class="hidden md:block material-symbols-rounded md:mt-0.5">
               bookmark
@@ -60,7 +62,7 @@
         </ng-container>
       </div>
       <div class="mx-auto flex justify-between items-center mt-4">
-        <div *ngFor="let blog of block?.blog">
+        <div *ngFor="let blog of block?.blog; trackBy: trackByBlogFn">
           <fe-icon
             [icon]="blog.icon"
             [url]="blog.url"

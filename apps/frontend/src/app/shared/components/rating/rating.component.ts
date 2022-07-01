@@ -23,4 +23,8 @@ export class RatingComponent {
     this._hasHalf = Math.ceil(this._rating) !== this._rating;
     this._remaining = this._maxRating - Math.ceil(this._rating);
   }
+
+  trackByIndex(index: number) {
+    return index;
+  }
 }

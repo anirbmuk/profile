@@ -28,4 +28,8 @@ export class GithubComponent {
     };
     type === 'external' && this.tracker.uiToggleEvent({ ...metadata });
   }
+
+  trackByKeyFn(_: number, data: IGitHub) {
+    return data.documentid;
+  }
 }

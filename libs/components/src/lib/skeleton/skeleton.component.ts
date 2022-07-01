@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class SkeletonComponent {
   @Input() count = 1;
+
+  trackByIndex(index: number) {
+    return index;
+  }
 }

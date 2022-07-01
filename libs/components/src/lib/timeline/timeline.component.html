@@ -1,4 +1,10 @@
-<ng-container *ngFor="let timeline of _mappedTimelines; let idx = index">
+<ng-container
+  *ngFor="
+    let timeline of _mappedTimelines;
+    let idx = index;
+    trackBy: trackByTimelineFn
+  "
+>
   <div class="grid grid-cols-5 gap-3 md:gap-0">
     <div
       class="col-span-2 flex justify-end items-start pt-2 lg:hover:-translate-x-2 ease-in duration-300 text-right"

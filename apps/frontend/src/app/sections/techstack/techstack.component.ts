@@ -32,4 +32,30 @@ export class TechstackComponent {
     };
     type === 'external' && this.tracker.uiToggleEvent({ ...metadata });
   }
+
+  trackByTechnologyFn(
+    _: number,
+    data: {
+      name: string;
+      rating: number;
+      position: number;
+      icon?: string;
+      url?: string | undefined;
+    },
+  ) {
+    return data.name;
+  }
+
+  trackByDatabaseFn(
+    _: number,
+    data: {
+      name: string;
+      rating: number;
+      position: number;
+      icon?: string;
+      url?: string | undefined;
+    },
+  ) {
+    return data.name;
+  }
 }

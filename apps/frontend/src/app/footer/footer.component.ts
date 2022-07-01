@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TrackingService } from '@frontend/components';
-import { IFooterBlock } from '@frontend/connector-interfaces';
+import { IFooterBlock, ILink } from '@frontend/connector-interfaces';
 import { ClickEventParams } from '../shared/types';
 
 @Component({
@@ -27,5 +27,9 @@ export class FooterComponent {
     type === 'internal'
       ? this.tracker.internalClickEvent({ ...metadata })
       : this.tracker.externalClickEvent({ ...metadata });
+  }
+
+  trackByKeyFn(_: number, data: ILink) {
+    return data.text;
   }
 }

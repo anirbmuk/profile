@@ -2,7 +2,10 @@
   <fe-accordion (toggleState)="trackToggleState($event, 'external')">
     <h3 class="md:heading gradient-text" heading>Technologies</h3>
     <ul class="grid grid-cols-2 gap-0 md:grid-cols-4 2xl:grid-cols-5 md:gap-2">
-      <li *ngFor="let tech of technologies" fehover>
+      <li
+        *ngFor="let tech of technologies; trackBy: trackByTechnologyFn"
+        fehover
+      >
         <a
           [href]="tech.url"
           rel="nofollow"
@@ -30,7 +33,7 @@
           </div>
         </ng-template>
       </li>
-      <li *ngFor="let db of databases" fehover>
+      <li *ngFor="let db of databases; trackBy: trackByDatabaseFn" fehover>
         <a
           [href]="db.url"
           rel="nofollow"
