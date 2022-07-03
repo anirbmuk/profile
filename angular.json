@@ -22,7 +22,8 @@
               "libs/components/src/**/*.ts",
               "libs/components/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -117,7 +118,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/connector/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -138,7 +140,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/connector-interfaces/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -151,7 +154,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/connector-lib/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -278,7 +282,8 @@
               "apps/frontend/src/**/*.ts",
               "apps/frontend/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -371,7 +376,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     }

@@ -5,5 +5,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "html.format.enable": false
+  "html.format.enable": true,
+  "files.eol": "\n"
 }
