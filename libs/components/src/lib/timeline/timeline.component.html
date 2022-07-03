@@ -7,7 +7,17 @@
 >
   <div class="grid grid-cols-5 gap-3 md:gap-0">
     <div
-      class="col-span-2 flex justify-end items-start pt-2 lg:hover:-translate-x-2 ease-in duration-300 text-right"
+      class="
+        col-span-2
+        flex
+        justify-end
+        items-start
+        pt-2
+        lg:hover:-translate-x-2
+        ease-in
+        duration-300
+        text-right
+      "
       [class]="timeline.size ?? 'h-24'"
       #left
     >
@@ -22,7 +32,12 @@
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
             *ngIf="timeline.description"
-            class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit !leading-4"
+            class="
+              text-sm text-gray-900
+              hidden
+              md:block md:mt-2 md:max-w-fit
+              !leading-4
+            "
           >
             {{ timeline.description }}
           </div>
@@ -30,7 +45,19 @@
       </ng-container>
     </div>
     <div
-      class="mx-auto w-4 bg-gray-400 border-2 border-gray-400 lg:hover:bg-black-alt lg:hover:border-black-alt flex justify-center items-center cursor-pointer ease-in duration-300"
+      class="
+        mx-auto
+        w-4
+        bg-gray-400
+        border-2 border-gray-400
+        lg:hover:bg-black-alt lg:hover:border-black-alt
+        flex
+        justify-center
+        items-center
+        cursor-pointer
+        ease-in
+        duration-300
+      "
       [class]="timeline.size ?? 'h-24'"
       [ngClass]="{
         'rounded-t-sm': idx === 0,
@@ -46,7 +73,16 @@
       #middle
     ></div>
     <div
-      class="col-span-2 flex justify-start items-start pt-1 lg:hover:translate-x-2 ease-in duration-300"
+      class="
+        col-span-2
+        flex
+        justify-start
+        items-start
+        pt-1
+        lg:hover:translate-x-2
+        ease-in
+        duration-300
+      "
       [class]="timeline.size ?? 'h-24'"
       #right
     >
@@ -61,7 +97,12 @@
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
             *ngIf="timeline.description"
-            class="text-sm text-gray-900 hidden md:block md:mt-2 md:max-w-fit !leading-4"
+            class="
+              text-sm text-gray-900
+              hidden
+              md:block md:mt-2 md:max-w-fit
+              !leading-4
+            "
           >
             {{ timeline.description }}
           </div>
