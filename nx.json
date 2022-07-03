@@ -38,5 +38,17 @@
       "tags": [],
       "implicitDependencies": ["frontend"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build:prodlike",
+        "projects": "dependencies"
+      },
+      {
+        "target": "build:prod",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
