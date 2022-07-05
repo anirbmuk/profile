@@ -11,9 +11,9 @@ export const environment = {
     id: null,
   },
   gtmId: null,
-  title: 'Senior Frontend Developer',
+  title: 'Anirban Mukherjee (anirbmuk) | Senior Frontend Developer',
   about:
-    'I am Anirban Mukherjee, a Senior Frontend Developer at ABOUT YOU, Hamburg (Germany). I am active on twitter, LinkedIn and active blogger on dev.to as anirbmuk.',
+    'I am Anirban Mukherjee, a Senior Frontend Developer at ABOUT YOU, currently in Hamburg, Germany. Love to work on angular and anything angular-y!',
 };
 
 /*

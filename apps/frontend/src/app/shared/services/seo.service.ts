@@ -151,8 +151,8 @@ export class SeoService {
     }
   }
 
-  setTitle(title?: string): void {
-    this.title.setTitle(title ? `${rootTitle} | ${title}` : rootTitle);
+  setTitle(title = rootTitle): void {
+    this.title.setTitle(title);
   }
 
   setCanonical(path?: string): void {

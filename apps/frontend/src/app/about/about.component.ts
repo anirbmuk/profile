@@ -22,14 +22,15 @@ export class AboutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const title = 'Anirban Mukherjee (anirbmuk) | All about me';
     this.seo.setMetaTags({
       url: '/about',
-      title: 'Anirban Mukherjee | All about me',
+      title,
       description: environment.about,
       robots: `${Robots.INDEX},${Robots.FOLLOW}`,
       image: '/assets/images/seo.jpg',
     } as ITag);
-    this.seo.setTitle('All about me');
+    this.seo.setTitle(title);
     this.seo.setCanonical('/about');
     this.tracker.trackPageViewEvent({
       pageTitle: this.seo.pageTitle,

@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.seo.setMetaTags({
       url: '/',
-      title: environment.about,
+      title: environment.title,
       description: environment.about,
       robots: `${Robots.INDEX},${Robots.FOLLOW}`,
       image: '/assets/images/seo.jpg',
