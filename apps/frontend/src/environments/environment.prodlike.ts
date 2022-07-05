@@ -7,7 +7,7 @@ export const environment = {
     id: null,
   },
   gtmId: 'N9N6VPW',
-  title: 'Senior Frontend Developer | Professional Bio',
+  title: 'Senior Frontend Developer',
   about:
-    'Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio',
+    'I am Anirban Mukherjee, a Senior Frontend Developer at ABOUT YOU, Hamburg (Germany). I am active on twitter, LinkedIn and active blogger on dev.to as anirbmuk.',
 };
