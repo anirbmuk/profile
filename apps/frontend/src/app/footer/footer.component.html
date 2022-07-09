@@ -8,9 +8,11 @@
           >
         </ng-container>
       </div>
-      <span publish-date
+      <span
         >&copy; {{ block?.copyright }},
-        <time [dateTime]="block?.publishdate">{{ year }}</time></span
+        <time [dateTime]="block?.publishdate" publish-date>{{
+          year
+        }}</time></span
       >
     </div>
   </div>
