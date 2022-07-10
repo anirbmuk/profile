@@ -16,6 +16,7 @@ import {
 } from '@frontend/connector-interfaces';
 import { FirebaseService } from '@frontend/connector-lib';
 import { Injectable } from '@nestjs/common';
+import { BadRequestException, GenericException } from './exception';
 
 @Injectable()
 export class AppService {
@@ -50,12 +51,20 @@ export class AppService {
   }
 
   private async get<T>(path: string) {
-    const items = await this.firebase.fetchCollection<T>({
-      collections: [path],
-      whereClause: [
-        { column: 'visibility', operator: '==', condition: 'public' },
-      ],
-    });
-    return items;
+    if (!path) {
+      throw new BadRequestException('Firestore collection is empty');
+    }
+    let items = [] as T[];
+    try {
+      items = await this.firebase.fetchCollection<T>({
+        collections: [path],
+        whereClause: [
+          { column: 'visibility', operator: '==', condition: 'public' },
+        ],
+      });
+      return items;
+    } catch {
+      throw new GenericException();
+    }
   }
 }
