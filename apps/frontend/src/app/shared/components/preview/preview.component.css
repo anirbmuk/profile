@@ -1,5 +1,5 @@
 .preview-container {
-  @apply cursor-pointer border border-gray-300 p-4 mb-2.5 md:m-0.5 rounded ease-out duration-300;
+  @apply cursor-pointer border border-gray-300 p-4 mb-2.5 md:m-0.5 rounded ease-out duration-300 h-[8rem];
 }
 
 @media screen and (min-width: 768px) and (hover: hover) {
