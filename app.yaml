@@ -16,6 +16,8 @@ handlers:
   - url: /robots.txt
     static_files: robots.txt
     upload: robots.txt
+  - url: /favicon.ico
+    static_files: /assets/static/favicon.ico
   - url: /.*
     script: auto
     secure: always
