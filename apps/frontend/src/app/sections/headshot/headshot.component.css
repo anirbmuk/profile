@@ -4,15 +4,21 @@
 
 .centered {
   @apply absolute top-1/2 md:top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-max ease-in-out duration-200;
-  animation: fade-in 2500ms forwards;
+  animation: fade-in 1000ms forwards;
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+  25% {
+    opacity: 0.25;
+  }
   50% {
     opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
   }
   100% {
     opacity: 1;
