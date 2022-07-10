@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /notfound
 Disallow: /error
+Sitemap: https://anirbmuk.appspot.com/sitemap.xml
