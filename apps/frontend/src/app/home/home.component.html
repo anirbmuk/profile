@@ -20,9 +20,9 @@
       [feTrackable]="[caTrackingCallback]"
     ></fe-career>
   </div>
-  <div>
+  <div *ngIf="data.techstack$ | async as techstack">
     <fe-techstack
-      [block]="bio?.techstack?.[0]"
+      [block]="techstack?.[0]"
       [feTrackable]="[tsCallback]"
     ></fe-techstack>
   </div>

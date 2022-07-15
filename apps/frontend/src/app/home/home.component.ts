@@ -85,10 +85,9 @@ export class HomeComponent implements OnInit {
     this.device.device$.pipe(map(() => !this.device.isSFF())),
     this.data.bio$,
   ]).pipe(
-    map(([apply, [profile, techstack, career]]) => ({
+    map(([apply, [profile, career]]) => ({
       apply,
       profile,
-      techstack,
       career,
     })),
   );

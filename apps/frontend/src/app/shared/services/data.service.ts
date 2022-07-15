@@ -48,9 +48,8 @@ export class DataService {
     }),
   );
 
-  readonly bio$ = forkJoin<[IProfile], [ITechstack], ICareer[]>([
+  readonly bio$ = forkJoin<[IProfile], ICareer[]>([
     this.profile$,
-    this.techstack$,
     this.career$,
   ]);
 
