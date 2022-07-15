@@ -1,3 +1,6 @@
+## v.1.5.0
+UI improvements, horizontal snap scroll on github section, performance improvements    
+
 ## v1.4.0
 SEO improvements, workspace upgrade  
 
