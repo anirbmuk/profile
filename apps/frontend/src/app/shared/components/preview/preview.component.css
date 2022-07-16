@@ -13,7 +13,9 @@
     @apply bg-transparent;
   }
 
-  .preview-container:hover {
-    @apply bg-transparent ease-in scale-105;
+  @media screen and (min-width: 768px) and (hover: hover) {
+    .preview-container:hover {
+      @apply bg-transparent ease-in scale-105;
+    }
   }
 }
