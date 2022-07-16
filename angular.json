@@ -197,8 +197,7 @@
               "firebase/app",
               "firebase/firestore"
             ],
-            "serviceWorker": true,
-            "ngswConfigPath": "apps/frontend/ngsw-config.json"
+            "serviceWorker": false
           },
           "configurations": {
             "prodlike": {
@@ -220,7 +219,23 @@
                   "with": "apps/frontend/src/environments/environment.prodlike.ts"
                 }
               ],
-              "outputHashing": "media"
+              "outputHashing": "media",
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/frontend/ngsw-config.json",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "aot": true,
+              "optimization": {
+                "fonts": {
+                  "inline": true
+                },
+                "styles": {
+                  "inlineCritical": true
+                }
+              }
             },
             "production": {
               "budgets": [
@@ -241,7 +256,23 @@
                   "with": "apps/frontend/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "media"
+              "outputHashing": "media",
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/frontend/ngsw-config.json",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "aot": true,
+              "optimization": {
+                "fonts": {
+                  "inline": true
+                },
+                "styles": {
+                  "inlineCritical": true
+                }
+              }
             },
             "development": {
               "buildOptimizer": false,
