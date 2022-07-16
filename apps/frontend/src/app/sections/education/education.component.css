@@ -13,7 +13,9 @@ li {
     @apply bg-transparent;
   }
 
-  li:hover {
-    @apply bg-transparent ease-in scale-105;
+  @media screen and (min-width: 768px) and (hover: hover) {
+    li:hover {
+      @apply bg-transparent ease-in scale-105;
+    }
   }
 }
