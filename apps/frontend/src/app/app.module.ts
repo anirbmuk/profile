@@ -2,6 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import {
   AccordionModule,
   BlockModule,
@@ -20,7 +21,7 @@ import { AppComponent } from './app.component';
 import { ErrorComponent, ErrorResolver } from './error';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent, HomePageResolver } from './home';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CareerComponent } from './sections/career/career.component';
 import { EducationComponent } from './sections/education/education.component';
@@ -30,13 +31,15 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
 import { RequestInterceptor } from './shared/services';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
+    resolve: {
+      homepagedata: HomePageResolver,
+    },
   },
   {
     path: 'about',
