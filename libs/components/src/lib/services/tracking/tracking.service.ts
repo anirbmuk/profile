@@ -70,6 +70,7 @@ export class TrackingService {
     })(window,document,'script','dataLayer','GTM-${this.gtmId}');`;
       const script: HTMLScriptElement = renderer.createElement('script');
       script.text = headScript;
+      script.defer = true;
       renderer.appendChild(this.document.head, script);
     }
   }

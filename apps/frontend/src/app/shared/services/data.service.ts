@@ -24,9 +24,13 @@ import { RequestService } from './request.service';
 export class DataService {
   readonly profile$ = this.request.get<[IProfile]>(PROFILE);
   readonly techstack$ = this.request.get<[ITechstack]>(TECHSTACK);
-  readonly github$ = this.request.get<IGitHub[]>(GITHUB);
+  readonly github$ = this.request
+    .get<IGitHub[]>(GITHUB)
+    .pipe(map((data) => data?.sort((g1, g2) => g1.position - g2.position)));
   readonly career$ = this.request.get<ICareer[]>(CAREER);
-  readonly education$ = this.request.get<IEducation[]>(EDUCATION);
+  readonly education$ = this.request
+    .get<IEducation[]>(EDUCATION)
+    .pipe(map((data) => data?.sort((e1, e2) => e2.position - e1.position)));
 
   private loaders: ('github' | 'education')[] = [];
 
