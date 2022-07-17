@@ -8,12 +8,6 @@
   <div>
     <fe-profile [block]="bio.profile?.[0]"></fe-profile>
   </div>
-  <div
-    role="img"
-    class="profile-image"
-    aria-label="profile image"
-    [feTrackable]="[prTrackingCallback]"
-  ></div>
   <div>
     <fe-career
       [block]="bio.career"
@@ -23,44 +17,25 @@
   <div *ngIf="data.techstack$ | async as techstack">
     <fe-techstack
       [block]="techstack?.[0]"
-      [feTrackable]="[tsCallback]"
+      [feTrackable]="[tsTrackingCallback]"
     ></fe-techstack>
   </div>
   <div>
     <fe-github
-      [block]="data.githubData$ | async"
-      [feTrackable]="[ghCallback, ghTrackingCallback]"
+      [block]="data.github$ | async"
+      [feTrackable]="[ghTrackingCallback]"
     ></fe-github>
-    <div *ngIf="data.ghLoading$ | async">
-      <ng-container [ngTemplateOutlet]="circularLoading"></ng-container>
-    </div>
   </div>
   <div>
     <fe-education
-      [block]="data.educationData$ | async"
-      [feTrackable]="[edCallback, edTrackingCallback]"
+      [block]="data.education$ | async"
+      [feTrackable]="[edTrackingCallback]"
     >
     </fe-education>
-    <div *ngIf="data.edLoading$ | async">
-      <ng-container [ngTemplateOutlet]="circularLoading"></ng-container>
-    </div>
   </div>
 </div>
 <ng-template #loading>
   <div class="container my-24 md:my-40 mx-auto lg:w-1/2">
     <fe-skeleton [count]="3"></fe-skeleton>
   </div>
-</ng-template>
-<ng-template #circularLoading>
-  <span
-    class="
-      material-symbols-rounded
-      animate-spin
-      text-gray-400 text-3xl
-      md:text-4xl
-      lg:text-5xl
-    "
-  >
-    cached
-  </span>
 </ng-template>
