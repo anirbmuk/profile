@@ -1,3 +1,6 @@
+## v.1.6.0
+Route resolver to pre-fetch data, removed headshot image to fix TTI      
+
 ## v.1.5.0
 UI improvements, horizontal snap scroll on github section, performance improvements    
 
