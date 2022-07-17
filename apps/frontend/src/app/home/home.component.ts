@@ -5,18 +5,14 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TrackingService } from '@frontend/components';
-import { combineLatest, fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
-import {
-  DataService,
-  DeviceService,
-  ITag,
-  Robots,
-  SeoService,
-} from './../shared/services';
+import { DataService, ITag, Robots, SeoService } from './../shared/services';
+import { IHomePageData } from './home.type';
 
 @Component({
   selector: 'fe-home',
@@ -26,12 +22,15 @@ import {
 })
 export class HomeComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  readonly tsCallback = this.tracker.trackImpressionEvent.bind(this.tracker, {
-    pageTitle: this.tracker.pageTitle,
-    pageType: 'home',
-    pageUrl: this.tracker.pageUrl,
-    section: 'techstack_section',
-  } as ImpressionEventParams);
+  readonly tsTrackingCallback = this.tracker.trackImpressionEvent.bind(
+    this.tracker,
+    {
+      pageTitle: this.tracker.pageTitle,
+      pageType: 'home',
+      pageUrl: this.tracker.pageUrl,
+      section: 'techstack_section',
+    } as ImpressionEventParams,
+  );
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly ghCallback = this.data.fetchCallback.bind(this.data, 'github');
@@ -81,15 +80,8 @@ export class HomeComponent implements OnInit {
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
 
-  readonly biography$ = combineLatest([
-    this.device.device$.pipe(map(() => !this.device.isSFF())),
-    this.data.bio$,
-  ]).pipe(
-    map(([apply, [profile, career]]) => ({
-      apply,
-      profile,
-      career,
-    })),
+  readonly biography$ = this.route.data.pipe(
+    map((data) => data.homepagedata as IHomePageData),
   );
 
   constructor(
@@ -98,7 +90,7 @@ export class HomeComponent implements OnInit {
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller,
     private readonly tracker: TrackingService,
-    private readonly device: DeviceService,
+    private readonly route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
