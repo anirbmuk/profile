@@ -89,8 +89,12 @@ export class TrackingService {
     this.track({ event: 'pageview' }, metaData);
   }
 
-  trackImpressionEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'impression' }, metaData);
+  trackImpressionCollectionEvent<T extends BaseEventParams>(metaData: T) {
+    this.track({ event: 'view_list' }, metaData);
+  }
+
+  trackImpressionItemEvent<T extends BaseEventParams>(metaData: T) {
+    this.track({ event: 'view_list_item' }, metaData);
   }
 
   internalClickEvent<T extends BaseEventParams>(metaData: T) {

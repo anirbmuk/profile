@@ -11,7 +11,11 @@
   <ng-container [ngTemplateOutlet]="main"></ng-container>
 </ng-template>
 <ng-template #main>
-  <div *ngIf="repo?.value" class="preview-container">
+  <div
+    *ngIf="repo?.value"
+    class="preview-container"
+    [feTrackable]="[ghItemTrackingCallback(repo?.value)]"
+  >
     <div class="space-y-1 items-center">
       <div class="flex space-x-2 items-center">
         <fe-icon [icon]="'github'" [size]="7"></fe-icon>

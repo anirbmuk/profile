@@ -14,6 +14,10 @@ export interface ImpressionEventParams extends BaseEventParams {
     | 'not_found';
 }
 
+export interface ImpressionItemEventParams extends ImpressionEventParams {
+  item: string;
+}
+
 export interface ClickEventParams extends ImpressionEventParams {
   url: string | undefined;
 }

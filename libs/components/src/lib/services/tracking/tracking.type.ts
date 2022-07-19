@@ -2,7 +2,9 @@ export type TrackingEvents =
   | 'pageview'
   | 'impression'
   | 'internalclick'
-  | 'externalclick';
+  | 'externalclick'
+  | 'view_list'
+  | 'view_list_item';
 
 export type ExternalLink = 'twitter' | 'linkedin' | 'github' | 'blogger';
 

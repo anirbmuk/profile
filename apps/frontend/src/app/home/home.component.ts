@@ -22,59 +22,41 @@ import { IHomePageData } from './home.type';
 })
 export class HomeComponent implements OnInit {
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  readonly tsTrackingCallback = this.tracker.trackImpressionEvent.bind(
-    this.tracker,
-    {
+  readonly tsTrackingCallback =
+    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'techstack_section',
-    } as ImpressionEventParams,
-  );
+    } as ImpressionEventParams);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly ghCallback = this.data.fetchCallback.bind(this.data, 'github');
-  readonly ghTrackingCallback = this.tracker.trackImpressionEvent.bind(
-    this.tracker,
-    {
+  readonly ghTrackingCallback =
+    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'github_section',
-    } as ImpressionEventParams,
-  );
+    } as ImpressionEventParams);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly edCallback = this.data.fetchCallback.bind(this.data, 'education');
-  readonly edTrackingCallback = this.tracker.trackImpressionEvent.bind(
-    this.tracker,
-    {
+  readonly edTrackingCallback =
+    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'education_section',
-    } as ImpressionEventParams,
-  );
+    } as ImpressionEventParams);
 
-  readonly prTrackingCallback = this.tracker.trackImpressionEvent.bind(
-    this.tracker,
-    {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'profile_image_section',
-    } as ImpressionEventParams,
-  );
-
-  readonly caTrackingCallback = this.tracker.trackImpressionEvent.bind(
-    this.tracker,
-    {
+  readonly caTrackingCallback =
+    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'career_section',
-    } as ImpressionEventParams,
-  );
+    } as ImpressionEventParams);
 
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
