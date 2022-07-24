@@ -1,46 +1,51 @@
 <section class="mt-16 md:mt-28 mb-4 ease-in duration-300">
   <div class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-8 drop-shadow-md">
     <div role="img" class="profile-image" aria-label="profile image"></div>
-    <div class="flex justify-center">
-      <div class="space-y-2 lg:space-y-3">
-        <div class="flex justify-center items-center space-x-1">
-          <span
-            class="material-symbols-rounded text-xl md:text-3xl lg:text-4xl"
+    <div class="justify-center">
+      <h2
+        class="
+          text-xl
+          md:text-3xl
+          lg:text-4xl
+          flex
+          justify-center
+          items-center
+          mb-2
+        "
+      >
+        {{ block?.designation }}
+      </h2>
+      <h3
+        class="
+          text
+          md:text-2xl
+          lg:text-3xl
+          flex
+          justify-center
+          items-center
+          mb-2
+        "
+      >
+        {{ block?.currentjob }}
+      </h3>
+      <h4
+        class="text-md md:text lg:text-xl flex justify-center items-center mb-3"
+      >
+        {{ block?.location }}
+      </h4>
+      <div class="flex justify-center items-center space-x-4">
+        <ng-container *ngIf="size$ | async as size">
+          <ng-container
+            *ngFor="let social of block?.social; trackBy: trackBySocialFn"
           >
-            work
-          </span>
-          <h2 class="text-xl md:text-3xl lg:text-4xl">
-            {{ block?.designation }}
-          </h2>
-        </div>
-        <div class="!flex justify-center items-center space-x-1">
-          <span class="material-symbols-rounded text md:text-2xl lg:text-3xl">
-            corporate_fare
-          </span>
-          <h3 class="text md:text-2xl lg:text-3xl">
-            {{ block?.currentjob }}
-          </h3>
-        </div>
-        <div class="!flex justify-center items-center space-x-1">
-          <span class="material-symbols-rounded text-md md:text lg:text-xl">
-            my_location
-          </span>
-          <h4 class="text-md md:text lg:text-xl">{{ block?.location }}</h4>
-        </div>
-        <div class="flex justify-center items-center space-x-4">
-          <ng-container *ngIf="size$ | async as size">
-            <ng-container
-              *ngFor="let social of block?.social; trackBy: trackBySocialFn"
-            >
-              <fe-icon
-                [icon]="social.type"
-                [url]="social.url"
-                [size]="size"
-                (linkClick)="onLinkClickFromEmitter($event, 'external')"
-              ></fe-icon>
-            </ng-container>
+            <fe-icon
+              [icon]="social.type"
+              [url]="social.url"
+              [size]="size"
+              (linkClick)="onLinkClickFromEmitter($event, 'external')"
+            ></fe-icon>
           </ng-container>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>
