@@ -28,7 +28,7 @@ export class AboutComponent implements OnInit {
       title,
       description: environment.about,
       robots: `${Robots.INDEX},${Robots.FOLLOW}`,
-      image: '/assets/images/seo.jpg',
+      image: '/assets/images/seo.webp',
     } as ITag);
     this.seo.setTitle(title);
     this.seo.setCanonical('/about');

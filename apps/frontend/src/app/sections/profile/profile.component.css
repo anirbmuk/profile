@@ -1,4 +1,4 @@
 .profile-image {
-  background: url('/assets/images/seo.jpg') no-repeat center;
+  background: url('/assets/images/seo.webp') no-repeat center;
   @apply h-50vh bg-fixed bg-cover lg:bg-auto mb-4 drop-shadow-md;
 }
