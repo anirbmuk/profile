@@ -19,7 +19,9 @@
     <div class="space-y-1 items-center">
       <div class="flex space-x-2 items-center">
         <fe-icon [icon]="'github'" [size]="7"></fe-icon>
-        <h5 class="-mt-1">{{ repo?.value?.toString() | feExtractNamePipe }}</h5>
+        <div class="text md:text-2xl -mt-1">
+          {{ repo?.value?.toString() | feExtractNamePipe }}
+        </div>
       </div>
       <div class="text-md text-gray-500">
         {{ repo?.technologies | feArrayNamePipe }}
