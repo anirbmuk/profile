@@ -10,9 +10,9 @@ import {
   IconModule,
   LinkModule,
   PipeModule,
+  ProgressBarModule,
   ScrollModule,
   ServiceModule,
-  SkeletonModule,
   TimelineModule,
 } from '@frontend/components';
 import { TransferHttpCacheModule } from '@nguniversal/common';
@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
 import { ErrorComponent, ErrorResolver } from './error';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent, HomePageResolver } from './home';
+import { HomeComponent } from './home';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CareerComponent } from './sections/career/career.component';
 import { EducationComponent } from './sections/education/education.component';
@@ -37,9 +37,6 @@ const appRoutes: Routes = [
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
-    resolve: {
-      homepagedata: HomePageResolver,
-    },
   },
   {
     path: 'about',
@@ -80,7 +77,7 @@ const appRoutes: Routes = [
       preloadingStrategy: PreloadAllModules,
       scrollPositionRestoration: 'top',
     }),
-    SkeletonModule,
+    ProgressBarModule,
     IconModule,
     ServiceModule.forRoot({
       gtmId: environment.gtmId,
