@@ -1,6 +1,6 @@
 <div class="my-24 md:my-40">
   <article
-    *ngIf="data.aboutme$ | async as aboutme; else loading"
+    *ngIf="data.aboutmeData$ | async as aboutme"
     class="text-md md:text text-justify mx-auto xl:max-w-1/2"
   >
     <p
@@ -10,9 +10,4 @@
       (click)="onLinkClick($event, 'external')"
     ></p>
   </article>
-  <ng-template #loading>
-    <div class="container my-24 md:my-40 mx-auto xl:max-w-1/2">
-      <fe-skeleton [count]="3"></fe-skeleton>
-    </div>
-  </ng-template>
 </div>

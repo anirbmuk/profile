@@ -37,6 +37,7 @@ export class AboutComponent implements OnInit {
       pageType: 'about',
       pageUrl: this.tracker.pageUrl,
     });
+    this.data.loadPageAction('about');
   }
 
   trackByKeyFn(_: number, data: IAboutme) {

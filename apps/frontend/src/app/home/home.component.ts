@@ -5,14 +5,12 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { TrackingService } from '@frontend/components';
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from './../shared/services';
-import { IHomePageData } from './home.type';
 
 @Component({
   selector: 'fe-home',
@@ -30,8 +28,6 @@ export class HomeComponent implements OnInit {
       section: 'techstack_section',
     } as ImpressionEventParams);
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  readonly ghCallback = this.data.fetchCallback.bind(this.data, 'github');
   readonly ghTrackingCallback =
     this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
@@ -40,8 +36,6 @@ export class HomeComponent implements OnInit {
       section: 'github_section',
     } as ImpressionEventParams);
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  readonly edCallback = this.data.fetchCallback.bind(this.data, 'education');
   readonly edTrackingCallback =
     this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
@@ -62,17 +56,12 @@ export class HomeComponent implements OnInit {
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
 
-  readonly biography$ = this.route.data.pipe(
-    map((data) => data.homepagedata as IHomePageData),
-  );
-
   constructor(
     readonly data: DataService,
     private readonly seo: SeoService,
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller,
     private readonly tracker: TrackingService,
-    private readonly route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -90,6 +79,7 @@ export class HomeComponent implements OnInit {
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
     });
+    this.data.loadPageAction('home');
   }
 
   onScrollToTop(): void {
