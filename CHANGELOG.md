@@ -1,3 +1,6 @@
+## v.1.7.0
+Removed route resolvers. Replaced skeleton loader by progress-bar loader.        
+
 ## v.1.6.0
 Route resolver to pre-fetch data, removed headshot image to fix TTI      
 
