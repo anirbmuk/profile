@@ -3,6 +3,7 @@ export * from './lib/block';
 export * from './lib/directives';
 export * from './lib/icon';
 export * from './lib/link';
+export * from './lib/loader';
 export * from './lib/pipes';
 export * from './lib/scroll';
 export * from './lib/services';
