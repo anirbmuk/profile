@@ -1,0 +1,3 @@
+<ng-container *ngIf="progress$ | async as value">
+  <div class="bg-gray-500 h-0.5" [ngStyle]="{ width: value }"></div>
+</ng-container>
