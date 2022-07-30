@@ -37,6 +37,12 @@ module.exports = {
     './libs/components/src/lib/**/*.{html,js,ts,css}',
   ],
   theme: {
+    variables: {
+      DEFAULT: {
+        duration: '1.5s',
+        timing: 'ease-in',
+      },
+    },
     container: {
       center: true,
       padding: {
@@ -171,6 +177,15 @@ module.exports = {
           start: 'var(--grad-start)',
           middle: 'var(--grad-middle)',
           end: 'var(--grad-end)',
+        },
+      },
+      animation: {
+        rotate: 'rotate var(--duration) var(--timing) infinite',
+      },
+      keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
     },
