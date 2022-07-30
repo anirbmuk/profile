@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SkeletonModule } from '@frontend/components';
 import { AboutComponent } from './about.component';
 
 const aboutRoutes: Routes = [{ path: '', component: AboutComponent }];
 
 @NgModule({
   declarations: [AboutComponent],
-  imports: [CommonModule, RouterModule.forChild(aboutRoutes), SkeletonModule],
+  imports: [CommonModule, RouterModule.forChild(aboutRoutes)],
   exports: [RouterModule],
 })
 export class AboutModule {}
