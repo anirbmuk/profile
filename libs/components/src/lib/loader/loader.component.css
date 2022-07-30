@@ -1,49 +1,29 @@
 .spinner {
-  width: 150px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  overflow: hidden;
-  position: relative;
+  @apply w-32 h-32 flex justify-center items-center align-middle text-xl overflow-hidden relative;
+}
+
+.spinner-text {
+  @apply text-background-primary;
 }
 
 .spinner-sector {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 12px solid transparent;
-  mix-blend-mode: overlay;
-  animation: rotate var(--duration) var(--timing) infinite;
-  pointer-events: none;
+  @apply absolute w-full h-full rounded-full border-8 border-transparent mix-blend-overlay pointer-events-none animate-rotate;
 }
 
 .spinner-sector-red {
-  border-top-color: lightcoral;
+  @apply border-t-[lightcoral];
   --duration: 1.5s;
   --timing: ease-in-out;
 }
 
 .spinner-sector-blue {
-  border-left-color: lightblue;
+  @apply border-l-[lightcoral];
   --duration: 2s;
   --timing: ease-in;
 }
 
 .spinner-sector-green {
-  border-right-color: lightgreen;
+  @apply border-r-[lightgreen];
   --duration: 2.5s;
   --timing: ease-out;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
