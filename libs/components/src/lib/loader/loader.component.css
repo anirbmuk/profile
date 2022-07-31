@@ -3,7 +3,7 @@
 }
 
 .spinner-text {
-  @apply text-background-primary;
+  @apply text-gray-100;
 }
 
 .spinner-sector {
