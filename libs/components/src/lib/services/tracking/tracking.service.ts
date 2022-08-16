@@ -86,7 +86,7 @@ export class TrackingService {
   }
 
   trackPageViewEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'pageview' }, metaData);
+    this.track({ event: 'page_view' }, metaData);
   }
 
   trackImpressionCollectionEvent<T extends BaseEventParams>(metaData: T) {
@@ -98,11 +98,11 @@ export class TrackingService {
   }
 
   internalClickEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'internalclick' }, metaData);
+    this.track({ event: 'internal_click' }, metaData);
   }
 
   externalClickEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'externalclick' }, metaData);
+    this.track({ event: 'external_click' }, metaData);
   }
 
   get pageTitle(): string {

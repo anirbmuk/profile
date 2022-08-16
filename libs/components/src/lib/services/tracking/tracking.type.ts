@@ -1,8 +1,8 @@
 export type TrackingEvents =
-  | 'pageview'
+  | 'page_view'
   | 'impression'
-  | 'internalclick'
-  | 'externalclick'
+  | 'internal_click'
+  | 'external_click'
   | 'view_list'
   | 'view_list_item';
 

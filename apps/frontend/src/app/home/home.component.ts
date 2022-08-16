@@ -19,7 +19,6 @@ import { DataService, ITag, Robots, SeoService } from './../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   readonly tsTrackingCallback =
     this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
       pageTitle: this.tracker.pageTitle,
@@ -42,14 +41,6 @@ export class HomeComponent implements OnInit {
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
       section: 'education_section',
-    } as ImpressionEventParams);
-
-  readonly caTrackingCallback =
-    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'career_section',
     } as ImpressionEventParams);
 
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
