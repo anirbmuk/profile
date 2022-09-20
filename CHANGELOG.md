@@ -1,3 +1,6 @@
+## v.1.8.0
+Added blog section with feature to scrape web.  
+
 ## v.1.7.0
 Removed route resolvers. Replaced skeleton loader by progress-bar loader.        
 
