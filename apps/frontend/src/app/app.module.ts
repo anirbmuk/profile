@@ -7,6 +7,7 @@ import {
   AccordionModule,
   BlockModule,
   DirectiveModule,
+  FeaturedblogModule,
   IconModule,
   LinkModule,
   PipeModule,
@@ -31,6 +32,7 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
 import { RequestInterceptor } from './shared/services';
+import { BlogComponent } from './sections/blog/blog.component';
 
 const appRoutes: Routes = [
   {
@@ -67,6 +69,7 @@ const appRoutes: Routes = [
     EducationComponent,
     HeadshotComponent,
     CareerComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -97,6 +100,7 @@ const appRoutes: Routes = [
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    FeaturedblogModule,
   ],
   providers: [
     {

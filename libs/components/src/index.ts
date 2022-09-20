@@ -1,6 +1,7 @@
 export * from './lib/accordion';
 export * from './lib/block';
 export * from './lib/directives';
+export * from './lib/featuredblog';
 export * from './lib/icon';
 export * from './lib/link';
 export * from './lib/loader';

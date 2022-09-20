@@ -1,0 +1,15 @@
+<div class="border border-gray-300 rounded">
+  <ng-container *ngIf="featuredBlog$ | async as featuredBlog">
+    <a
+      [href]="featuredBlog.url"
+      target="_blank"
+      class="p-0.5"
+      (click)="onFeaturedBlogClick()"
+    >
+      <img [src]="featuredBlog.image" />
+      <div class="p-2 text-sm md:text-md ml-4 text-gray-500">
+        {{ featuredBlog.domain }}
+      </div>
+    </a>
+  </ng-container>
+</div>

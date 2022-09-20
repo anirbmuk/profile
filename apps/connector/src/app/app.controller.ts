@@ -1,5 +1,6 @@
 import {
   ABOUTME,
+  BLOG,
   CAREER,
   EDUCATION,
   FOOTER,
@@ -47,5 +48,10 @@ export class AppController {
   @Get(FOOTER)
   getFooter() {
     return this.appService.getFooter();
+  }
+
+  @Get(BLOG)
+  getBlogs() {
+    return this.appService.getBlogs();
   }
 }

@@ -14,4 +14,8 @@ export class RequestService {
   get<T>(path: string) {
     return this.http.get<T>(`${pathPrefix}/${globalPrefix}/${path}`);
   }
+
+  web(url: string) {
+    return this.http.get(url, { responseType: 'text' });
+  }
 }

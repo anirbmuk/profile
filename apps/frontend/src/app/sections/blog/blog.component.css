@@ -1,0 +1,20 @@
+@media screen and (min-width: 768px) {
+  .blog-container {
+    @apply grid grid-cols-2 2xl:grid-cols-3 gap-3;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .blog-container {
+    @apply grid gap-2 overflow-y-hidden grid-flow-col overscroll-contain;
+    grid-auto-columns: 87.5%;
+  }
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}

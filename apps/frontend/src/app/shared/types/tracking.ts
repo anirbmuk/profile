@@ -10,6 +10,7 @@ export interface ImpressionEventParams extends BaseEventParams {
     | 'github_section'
     | 'education_section'
     | 'aboutme_section'
+    | 'blog_section'
     | 'error_page'
     | 'not_found';
 }

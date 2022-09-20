@@ -24,6 +24,12 @@
     ></fe-github>
   </div>
   <div>
+    <fe-blog
+      [block]="data.blog$ | async"
+      [feTrackable]="[blTrackingCallback]"
+    ></fe-blog>
+  </div>
+  <div>
     <fe-education
       [block]="data.education$ | async"
       [feTrackable]="[edTrackingCallback]"

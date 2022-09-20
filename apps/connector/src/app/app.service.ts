@@ -1,5 +1,6 @@
 import {
   ABOUTME,
+  BLOG,
   CAREER,
   EDUCATION,
   FOOTER,
@@ -16,6 +17,7 @@ import {
 } from '@frontend/connector-interfaces';
 import { FirebaseService } from '@frontend/connector-lib';
 import { Injectable } from '@nestjs/common';
+import { IFeaturedBlog } from './../../../../libs/connector-interfaces/src/lib/features/featuredblog';
 import { BadRequestException, GenericException } from './exception';
 
 @Injectable()
@@ -48,6 +50,10 @@ export class AppService {
 
   async getAboutme() {
     return this.get<IAboutme[]>(ABOUTME);
+  }
+
+  async getBlogs() {
+    return this.get<IFeaturedBlog[]>(BLOG);
   }
 
   private async get<T>(path: string) {

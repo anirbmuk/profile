@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {
   ABOUTME,
+  BLOG,
   CAREER,
   EDUCATION,
   GITHUB,
   IAboutme,
   ICareer,
   IEducation,
+  IFeaturedBlog,
   IGitHub,
   IProfile,
   ITechstack,
@@ -30,6 +32,7 @@ export class DataService {
   readonly education$ = this.request
     .get<IEducation[]>(EDUCATION)
     .pipe(map((data) => data?.sort((e1, e2) => e2.position - e1.position)));
+  readonly blog$ = this.request.get<IFeaturedBlog[]>(BLOG);
 
   private readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
     map((about) => {
@@ -69,5 +72,9 @@ export class DataService {
 
   loadPageAction(action: 'home' | 'about' | undefined | null) {
     action && this.loadPage.next(action);
+  }
+
+  getWebData(url: string) {
+    return this.request.web(url);
   }
 }

@@ -5,3 +5,4 @@ export const EDUCATION = 'education';
 export const CAREER = 'career';
 export const FOOTER = 'footer';
 export const ABOUTME = 'aboutme';
+export const BLOG = 'blog';

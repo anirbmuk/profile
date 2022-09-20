@@ -1,0 +1,14 @@
+<section>
+  <fe-accordion>
+    <h3 class="md:heading gradient-text" heading>Popular Blogs</h3>
+    <div class="blog-container snaps-inline">
+      <ng-container *ngFor="let blog of block; trackBy: trackByKeyFn">
+        <fe-featuredblog
+          [url]="blog.url"
+          [feTrackable]="[blItemTrackingCallback(blog.url)]"
+          (blogclick)="onLinkClick('external', blog.url)"
+        ></fe-featuredblog>
+      </ng-container>
+    </div>
+  </fe-accordion>
+</section>

@@ -43,6 +43,14 @@ export class HomeComponent implements OnInit {
       section: 'education_section',
     } as ImpressionEventParams);
 
+  readonly blTrackingCallback =
+    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
+      pageTitle: this.tracker.pageTitle,
+      pageType: 'home',
+      pageUrl: this.tracker.pageUrl,
+      section: 'blog_section',
+    } as ImpressionEventParams);
+
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
