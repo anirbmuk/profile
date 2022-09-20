@@ -7,9 +7,10 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { IScrape, ScraperService } from '@frontend/components';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ScraperService } from './../services/scraping/scraper.service';
+import { IScrape } from './../services/scraping/scraping.type';
 
 @Component({
   selector: 'fe-featuredblog',
