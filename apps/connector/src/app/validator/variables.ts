@@ -6,7 +6,6 @@ const environmentVariables = [
   'messagingSenderId',
   'appId',
   'measurementId',
-  'APP_ENV',
 ];
 
 export default environmentVariables;
