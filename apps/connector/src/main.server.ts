@@ -1,15 +1,19 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { config } from 'dotenv';
+import { checkMissingEnvVars } from './app/validator';
 
 async function bootstrap() {
   config();
+
+  checkMissingEnvVars(process.env);
+
   const { ServerModule } = await import('./app/app.server.module');
   const app = await NestFactory.create(ServerModule);
   app.setGlobalPrefix('api');
   const port = process.env.PORT || 4300;
   await app.listen(port, () => {
-    Logger.log(`NestJS server started on http://localhost:${port}`);
+    Logger.log(`NestJS production server started on http://localhost:${port}`);
   });
 }
 
