@@ -11,7 +11,7 @@ export class TextShortenPipe implements PipeTransform {
 
   transform(
     input: string | undefined,
-    lengthToShortenTo: number,
+    lengthToShortenTo = 100,
     ignoreCarriageReturn = true,
   ) {
     return this.getShortenedString(
@@ -26,8 +26,11 @@ export class TextShortenPipe implements PipeTransform {
     lengthToShortenTo: number,
     ignoreCarriageReturn = true,
   ): string {
-    if (!input || !lengthToShortenTo) {
+    if (!input) {
       return '';
+    }
+    if (!lengthToShortenTo) {
+      return input;
     }
     let carriageReturnCount = 0;
     for (let i = 0; i < input.length; i++) {
