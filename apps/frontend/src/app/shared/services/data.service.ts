@@ -32,13 +32,13 @@ export class DataService {
   readonly education$ = this.request
     .get<IEducation[]>(EDUCATION)
     .pipe(map((data) => data?.sort((e1, e2) => e2.position - e1.position)));
-  readonly blog$ = this.request.get<IFeaturedBlog[]>(BLOG);
+  readonly blog$ = this.request
+    .get<IFeaturedBlog[]>(BLOG)
+    .pipe(map((data) => data?.sort((b1, b2) => b1.position - b2.position)));
 
-  private readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
-    map((about) => {
-      return about?.sort((a1, a2) => a1.position - a2.position);
-    }),
-  );
+  private readonly aboutme$ = this.request
+    .get<IAboutme[]>(ABOUTME)
+    .pipe(map((about) => about?.sort((a1, a2) => a1.position - a2.position)));
 
   private loading = new BehaviorSubject<boolean>(false);
   readonly loading$ = this.loading.asObservable();

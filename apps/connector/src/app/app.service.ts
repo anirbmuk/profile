@@ -8,6 +8,7 @@ import {
   IAboutme,
   ICareer,
   IEducation,
+  IFeaturedBlog,
   IFooterBlock,
   IGitHub,
   IProfile,
@@ -17,7 +18,6 @@ import {
 } from '@frontend/connector-interfaces';
 import { FirebaseService } from '@frontend/connector-lib';
 import { Injectable } from '@nestjs/common';
-import { IFeaturedBlog } from './../../../../libs/connector-interfaces/src/lib/features/featuredblog';
 import { BadRequestException, GenericException } from './exception';
 
 @Injectable()
