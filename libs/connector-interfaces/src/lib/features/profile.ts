@@ -11,6 +11,7 @@ export interface IProfile extends BaseDocument {
   social: ISocial[];
   bio?: string[];
   cover?: string[];
+  artifact?: IArtifact[];
 }
 
 export interface IBlog {
@@ -33,4 +34,10 @@ export interface ISocial {
   type: SupportedSocialIcons;
   url: string;
   icon?: string;
+}
+
+export interface IArtifact {
+  type: 'artifact';
+  category: 'resume';
+  url: string;
 }

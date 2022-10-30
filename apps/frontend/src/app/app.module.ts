@@ -6,6 +6,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import {
   AccordionModule,
   BlockModule,
+  ButtonModule,
   DirectiveModule,
   FeaturedblogModule,
   IconModule,
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BlogComponent } from './sections/blog/blog.component';
 import { CareerComponent } from './sections/career/career.component';
 import { EducationComponent } from './sections/education/education.component';
 import { GithubComponent } from './sections/github/github.component';
@@ -32,7 +34,6 @@ import { ProfileComponent } from './sections/profile/profile.component';
 import { TechstackComponent } from './sections/techstack/techstack.component';
 import { PreviewModule, RatingModule } from './shared/components';
 import { RequestInterceptor } from './shared/services';
-import { BlogComponent } from './sections/blog/blog.component';
 
 const appRoutes: Routes = [
   {
@@ -101,6 +102,7 @@ const appRoutes: Routes = [
       registrationStrategy: 'registerWhenStable:30000',
     }),
     FeaturedblogModule,
+    ButtonModule,
   ],
   providers: [
     {

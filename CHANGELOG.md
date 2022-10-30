@@ -1,3 +1,6 @@
+## v.1.9.0
+Added download resume option.  
+
 ## v.1.8.0
 Added blog section with feature to scrape web.  
 
