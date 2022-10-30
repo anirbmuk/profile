@@ -1,8 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SanitizerService, TrackingService } from '@frontend/components';
-import { IBlog, IProfile, ISocial } from '@frontend/connector-interfaces';
+import {
+  IArtifact,
+  IBlog,
+  IProfile,
+  ISocial,
+} from '@frontend/connector-interfaces';
 import { map } from 'rxjs/operators';
-import { DeviceService } from '../../shared/services';
+import { DeviceService, FileService } from '../../shared/services';
 import { ClickEventParams } from '../../shared/types';
 
 @Component({
@@ -24,6 +29,7 @@ export class ProfileComponent {
     readonly sanitizer: SanitizerService,
     private readonly device: DeviceService,
     private readonly tracker: TrackingService,
+    private readonly fileService: FileService,
   ) {}
 
   onLinkClickFromEmitter(url: string | undefined, type: 'external') {
@@ -60,6 +66,24 @@ export class ProfileComponent {
         metadata.url = url;
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });
+    }
+  }
+
+  onDownloadResume(artifacts: IArtifact[] | undefined) {
+    if (artifacts) {
+      const [resume] = artifacts?.filter(
+        (artifact) => artifact.category === 'resume',
+      );
+      if (resume) {
+        this.fileService.downloadFile(resume.url);
+        this.tracker.externalClickEvent({
+          pageTitle: this.tracker.pageTitle,
+          pageType: 'home',
+          pageUrl: this.tracker.pageUrl,
+          section: 'profile_section',
+          url: resume.url,
+        });
+      }
     }
   }
 
