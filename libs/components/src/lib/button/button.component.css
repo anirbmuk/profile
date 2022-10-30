@@ -1,3 +1,3 @@
-:host {
+button {
   @apply border border-black bg-black text-white rounded py-2 min-w-xs md:min-w-base md:hover:bg-gray-600 md:hover:border-gray-600 ease-in duration-200 cursor-pointer text-center text-md md:text px-2;
 }
