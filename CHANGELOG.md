@@ -1,3 +1,6 @@
+## v.1.9.1
+CSS fixes for dark-mode.  
+
 ## v.1.9.0
 Added download resume option.  
 
