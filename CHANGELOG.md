@@ -1,3 +1,6 @@
+## v.1.9.2
+Improved tracking. Allow debug tracking during development.  
+
 ## v.1.9.1
 CSS fixes for dark-mode.  
 
