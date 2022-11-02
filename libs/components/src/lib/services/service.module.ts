@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { GTM_ID, IService } from './tracking/config';
+import { GTM_ID, IService, PRODUCTION } from './tracking/config';
 
 @NgModule({
   imports: [BrowserModule],
@@ -15,6 +15,10 @@ export class ServiceModule {
         {
           provide: GTM_ID,
           useValue: config.gtmId,
+        },
+        {
+          provide: PRODUCTION,
+          useValue: config.production || false,
         },
       ],
     };

@@ -85,6 +85,7 @@ const appRoutes: Routes = [
     IconModule,
     ServiceModule.forRoot({
       gtmId: environment.gtmId,
+      production: environment.production,
     }),
     BlockModule,
     PipeModule,
