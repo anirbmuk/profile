@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ServiceModule } from '../service.module';
-import { GTM_ID } from './config';
+import { buildGTMScript, GTM_ID, PRODUCTION } from './config';
 import { BaseEvent, BaseEventParams } from './tracking.type';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { BaseEvent, BaseEventParams } from './tracking.type';
 export class TrackingService {
   constructor(
     @Inject(GTM_ID) private readonly gtmId: string,
+    @Inject(PRODUCTION) private readonly production: boolean,
     @Inject(DOCUMENT) private readonly document: Document,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
@@ -37,6 +38,7 @@ export class TrackingService {
             locale: window.navigator.language,
             agent: window.navigator.userAgent,
             vendor: window.navigator.vendor,
+            platform: window.navigator.platform,
           });
           resolve(dataLayer);
         } catch (error) {
@@ -62,12 +64,13 @@ export class TrackingService {
   }
 
   buildHeadScript(renderer: Renderer2) {
-    if (this.gtmId && this.isBrowser()) {
-      const headScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-${this.gtmId}');`;
+    if (this.isBrowser()) {
+      let headScript: string;
+      if (this.gtmId && this.production) {
+        headScript = buildGTMScript(this.gtmId);
+      } else {
+        headScript = '(function() { window.dataLayer = []; })()';
+      }
       const script: HTMLScriptElement = renderer.createElement('script');
       script.text = headScript;
       script.defer = true;
