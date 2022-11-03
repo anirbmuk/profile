@@ -1,7 +1,7 @@
 <ng-container *ngIf="link?.type === 'internal'; else external">
   <a
     [routerLink]="link?.url"
-    [title]="link?.text"
+    [title]="link?.title"
     class="navlink"
     (click)="onLinkClick('internal')"
     routerLinkActive="font-bold"
@@ -14,7 +14,7 @@
   <a
     target="_blank"
     [href]="link?.url"
-    [title]="link?.text"
+    [title]="link?.title"
     rel="nofollow"
     class="lg:hover:border-b md:border-black-light ease-linear duration-200"
     (click)="onLinkClick('external')"

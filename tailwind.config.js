@@ -72,6 +72,13 @@ module.exports = {
       '6xl': ['3rem', '3rem'],
       '7xl': ['3.5rem', '3rem'],
       '8xl': ['4rem', '4rem'],
+      '9xl': ['4.5rem', '4rem'],
+      '10xl': ['5rem', '4rem'],
+      '11xl': ['5.5rem', '4rem'],
+      '12xl': ['6rem', '4rem'],
+      '14xl': ['7rem', '4rem'],
+      '16xl': ['8rem', '6rem'],
+      '18xl': ['9rem', '6rem'],
       massive: ['10rem', '10rem'],
     },
     fontWeight: {
