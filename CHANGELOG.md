@@ -1,29 +1,42 @@
+## v.1.9.3
+- Improved 404 page design.
+- Dark mode fixes.
+- SEO improvements.
+- Fixes for tablet view.
+
 ## v.1.9.2
-Improved tracking. Allow debug tracking during development.  
+- Improved tracking.
+- Allow debug tracking during development.  
 
 ## v.1.9.1
-CSS fixes for dark-mode.  
+- CSS fixes for dark-mode.  
 
 ## v.1.9.0
-Added download resume option.  
+- Added download resume option.  
 
 ## v.1.8.0
-Added blog section with feature to scrape web.  
+- Added blog section with feature to scrape web.  
 
 ## v.1.7.0
-Removed route resolvers. Replaced skeleton loader by progress-bar loader.        
+- Removed route resolvers.
+- Replaced skeleton loader by progress-bar loader.        
 
 ## v.1.6.0
-Route resolver to pre-fetch data, removed headshot image to fix TTI      
+- Route resolver to pre-fetch data
+- Removed headshot image to fix TTI      
 
 ## v.1.5.0
-UI improvements, horizontal snap scroll on github section, performance improvements    
+- UI improvements
+- Horizontal snap scroll on github section
+- Performance improvements    
 
 ## v1.4.0
-SEO improvements, workspace upgrade  
+- SEO improvements
+- Workspace upgrade  
 
 ## v1.3.0
-SEO fixes, dark mode  
+- SEO fixes
+- Added dark mode  
 
 ## v1.0.0
-Initial revision with SSR, SEO, Analytics  
+- Initial revision with SSR, SEO, Analytics  
