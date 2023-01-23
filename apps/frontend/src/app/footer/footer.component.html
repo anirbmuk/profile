@@ -1,7 +1,7 @@
 <footer class="fixed bottom-0 w-full bg-gray-50 border-t border-gray-100">
-  <div class="p-4 text-md">
+  <nav class="p-4 text-md">
     <div class="flex justify-between">
-      <div class="flex space-x-4 lg:space-x-8">
+      <div class="flex space-x-4 lg:space-x-8" role="menu">
         <ng-container *ngFor="let link of block?.links; trackBy: trackByKeyFn">
           <fe-link [link]="link" (linkClick)="onLinkClick(link.type, link.url)"
             ><span>{{ link?.text }}</span></fe-link
@@ -15,5 +15,5 @@
         }}</time></span
       >
     </div>
-  </div>
+  </nav>
 </footer>

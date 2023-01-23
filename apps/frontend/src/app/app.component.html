@@ -1,7 +1,7 @@
 <fe-header></fe-header>
-<div class="container my-20" (window:resize)="onResize()">
+<main class="container my-20" (window:resize)="onResize()">
   <router-outlet></router-outlet>
-</div>
+</main>
 <ng-container *ngIf="footer$ | async as footer">
   <fe-footer [block]="footer?.[0]"></fe-footer>
 </ng-container>
