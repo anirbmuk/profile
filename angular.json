@@ -190,6 +190,7 @@
             ],
             "styles": [
               "apps/frontend/src/root.css",
+              "apps/frontend/src/font.css",
               "apps/frontend/src/styles.css"
             ],
             "scripts": [],
