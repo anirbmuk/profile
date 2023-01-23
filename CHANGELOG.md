@@ -1,3 +1,8 @@
+## v.1.9.4
+- Locally hosted Google Font files for faster page load.
+- Cache index.html by service worker for faster page load.
+- Accessibility bug fix.
+
 ## v.1.9.3
 - Improved 404 page design.
 - Dark mode fixes.
