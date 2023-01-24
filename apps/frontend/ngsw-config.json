@@ -12,7 +12,8 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js",
-          "/*.ttf"
+          "/*.ttf",
+          "/*.woff2"
         ]
       }
     },

@@ -88,7 +88,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Noto Sans', 'sans-serif', 'monospace'],
-      material: ['Material Symbols Rounded', 'monospace'],
     },
     extend: {
       spacing: {
