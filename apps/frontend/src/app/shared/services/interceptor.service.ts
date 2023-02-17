@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { DataService } from './data.service';
 import { ErrorService } from './error.service';
 
 @Injectable({
@@ -17,6 +18,7 @@ import { ErrorService } from './error.service';
 export class RequestInterceptor implements HttpInterceptor {
   constructor(
     private readonly router: Router,
+    private readonly dataService: DataService,
     private readonly errorService: ErrorService,
   ) {}
 
@@ -26,6 +28,7 @@ export class RequestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return next.handle(req).pipe(
       catchError((error) => {
+        this.dataService.toggleLoadingState(false);
         const { code, message } = error?.error ?? {};
         this.errorService.addError({
           code:
