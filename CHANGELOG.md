@@ -1,3 +1,8 @@
+## v1.9.6
+- Removed index.html from service worker cache.
+- Fix: stop horizontal progress bar in case of any api error.
+- Feat: added `translate="no"` for non-translatable strings.
+
 ## v1.9.5
 - Locally hosted Google Material font file for faster page load.
 - Removed `Popular Blogs` section for performance reasons.
