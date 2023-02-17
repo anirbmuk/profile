@@ -19,11 +19,11 @@
     <div class="space-y-1 items-center">
       <div class="flex space-x-2 items-center">
         <fe-icon [icon]="'github'" [size]="7"></fe-icon>
-        <div class="text md:text-2xl -mt-1">
+        <div class="text md:text-2xl -mt-1" translate="no">
           {{ repo?.value?.toString() | feExtractNamePipe }}
         </div>
       </div>
-      <div class="text-md text-gray-500">
+      <div class="text-md text-gray-500" translate="no">
         {{ repo?.technologies | feArrayNamePipe }}
       </div>
       <div class="text-md leading-4">{{ repo?.description }}</div>

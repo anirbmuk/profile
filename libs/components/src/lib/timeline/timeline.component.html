@@ -27,7 +27,9 @@
             {{ timeline.start }} - {{ timeline.end || 'present' }}
           </div>
           <div class="text-black-dark text-sm md:text font-semiBold !leading-4">
-            {{ timeline.designation }}, {{ timeline.provider }}
+            <span translate="no"
+              >{{ timeline.designation }}, {{ timeline.provider }}</span
+            >
           </div>
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
@@ -92,7 +94,9 @@
             {{ timeline.start }} - {{ timeline.end }}
           </div>
           <div class="text-black-dark text-sm md:text font-semiBold !leading-4">
-            {{ timeline.designation }}, {{ timeline.provider }}
+            <span translate="no"
+              >{{ timeline.designation }}, {{ timeline.provider }}</span
+            >
           </div>
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
