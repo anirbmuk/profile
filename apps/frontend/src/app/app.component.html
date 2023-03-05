@@ -3,5 +3,5 @@
   <router-outlet></router-outlet>
 </main>
 <ng-container *ngIf="footer$ | async as footer">
-  <fe-footer [block]="footer?.[0]"></fe-footer>
+  <fe-footer [block]="footer"></fe-footer>
 </ng-container>

@@ -9,7 +9,7 @@ import {
 import { SwUpdate } from '@angular/service-worker';
 import { TrackingService } from '@frontend/components';
 import { FOOTER, IFooterBlock } from '@frontend/connector-interfaces';
-import { take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { DeviceService, RequestService } from './shared/services';
 
 @Component({
@@ -19,7 +19,9 @@ import { DeviceService, RequestService } from './shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  readonly footer$ = this.request.get<[IFooterBlock]>(FOOTER);
+  readonly footer$ = this.request
+    .get<[IFooterBlock]>(FOOTER)
+    .pipe(map((data) => data?.[0]));
 
   constructor(
     private readonly request: RequestService,

@@ -6,14 +6,14 @@
   class="space-y-16 mx-auto xl:max-w-3/4 2xl:max-w-4/5"
 >
   <div>
-    <fe-profile [block]="bio[0][0]"></fe-profile>
+    <fe-profile [block]="bio[0]"></fe-profile>
   </div>
   <div>
     <fe-career [block]="bio[1]"></fe-career>
   </div>
   <div *ngIf="data.techstack$ | async as techstack">
     <fe-techstack
-      [block]="techstack?.[0]"
+      [block]="techstack"
       [feTrackable]="[tsTrackingCallback]"
     ></fe-techstack>
   </div>

@@ -23,8 +23,12 @@ import { RequestService } from './request.service';
   providedIn: 'root',
 })
 export class DataService {
-  readonly profile$ = this.request.get<[IProfile]>(PROFILE);
-  readonly techstack$ = this.request.get<[ITechstack]>(TECHSTACK);
+  readonly profile$ = this.request
+    .get<[IProfile]>(PROFILE)
+    .pipe(map((data) => data?.[0]));
+  readonly techstack$ = this.request
+    .get<[ITechstack]>(TECHSTACK)
+    .pipe(map((data) => data?.[0]));
   readonly github$ = this.request
     .get<IGitHub[]>(GITHUB)
     .pipe(map((data) => data?.sort((g1, g2) => g1.position - g2.position)));
@@ -52,7 +56,7 @@ export class DataService {
     filter((value) => value === 'home'),
     tap(() => this.toggleLoadingState(true)),
     exhaustMap(() =>
-      forkJoin<[IProfile], ICareer[]>([this.profile$, this.career$]),
+      forkJoin<IProfile, ICareer[]>([this.profile$, this.career$]),
     ),
     tap(() => this.toggleLoadingState(false)),
   );

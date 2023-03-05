@@ -25,38 +25,38 @@ export class AppService {
   constructor(private readonly firebase: FirebaseService) {}
 
   async getGitHubLinks() {
-    return this.get<IGitHub[]>(GITHUB);
+    return this.get<IGitHub>(GITHUB);
   }
 
   async getFooter() {
-    return this.get<IFooterBlock>(FOOTER);
+    return this.get<IFooterBlock>(FOOTER, 1);
   }
 
   async getProfile() {
-    return this.get<IProfile>(PROFILE);
+    return this.get<IProfile>(PROFILE, 1);
   }
 
   async getTechstack() {
-    return this.get<ITechstack>(TECHSTACK);
+    return this.get<ITechstack>(TECHSTACK, 1);
   }
 
   async getCareer() {
-    return this.get<ICareer[]>(CAREER);
+    return this.get<ICareer>(CAREER);
   }
 
   async getEducation() {
-    return this.get<IEducation[]>(EDUCATION);
+    return this.get<IEducation>(EDUCATION);
   }
 
   async getAboutme() {
-    return this.get<IAboutme[]>(ABOUTME);
+    return this.get<IAboutme>(ABOUTME);
   }
 
   async getBlogs() {
-    return this.get<IFeaturedBlog[]>(BLOG);
+    return this.get<IFeaturedBlog>(BLOG);
   }
 
-  private async get<T>(path: string) {
+  private async get<T>(path: string, limit?: number) {
     if (!path) {
       throw new BadRequestException('Firestore collection is empty');
     }
@@ -67,6 +67,7 @@ export class AppService {
         whereClause: [
           { column: 'visibility', operator: '==', condition: 'public' },
         ],
+        ...(limit && { limit }),
       });
       return items;
     } catch {
