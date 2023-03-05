@@ -1,7 +1,12 @@
+## v1.9.7
+- **Chore**: Added node-inspect scripts to `package.json`.
+- **Fix**: Fixed typescript data models for homepage data items.
+- **Fix**: Added limit options for faster firebase fetch.
+
 ## v1.9.6
 - Removed index.html from service worker cache.
-- Fix: stop horizontal progress bar in case of any api error.
-- Feat: added `translate="no"` for non-translatable strings.
+- **Fix**: stop horizontal progress bar in case of any api error.
+- **Feat**: added `translate="no"` for non-translatable strings.
 
 ## v1.9.5
 - Locally hosted Google Material font file for faster page load.

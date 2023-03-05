@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "license": "MIT",
   "description": "Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio",
   "author": {
@@ -17,6 +17,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "node dist/apps/connector/main.js",
+    "inspect": "node --inspect dist/apps/connector/main.js",
     "dev": "run-p connector:serve frontend:serve",
     "server": "yarn build:ssr:prodlike && yarn serve:ssr",
     "build": "ng build",
@@ -49,6 +50,7 @@
     "build:ssr:prod": "yarn frontend:build:production && yarn connector:build:production",
     "build:ssr:prodlike": "yarn frontend:build:prodlike && yarn connector:build:prodlike",
     "dev:ssr": "yarn clean && yarn build:ssr:prodlike && yarn start",
+    "dev:ssr:inspect": "yarn clean && yarn build:ssr:prodlike && yarn inspect",
     "setenv:gae": "gcloud config set project anirbmuk",
     "deploy:gae": "gcloud app deploy --quiet",
     "deploy": "yarn clean && yarn build:ssr:prod && yarn setenv:gae && yarn deploy:gae && yarn clean",
