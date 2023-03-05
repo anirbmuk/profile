@@ -31,8 +31,8 @@ export class ErrorComponent implements OnInit {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
-      section: 'error_page',
-      url: '/',
+      event_section: 'error_page',
+      event_url: '/',
     };
     type === 'internal' && this.tracker.internalClickEvent({ ...metadata });
   }

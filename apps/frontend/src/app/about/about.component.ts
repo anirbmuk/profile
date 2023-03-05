@@ -54,17 +54,17 @@ export class AboutComponent implements OnInit {
         pageTitle: this.tracker.pageTitle,
         pageType: 'about',
         pageUrl: this.tracker.pageUrl,
-        section: 'aboutme_section',
-        url: undefined,
+        event_section: 'aboutme_section',
+        event_url: undefined,
       };
       if (tagName === 'A') {
         url = (event?.target as HTMLAnchorElement)?.href;
-        metadata.url = url;
+        metadata.event_url = url;
       } else if (tagName === 'SPAN') {
         url = (
           (event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement
         )?.href;
-        metadata.url = url;
+        metadata.event_url = url;
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });
     }

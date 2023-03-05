@@ -21,8 +21,8 @@ export class FooterComponent {
       pageTitle: this.tracker.pageTitle,
       pageType: 'footer',
       pageUrl: this.tracker.pageUrl,
-      section: 'footer_section',
-      url,
+      event_section: 'footer_section',
+      event_url: url,
     };
     type === 'internal'
       ? this.tracker.internalClickEvent({ ...metadata })

@@ -14,9 +14,11 @@ import {
 export class TrackableDirective implements OnDestroy {
   observer?: IntersectionObserver;
   tracked = false;
-  _callbacks?: (() => void)[] | undefined;
+  _callbacks?: ((() => void) | undefined)[] | undefined;
 
-  @Input() set feTrackable(callbacks: (() => void)[] | undefined) {
+  @Input() set feTrackable(
+    callbacks: ((() => void) | undefined)[] | undefined,
+  ) {
     this._callbacks = callbacks ?? [];
     if (isPlatformServer(this.platformId)) {
       for (const callback of this._callbacks) {

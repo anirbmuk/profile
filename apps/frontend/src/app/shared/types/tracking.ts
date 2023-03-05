@@ -1,7 +1,7 @@
 import { BaseEventParams } from '@frontend/components';
 
 export interface ImpressionEventParams extends BaseEventParams {
-  section:
+  event_section:
     | 'footer_section'
     | 'profile_section'
     | 'profile_image_section'
@@ -20,7 +20,7 @@ export interface ImpressionItemEventParams extends ImpressionEventParams {
 }
 
 export interface ClickEventParams extends ImpressionEventParams {
-  url: string | undefined;
+  event_url: string | undefined;
 }
 
 export interface ToggleEventParams extends ImpressionEventParams {

@@ -19,7 +19,7 @@ export class PreviewComponent {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
-      section: 'github_section',
+      event_section: 'github_section',
       item,
     } as ImpressionItemEventParams);
 
@@ -28,11 +28,11 @@ export class PreviewComponent {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
-      section: 'github_section',
-      url: undefined,
+      event_section: 'github_section',
+      event_url: undefined,
     };
     if (typeof url === 'string') {
-      metadata.url = url;
+      metadata.event_url = url;
     }
     type === 'external' && this.tracker.externalClickEvent({ ...metadata });
   }

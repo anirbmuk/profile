@@ -37,8 +37,8 @@ export class ProfileComponent {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
-      section: 'profile_section',
-      url,
+      event_section: 'profile_section',
+      event_url: url,
     };
     type === 'external' && this.tracker.externalClickEvent({ ...metadata });
   }
@@ -53,17 +53,17 @@ export class ProfileComponent {
         pageTitle: this.tracker.pageTitle,
         pageType: 'home',
         pageUrl: this.tracker.pageUrl,
-        section: 'profile_section',
-        url: undefined,
+        event_section: 'profile_section',
+        event_url: undefined,
       };
       if (tagName === 'A') {
         url = (event?.target as HTMLAnchorElement)?.href;
-        metadata.url = url;
+        metadata.event_url = url;
       } else if (tagName === 'SPAN') {
         url = (
           (event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement
         )?.href;
-        metadata.url = url;
+        metadata.event_url = url;
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });
     }
@@ -80,9 +80,9 @@ export class ProfileComponent {
           pageTitle: this.tracker.pageTitle,
           pageType: 'home',
           pageUrl: this.tracker.pageUrl,
-          section: 'profile_section',
-          url: resume.url,
-        });
+          event_section: 'profile_section',
+          event_url: resume.url,
+        } as ClickEventParams);
       }
     }
   }

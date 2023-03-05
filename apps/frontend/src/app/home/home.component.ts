@@ -19,41 +19,18 @@ import { DataService, ITag, Robots, SeoService } from './../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  readonly tsTrackingCallback =
-    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'techstack_section',
-    } as ImpressionEventParams);
-
-  readonly ghTrackingCallback =
-    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'github_section',
-    } as ImpressionEventParams);
-
-  readonly edTrackingCallback =
-    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'education_section',
-    } as ImpressionEventParams);
-
-  readonly blTrackingCallback =
-    this.tracker.trackImpressionCollectionEvent.bind(this.tracker, {
-      pageTitle: this.tracker.pageTitle,
-      pageType: 'home',
-      pageUrl: this.tracker.pageUrl,
-      section: 'blog_section',
-    } as ImpressionEventParams);
-
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  tsTrackingCallback?: (() => void) | undefined = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  ghTrackingCallback?: (() => void) | undefined = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  edTrackingCallback?: (() => void) | undefined = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  blTrackingCallback?: (() => void) | undefined = () => {};
 
   constructor(
     readonly data: DataService,
@@ -79,9 +56,53 @@ export class HomeComponent implements OnInit {
       pageUrl: this.tracker.pageUrl,
     });
     this.data.loadPageAction('home');
+
+    this.initTrackingCallbacks();
   }
 
   onScrollToTop(): void {
     this.viewport.scrollToPosition([0, 0]);
+  }
+
+  private initTrackingCallbacks() {
+    this.tsTrackingCallback = this.tracker.trackImpressionCollectionEvent.bind(
+      this.tracker,
+      {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'home',
+        pageUrl: this.tracker.pageUrl,
+        event_section: 'techstack_section',
+      } as ImpressionEventParams,
+    );
+
+    this.ghTrackingCallback = this.tracker.trackImpressionCollectionEvent.bind(
+      this.tracker,
+      {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'home',
+        pageUrl: this.tracker.pageUrl,
+        event_section: 'github_section',
+      } as ImpressionEventParams,
+    );
+
+    this.edTrackingCallback = this.tracker.trackImpressionCollectionEvent.bind(
+      this.tracker,
+      {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'home',
+        pageUrl: this.tracker.pageUrl,
+        event_section: 'education_section',
+      } as ImpressionEventParams,
+    );
+
+    this.blTrackingCallback = this.tracker.trackImpressionCollectionEvent.bind(
+      this.tracker,
+      {
+        pageTitle: this.tracker.pageTitle,
+        pageType: 'home',
+        pageUrl: this.tracker.pageUrl,
+        event_section: 'blog_section',
+      } as ImpressionEventParams,
+    );
   }
 }

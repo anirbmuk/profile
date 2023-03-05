@@ -31,8 +31,8 @@ export class NotFoundComponent implements OnInit {
       pageTitle: this.tracker.pageTitle,
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
-      section: 'not_found',
-      url: '/',
+      event_section: 'not_found',
+      event_url: '/',
     };
     type === 'internal'
       ? this.tracker.internalClickEvent({ ...metadata })
