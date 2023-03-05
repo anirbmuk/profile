@@ -1,3 +1,7 @@
+## v1.9.9
+- **Fix**: Fixed broken build caused by Node version upgrade on GitHub Actions.  
+- **Fix**: Faster page load by re-ordering API call dependencies.  
+
 ## v1.9.8
 - **Fix**: Tracking variables renamed as per GTM and GA conventions.  
 - **Fix**: Fixed incorrect tracking callback initialization causing incorrect page-title to be reported on tracking.  
