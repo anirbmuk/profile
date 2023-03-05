@@ -1,3 +1,7 @@
+## v1.9.8
+- **Fix**: Tracking variables renamed as per GTM and GA conventions.  
+- **Fix**: Fixed incorrect tracking callback initialization causing incorrect page-title to be reported on tracking.  
+
 ## v1.9.7
 - **Chore**: Added node-inspect scripts to `package.json`.
 - **Fix**: Fixed typescript data models for homepage data items.
