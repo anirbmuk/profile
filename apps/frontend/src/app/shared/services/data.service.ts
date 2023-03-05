@@ -15,7 +15,7 @@ import {
   PROFILE,
   TECHSTACK,
 } from '@frontend/connector-interfaces';
-import { BehaviorSubject, forkJoin } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { exhaustMap, filter, map, tap } from 'rxjs/operators';
 import { RequestService } from './request.service';
 
@@ -55,9 +55,7 @@ export class DataService {
   readonly bio$ = this.loadPage$.pipe(
     filter((value) => value === 'home'),
     tap(() => this.toggleLoadingState(true)),
-    exhaustMap(() =>
-      forkJoin<IProfile, ICareer[]>([this.profile$, this.career$]),
-    ),
+    exhaustMap(() => this.profile$),
     tap(() => this.toggleLoadingState(false)),
   );
 

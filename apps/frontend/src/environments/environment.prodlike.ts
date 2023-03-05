@@ -6,7 +6,7 @@ export const environment = {
     verified: false,
     id: null,
   },
-  gtmId: 'GTM-test',
+  gtmId: null,
   title: 'Anirban Mukherjee (anirbmuk) | Senior Frontend Developer',
   about:
     'I am Anirban Mukherjee, a Senior Frontend Developer at ABOUT YOU, currently in Hamburg, Germany. Love to work on angular and anything angular-y!',
