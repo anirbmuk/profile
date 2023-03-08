@@ -66,9 +66,9 @@ jobs:
         run: yarn build:ssr:prod
 
       - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: dist-anirbmuk
+          name: dist-compiled
           path: dist
 
   deploy:
@@ -77,9 +77,9 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
-          name: dist-anirbmuk
+          name: dist-compiled
           path: dist
       - uses: golang-enthusiast/app-yaml-env-compiler@v1.0
         env:
