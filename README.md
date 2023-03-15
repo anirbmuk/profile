@@ -16,7 +16,7 @@
 What I wanted   | What I got  
 --------------- | --------------
 IDE             | MS Visual Studio Code  
-Front-end       | Angular 12 / Tailwindcss 
+Front-end       | Angular / Tailwindcss 
 Database        | Google Firestore
 SSR & BFF       | NestJS  
 Hosting         | Google app engine  
@@ -47,4 +47,4 @@ https://anirbmuk.appspot.com
 - - - -
 
 ## Copyright  
-(C) anirbmuk, 2022  
+(C) anirbmuk, 2023  
