@@ -1,3 +1,6 @@
+## v1.9.10
+- **Chore**: Updated @angular and @nrwl packages to latest of 12.  
+
 ## v1.9.9
 - **Fix**: Fixed broken build caused by Node version upgrade on GitHub Actions.  
 - **Fix**: Faster page load by re-ordering API call dependencies.  
