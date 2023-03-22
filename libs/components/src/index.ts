@@ -6,6 +6,7 @@ export * from './lib/featuredblog';
 export * from './lib/icon';
 export * from './lib/link';
 export * from './lib/loader';
+export * from './lib/notification';
 export * from './lib/pipes';
 export * from './lib/progress-bar';
 export * from './lib/scroll';
