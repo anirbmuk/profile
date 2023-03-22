@@ -1,3 +1,6 @@
+## v1.10.0
+- **Feat**: Added new notification component. Added listener to service-worker `updateAvailable` event to trigger notification.  
+
 ## v1.9.10
 - **Chore**: Updated @angular and @nrwl packages to latest of 12.  
 
