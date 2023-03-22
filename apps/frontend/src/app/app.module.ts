@@ -10,6 +10,7 @@ import {
   DirectiveModule,
   IconModule,
   LinkModule,
+  NotificationModule,
   PipeModule,
   ProgressBarModule,
   ScrollModule,
@@ -100,6 +101,7 @@ const appRoutes: Routes = [
       registrationStrategy: 'registerWhenStable:30000',
     }),
     ButtonModule,
+    NotificationModule,
   ],
   providers: [
     {

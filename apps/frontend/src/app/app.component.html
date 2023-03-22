@@ -1,5 +1,32 @@
 <fe-header></fe-header>
 <main class="container my-20" (window:resize)="onResize()">
+  <fe-notification *ngIf="update.updateAvailable$ | async">
+    <ng-container text>
+      <div class="text-sm md:text-md text-black-dark dark-mode">
+        A new version is available. Refresh now?
+      </div>
+    </ng-container>
+    <ng-container action>
+      <div class="flex justify-between items-center">
+        <button type="button" (click)="update.reload()">
+          <div
+            class="flex items-center text-green-800 material-symbols-rounded"
+            translate="no"
+          >
+            thumb_up
+          </div>
+        </button>
+        <button type="button" (click)="update.hideNotification()">
+          <div
+            class="flex items-center text-red-800 material-symbols-rounded"
+            translate="no"
+          >
+            thumb_down
+          </div>
+        </button>
+      </div>
+    </ng-container>
+  </fe-notification>
   <router-outlet></router-outlet>
 </main>
 <ng-container *ngIf="footer$ | async as footer">

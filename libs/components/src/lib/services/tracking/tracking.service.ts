@@ -2,7 +2,7 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ServiceModule } from '../service.module';
-import { buildGTMScript, GTM_ID, PRODUCTION } from './config';
+import { buildGTMScript, buildNoScript, GTM_ID, PRODUCTION } from './config';
 import { BaseEvent, BaseEventParams } from './tracking.type';
 
 @Injectable({
@@ -80,8 +80,7 @@ export class TrackingService {
 
   buildBodyScript(renderer: Renderer2) {
     if (this.gtmId && this.isBrowser()) {
-      const bodyScript = `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-${this.gtmId}"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+      const bodyScript = buildNoScript(this.gtmId);
       const script: HTMLElement = renderer.createElement('noscript');
       script.innerHTML = bodyScript;
       renderer.appendChild(this.document.body, script);

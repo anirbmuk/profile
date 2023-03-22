@@ -15,3 +15,8 @@ export function buildGTMScript(gtmId: string) {
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-${gtmId}');`;
 }
+
+export function buildNoScript(gtmId: string) {
+  return `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-${gtmId}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+}
