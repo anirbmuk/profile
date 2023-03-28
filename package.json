@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "license": "MIT",
   "description": "Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio",
   "author": {
@@ -57,7 +57,12 @@
     "clean": "rimraf dist",
     "prerender": "ng run frontend:prerender",
     "prebuild:ssr": "ngcc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "yarn lint && yarn format:check"
+  },
+  "lint-staged": {
+    "apps/**/*{.ts,.js,.html,.css}": "yarn pre-commit",
+    "libs/**/*{.ts,.js,.html,.css}": "yarn pre-commit"
   },
   "private": true,
   "dependencies": {
@@ -120,6 +125,7 @@
     "husky": "^8.0.3",
     "jest": "27.2.3",
     "jest-preset-angular": "10.0.1",
+    "lint-staged": "^13.2.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "prettier": "2.3.1",

@@ -1,3 +1,6 @@
+## v1.10.1
+- **Chore**: Set up **lint-staged** with **husky**.  
+
 ## v1.10.0
 - **Feat**: Added new notification component. Added listener to service-worker `updateAvailable` event to trigger notification.  
 
