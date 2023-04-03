@@ -21,7 +21,8 @@
         ],
         "no-console": ["error", { "allow": ["error"] }],
         "no-undef": "off",
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "always"]
       }
     },
     {

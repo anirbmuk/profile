@@ -1,3 +1,6 @@
+## v1.10.3
+- **Fix**: Fixed execution errors with lint-staged and husky.  
+
 ## v1.10.2
 - **Chore**: Updated nest to v8 and enabled Node 16 on GCP.  
 - **Fix**: Fixed width of notification component on large screens.  

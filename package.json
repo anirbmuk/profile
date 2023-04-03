@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "license": "MIT",
   "description": "Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio",
   "author": {
@@ -61,8 +61,10 @@
     "pre-commit": "yarn lint && yarn format:check"
   },
   "lint-staged": {
-    "apps/**/*{.ts,.js,.html,.css}": "yarn pre-commit",
-    "libs/**/*{.ts,.js,.html,.css}": "yarn pre-commit"
+    "apps/**/*{.ts,.js}": "eslint",
+    "libs/**/*{.ts,.js}": "eslint",
+    "apps/**/*{.ts,.js,.html,.css}": "yarn format:check --uncommitted",
+    "libs/**/*{.ts,.js,.html,.css}": "yarn format:check --uncommitted"
   },
   "private": true,
   "dependencies": {
