@@ -44,7 +44,6 @@ export class AppComponent {
   }
 
   onResize(): void {
-    console.log('Resizing...');
     this.device.setDeviceWidth();
   }
 }
