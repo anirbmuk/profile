@@ -61,8 +61,8 @@
     "pre-commit": "yarn lint && yarn format:check"
   },
   "lint-staged": {
-    "apps/**/*{.ts,.js,.html,.css}": "yarn pre-commit",
-    "libs/**/*{.ts,.js,.html,.css}": "yarn pre-commit"
+    "apps/**/*{.ts,.js,.html,.css}": "yarn format --uncommitted",
+    "libs/**/*{.ts,.js,.html,.css}": "yarn format --uncommitted"
   },
   "private": true,
   "dependencies": {
