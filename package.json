@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "license": "MIT",
   "description": "Anirban Mukherjee (anirbmuk) | Senior Frontend Developer | Professional Bio",
   "author": {
@@ -87,7 +87,7 @@
     "express": "^4.15.2",
     "firebase": "^8.10.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "~6.6.0",
+    "rxjs": "~7.1.0",
     "tslib": "^2.0.0",
     "zone.js": "0.11.6"
   },
