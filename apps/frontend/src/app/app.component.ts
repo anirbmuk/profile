@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 import {
   DeviceService,
   RequestService,
-  UpdateService,
+  UpdateService
 } from './shared/services';
 
 @Component({
