@@ -63,8 +63,8 @@
   "lint-staged": {
     "apps/**/*{.ts,.js}": "eslint",
     "libs/**/*{.ts,.js}": "eslint",
-    "apps/**/*{.html,.css}": "yarn format:check --uncommitted",
-    "libs/**/*{.html,.css}": "yarn format:check --uncommitted"
+    "apps/**/*{.ts,.js,.html,.css}": "yarn format:check --uncommitted",
+    "libs/**/*{.ts,.js,.html,.css}": "yarn format:check --uncommitted"
   },
   "private": true,
   "dependencies": {
