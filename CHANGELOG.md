@@ -1,3 +1,6 @@
+## v1.11.0
+- **Feat**: Enabled server-side caching with `cache-manager` package. Responses will be cached for 24 hours.  
+
 ## v1.10.3
 - **Fix**: Fixed execution errors with lint-staged and husky.  
 
