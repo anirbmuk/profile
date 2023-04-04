@@ -17,12 +17,16 @@ import {
   TECHSTACK,
 } from '@frontend/connector-interfaces';
 import { FirebaseService } from '@frontend/connector-lib';
-import { Injectable } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { Cache } from 'cache-manager';
 import { BadRequestException, GenericException } from './exception';
 
 @Injectable()
 export class AppService {
-  constructor(private readonly firebase: FirebaseService) {}
+  constructor(
+    private readonly firebase: FirebaseService,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
+  ) {}
 
   async getGitHubLinks() {
     return this.get<IGitHub>(GITHUB);
@@ -61,6 +65,11 @@ export class AppService {
       throw new BadRequestException('Firestore collection is empty');
     }
     let items = [] as T[];
+    const cacheKey = btoa(`${path}_${limit ?? 1}`);
+    const cachedItems = await this.cacheManager.get(cacheKey);
+    if (cachedItems) {
+      return JSON.parse(await this.cacheManager.get(cacheKey)) as T[];
+    }
     try {
       items = await this.firebase.fetchCollection<T>({
         collections: [path],
@@ -69,6 +78,7 @@ export class AppService {
         ],
         ...(limit && { limit }),
       });
+      await this.cacheManager.set(cacheKey, JSON.stringify(items));
       return items;
     } catch {
       throw new GenericException();

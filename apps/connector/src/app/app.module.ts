@@ -2,7 +2,7 @@ import {
   ConnectorLibraryModule,
   FirebaseService,
 } from '@frontend/connector-lib';
-import { Module } from '@nestjs/common';
+import { Module, CacheModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { config } from './module.type';
@@ -11,6 +11,10 @@ import { config } from './module.type';
   imports: [
     ConnectorLibraryModule.forRoot({
       firebaseConfig: config,
+    }),
+    CacheModule.register({
+      store: 'memory',
+      ttl: 24 * 60 * 60,
     }),
   ],
   controllers: [AppController],
