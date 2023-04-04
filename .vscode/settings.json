@@ -5,8 +5,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "html.format.enable": true,
-  "files.eol": "\n",
-  "prettier.ignorePath": ".prettierignore",
-  "prettier.configPath": ".prettierrc"
+  "html.format.enable": false,
+  "files.eol": "\n"
 }
