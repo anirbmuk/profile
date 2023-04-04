@@ -18,17 +18,18 @@
               }
             ]
           }
-        ],
-        "no-console": ["error", { "allow": ["error"] }],
-        "no-undef": "off",
-        "semi": ["error", "always"],
-        "comma-dangle": ["error", "always"]
+        ]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "no-console": ["error", { "allow": ["error"] }],
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "always-multiline"],
+        "@typescript-eslint/no-unused-vars": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

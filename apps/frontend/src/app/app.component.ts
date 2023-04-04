@@ -1,4 +1,4 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -31,7 +31,6 @@ export class AppComponent {
     private readonly device: DeviceService,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) readonly platformId: Object,
-    @Inject(DOCUMENT) private readonly document: Document,
     private readonly tracking: TrackingService,
     private readonly renderer: Renderer2,
     readonly update: UpdateService,
