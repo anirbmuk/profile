@@ -25,7 +25,7 @@ import { BadRequestException, GenericException } from './exception';
 export class AppService {
   constructor(
     private readonly firebase: FirebaseService,
-    @Inject(CACHE_MANAGER) private cacheManager: Cache,
+    @Inject(CACHE_MANAGER) private readonly cacheManager: Cache,
   ) {}
 
   async getGitHubLinks() {
@@ -49,7 +49,7 @@ export class AppService {
   }
 
   async getEducation() {
-    return this.get<IEducation>(EDUCATION);
+    return this.get<IEducation>(EDUCATION, 1);
   }
 
   async getAboutme() {
