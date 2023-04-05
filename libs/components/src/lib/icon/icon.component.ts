@@ -36,12 +36,17 @@ export class IconComponent {
     this.displayClass = positionValue ? this.displayClasses[positionValue] : '';
   }
 
+  @Input() set loading(value: 'eager' | 'lazy') {
+    this.loadingType = value || 'lazy';
+  }
+
   type: 'link' | 'text' = 'text';
   ariaLabel?: string;
   iconClass = 'h-3 md:h-4 w-3 md:w-4';
   source?: string | undefined;
   target?: string | undefined;
   displayClass?: string;
+  loadingType?: 'eager' | 'lazy' = 'lazy';
 
   sizeMappers: Record<number, string> = {
     2: 'h-1 md:h-2 w-1 md:w-2',

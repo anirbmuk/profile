@@ -1,3 +1,8 @@
+## v1.11.2
+- **Fix**: Fixed display issues with notification component on tablets.  
+- **Feat**: `IconComponent` now supports **lazy** and **eager** loading of images, based on input.  
+- **Perf**: Layouts re-arranged to solve `Cumulative Layout Shift` issues.  
+
 ## v1.11.1
 - **Chore**: Improved lint and prettier rules.  
 

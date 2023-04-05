@@ -10,7 +10,7 @@
         [src]="source"
         [alt]="ariaLabel"
         (click)="onLinkClick(target)"
-        loading="lazy"
+        [attr.loading]="loadingType"
     /></a>
   </div>
   <div [class]="displayClass">

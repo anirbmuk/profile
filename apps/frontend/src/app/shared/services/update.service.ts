@@ -13,7 +13,7 @@ export class UpdateService {
 
   constructor(
     private readonly update: SwUpdate,
-    @Inject(DOCUMENT) readonly document: Document,
+    @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
   readonly updateAvailable$ = combineLatest([
@@ -23,6 +23,7 @@ export class UpdateService {
 
   async reload() {
     try {
+      this.showUpdateNotification.next(false);
       await this.update.activateUpdate();
       this.document.location.reload();
     } catch (err) {
