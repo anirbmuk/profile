@@ -1,6 +1,5 @@
-<section class="mt-16 md:mt-24 mb-4 ease-in duration-300">
-  <div class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-8 drop-shadow-md">
-    <div role="img" class="profile-image" aria-label="profile image"></div>
+<section class="mt-0 ease-in duration-300">
+  <div class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-7 drop-shadow-md">
     <div class="justify-center">
       <h2
         class="
@@ -10,7 +9,8 @@
           flex
           justify-center
           items-center
-          mb-2
+          mb-1.5
+          md:mb-2
         "
       >
         {{ block?.designation }}
@@ -23,14 +23,24 @@
           flex
           justify-center
           items-center
-          mb-2
+          mb-1.5
+          md:mb-2
         "
         translate="no"
       >
         {{ block?.currentjob }}
       </h3>
       <h4
-        class="text-md md:text lg:text-xl flex justify-center items-center mb-3"
+        class="
+          text-md
+          md:text
+          lg:text-xl
+          flex
+          justify-center
+          items-center
+          mb-1.5
+          md:mb-2.5
+        "
       >
         {{ block?.location }}
       </h4>
@@ -43,12 +53,13 @@
               [icon]="social.type"
               [url]="social.url"
               [size]="size"
+              loading="eager"
               (linkClick)="onLinkClickFromEmitter($event, 'external')"
             ></fe-icon>
           </ng-container>
         </ng-container>
       </div>
-      <div class="grid place-content-center mt-6 mb-2">
+      <div class="grid place-content-center mt-4 mb-2">
         <fe-button (onclick)="onDownloadResume(block?.artifact)"
           >Download Resume</fe-button
         >
@@ -60,7 +71,6 @@
       <div class="space-y-4 md:space-y-2 text-md md:text">
         <ng-container *ngFor="let bio of block?.bio; trackBy: trackByIndexFn">
           <div
-            class="text-justify"
             [innerHtml]="sanitizer.sanitizeHtml(bio)"
             (click)="onLinkClickEvent($event, 'external')"
           ></div>

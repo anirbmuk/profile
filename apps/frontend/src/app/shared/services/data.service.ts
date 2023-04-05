@@ -26,16 +26,21 @@ export class DataService {
   readonly profile$ = this.request
     .get<[IProfile]>(PROFILE)
     .pipe(map((data) => data?.[0]));
+
   readonly techstack$ = this.request
     .get<[ITechstack]>(TECHSTACK)
     .pipe(map((data) => data?.[0]));
+
   readonly github$ = this.request
     .get<IGitHub[]>(GITHUB)
     .pipe(map((data) => data?.sort((g1, g2) => g1.position - g2.position)));
+
   readonly career$ = this.request.get<ICareer[]>(CAREER);
+
   readonly education$ = this.request
     .get<IEducation[]>(EDUCATION)
     .pipe(map((data) => data?.sort((e1, e2) => e2.position - e1.position)));
+
   readonly blog$ = this.request
     .get<IFeaturedBlog[]>(BLOG)
     .pipe(map((data) => data?.sort((b1, b2) => b1.position - b2.position)));

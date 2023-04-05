@@ -7,21 +7,25 @@
       </div>
     </ng-container>
     <ng-container action>
-      <div class="flex justify-between items-center">
-        <button type="button" (click)="update.reload()">
+      <div class="flex space-x-2 items-center">
+        <button type="button" (click)="update.reload()" aria-label="reload">
           <div
             class="flex items-center text-green-800 material-symbols-rounded"
             translate="no"
           >
-            thumb_up
+            done_all
           </div>
         </button>
-        <button type="button" (click)="update.hideNotification()">
+        <button
+          type="button"
+          (click)="update.hideNotification()"
+          aria-label="reject"
+        >
           <div
             class="flex items-center text-red-800 material-symbols-rounded"
             translate="no"
           >
-            thumb_down
+            block
           </div>
         </button>
       </div>
