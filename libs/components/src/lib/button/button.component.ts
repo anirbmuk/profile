@@ -5,6 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { ButtonType } from './button.type';
 
 @Component({
   selector: 'fe-button',
@@ -13,7 +14,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() label = 'Download';
+  @Input() buttonType: ButtonType = { type: 'button' };
   @Output() onclick = new EventEmitter<void>();
 
   onButtonClick() {

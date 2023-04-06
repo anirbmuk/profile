@@ -1,3 +1,8 @@
-<button (click)="onButtonClick()">
+<button
+  (click)="onButtonClick()"
+  [attr.type]="buttonType.type"
+  [class]="buttonType.buttonClass"
+  [attr.aria-label]="buttonType.ariaLabel"
+>
   <ng-content></ng-content>
 </button>

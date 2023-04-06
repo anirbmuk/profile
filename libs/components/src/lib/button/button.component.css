@@ -1,9 +1,0 @@
-button {
-  @apply border border-gray-200 bg-gray-100 text-black-dark rounded py-2 min-w-xs md:min-w-base md:hover:bg-gray-200 md:hover:border-gray-300 ease-in duration-200 cursor-pointer text-center text-md md:text px-2 shadow-lg tracking-tight;
-}
-
-@media (prefers-color-scheme: dark) {
-  button {
-    @apply border border-white text-white bg-transparent md:hover:bg-transparent md:hover:border-white shadow-none;
-  }
-}
