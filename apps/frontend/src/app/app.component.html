@@ -7,18 +7,21 @@
       </div>
     </ng-container>
     <ng-container action>
-      <div class="flex space-x-2 items-center">
-        <button type="button" (click)="update.reload()" aria-label="reload">
+      <div class="flex space-x-2 items-center justify-center">
+        <fe-button
+          [buttonType]="{ type: 'button', ariaLabel: 'reload' }"
+          (onclick)="update.reload()"
+        >
           <div
             class="flex items-center text-green-800 material-symbols-rounded"
             translate="no"
           >
             done_all
           </div>
-        </button>
-        <button
-          type="button"
-          (click)="update.hideNotification()"
+        </fe-button>
+        <fe-button
+          [buttonType]="{ type: 'button', ariaLabel: 'reject' }"
+          (onclick)="update.hideNotification()"
           aria-label="reject"
         >
           <div
@@ -27,7 +30,7 @@
           >
             block
           </div>
-        </button>
+        </fe-button>
       </div>
     </ng-container>
   </fe-notification>

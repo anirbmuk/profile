@@ -60,7 +60,9 @@
         </ng-container>
       </div>
       <div class="grid place-content-center mt-4 mb-2">
-        <fe-button (onclick)="onDownloadResume(block?.artifact)"
+        <fe-button
+          [buttonType]="{ type: 'button', buttonClass: 'download-button' }"
+          (onclick)="onDownloadResume(block?.artifact)"
           >Download Resume</fe-button
         >
       </div>
