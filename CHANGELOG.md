@@ -1,3 +1,7 @@
+## v1.12.0
+- **Feat**: Added more customizations on the `fe-button` component.  
+- **Fix**: Fixed issue of fetching data from cache twice.  
+
 ## v1.11.2
 - **Fix**: Fixed display issues with notification component on tablets.  
 - **Feat**: `IconComponent` now supports **lazy** and **eager** loading of images, based on input.  
