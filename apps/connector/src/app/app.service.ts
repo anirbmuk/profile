@@ -65,10 +65,10 @@ export class AppService {
       throw new BadRequestException('Firestore collection is empty');
     }
     let items = [] as T[];
-    const cacheKey = btoa(`${path}_${limit ?? 1}`);
-    const cachedItems = await this.cacheManager.get(cacheKey);
+    const cacheKey = btoa(`${path}_${limit ?? -1}`);
+    const cachedItems = await this.cacheManager.get<string>(cacheKey);
     if (cachedItems) {
-      return JSON.parse(await this.cacheManager.get(cacheKey)) as T[];
+      return JSON.parse(cachedItems) as T[];
     }
     try {
       items = await this.firebase.fetchCollection<T>({
@@ -76,7 +76,7 @@ export class AppService {
         whereClause: [
           { column: 'visibility', operator: '==', condition: 'public' },
         ],
-        ...(limit && { limit }),
+        ...(limit > 0 && { limit }),
       });
       await this.cacheManager.set(cacheKey, JSON.stringify(items));
       return items;
