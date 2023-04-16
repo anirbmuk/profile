@@ -1,3 +1,8 @@
+## v1.13.0
+- **Feat**: Updated to latest firebase package with tree-shakable modular approach.  
+- **Fix**: Fixed incorrect image size reference for PWA assets.  
+- **Fix**: Switched to CDN fonts to reduce payload size and better caching with service worker.  
+
 ## v1.12.0
 - **Feat**: Added more customizations on the `fe-button` component.  
 - **Fix**: Fixed issue of fetching data from cache twice.  

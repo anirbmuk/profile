@@ -190,14 +190,9 @@
             ],
             "styles": [
               "apps/frontend/src/root.css",
-              "apps/frontend/src/font.css",
               "apps/frontend/src/styles.css"
             ],
             "scripts": [],
-            "allowedCommonJsDependencies": [
-              "firebase/app",
-              "firebase/firestore"
-            ],
             "serviceWorker": false
           },
           "configurations": {
@@ -331,8 +326,7 @@
             "outputPath": "dist/frontend/server",
             "main": "apps/frontend/server.ts",
             "tsConfig": "apps/frontend/tsconfig.server.json",
-            "inlineStyleLanguage": "css",
-            "externalDependencies": ["firebase/app", "firebase/firestore"]
+            "inlineStyleLanguage": "css"
           },
           "configurations": {
             "production": {

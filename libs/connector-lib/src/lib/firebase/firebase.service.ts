@@ -1,18 +1,35 @@
 import { Inject, Injectable } from '@nestjs/common';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { FirebaseApp, initializeApp } from 'firebase/app';
+import {
+  Firestore,
+  OrderByDirection,
+  QueryFieldFilterConstraint,
+  QueryOrderByConstraint,
+  WhereFilterOp,
+  collection,
+  doc,
+  endAt,
+  getDoc,
+  getDocs,
+  getFirestore,
+  limit,
+  orderBy,
+  query,
+  startAt,
+  where,
+} from 'firebase/firestore';
 import { FIREBASE_CONFIG } from './firebase.constants';
 import { FirebaseConfig } from './firebase.types';
 
 export interface FirestoreWhere {
   column: string;
-  operator: firebase.firestore.WhereFilterOp;
+  operator: WhereFilterOp;
   condition: unknown;
 }
 
 export interface FirestoreOrderBy {
   attr: string;
-  dir: firebase.firestore.OrderByDirection;
+  dir: OrderByDirection;
 }
 
 export interface FirestoreQuery {
@@ -27,14 +44,15 @@ export interface FirestoreQuery {
 
 @Injectable()
 export class FirebaseService {
+  private _app: FirebaseApp | null;
   constructor(
     @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig,
   ) {
-    this.initFirebaseApp(this.config);
+    this._app = this.initFirebaseApp(this.config);
   }
 
   initFirebaseApp(firebaseConfig: FirebaseConfig) {
-    firebase.initializeApp(firebaseConfig);
+    return initializeApp(firebaseConfig);
   }
 
   async fetchCollection<T>(query: Partial<FirestoreQuery>): Promise<T[]> {
@@ -67,7 +85,7 @@ export class FirebaseService {
 
     const fetchData = await this._getUnitDataFromFireStore(collections, keys);
 
-    if (fetchData.exists) {
+    if (fetchData.exists()) {
       return fetchData.data() as T;
     }
     return {} as T;
@@ -77,7 +95,7 @@ export class FirebaseService {
     collections: string[] | undefined,
     keys: string[] | undefined,
   ) {
-    const db = this.getFirestoreDb();
+    const db = this.getFirestoreDb(this._app);
     if (!collections || !collections[0]) {
       return Promise.reject('Collection cannot be empty');
     }
@@ -85,10 +103,8 @@ export class FirebaseService {
       if (!keys || !keys?.[0]) {
         return Promise.reject('Parent key path cannot be empty');
       } else if (keys?.[0]) {
-        const collectionRootDocRef = db
-          .collection(collections?.[0])
-          .doc(keys?.[0]);
-        return collectionRootDocRef.get();
+        const collectionRootDocRef = doc(db, collections?.[0], keys?.[0]);
+        return getDoc(collectionRootDocRef);
       }
     }
     if (collections.length === 2) {
@@ -98,12 +114,12 @@ export class FirebaseService {
       if (!keys?.[1]) {
         return Promise.reject('Child key path cannot be empty');
       } else {
-        const collectionChilDocdRef = db
-          .collection(collections?.[0])
-          .doc(keys[0])
-          .collection(collections?.[1])
-          .doc(keys?.[1]);
-        return collectionChilDocdRef.get();
+        const collectionChilDocdRef = doc(
+          db,
+          `/${collections?.[0]}/${keys?.[0]}/${collections?.[1]}`,
+          keys?.[1],
+        );
+        return getDoc(collectionChilDocdRef);
       }
     }
     return Promise.reject('Incorrect data set for firestore query');
@@ -114,46 +130,41 @@ export class FirebaseService {
     keys: string[] | undefined,
     whereClause?: FirestoreWhere[],
     orderByClause?: FirestoreOrderBy[],
-    limit?: number,
-    startAt?: string | number | Date | undefined,
-    endAt?: string | number | Date | undefined,
+    limitValue?: number,
+    startAtValue?: string | number | Date | undefined,
+    endAtValue?: string | number | Date | undefined,
   ) {
-    const db = this.getFirestoreDb();
-    if (!collections || !collections?.[0]) {
-      return Promise.reject('Collection cannot be empty');
-    }
+    const db = this.getFirestoreDb(this._app);
     if (collections.length === 1) {
-      const collectionRootRef = db.collection(collections?.[0]);
-      let collectionRootQuery = collectionRootRef as firebase.firestore.Query;
+      const collectionRootRef = collection(db, collections?.[0]);
+      let collectionRootQuery = query(collectionRootRef);
       if (whereClause) {
-        whereClause.forEach(
-          (clause: FirestoreWhere) =>
-            (collectionRootQuery = collectionRootQuery.where(
-              clause.column,
-              clause.operator,
-              clause.condition,
-            )),
+        const clauses: QueryFieldFilterConstraint[] = [];
+        whereClause.forEach((clause: FirestoreWhere) =>
+          clauses.push(where(clause.column, clause.operator, clause.condition)),
         );
+        collectionRootQuery = query(collectionRootRef, ...clauses);
       }
       if (orderByClause) {
-        orderByClause.forEach(
-          (clause: FirestoreOrderBy) =>
-            (collectionRootQuery = collectionRootQuery.orderBy(
-              clause.attr,
-              clause.dir,
-            )),
+        const clauses: QueryOrderByConstraint[] = [];
+        orderByClause.forEach((clause: FirestoreOrderBy) =>
+          clauses.push(orderBy(clause.attr, clause.dir)),
+        );
+        collectionRootQuery = query(collectionRootQuery, ...clauses);
+      }
+      if (!!limitValue && limitValue !== 0) {
+        collectionRootQuery = collectionRootQuery = query(
+          collectionRootQuery,
+          limit(limitValue),
         );
       }
-      if (!!limit && limit !== 0) {
-        collectionRootQuery = collectionRootQuery.limit(limit);
+      if (startAtValue) {
+        collectionRootQuery = query(collectionRootQuery, startAt(startAtValue));
       }
-      if (startAt) {
-        collectionRootQuery = collectionRootQuery.startAt(startAt);
+      if (endAtValue) {
+        collectionRootQuery = query(collectionRootQuery, endAt(endAtValue));
       }
-      if (endAt) {
-        collectionRootQuery = collectionRootQuery.endAt(endAt);
-      }
-      return collectionRootQuery.get();
+      return getDocs(collectionRootQuery);
     }
     if (collections?.length === 2) {
       if (!collections?.[1]) {
@@ -162,45 +173,43 @@ export class FirebaseService {
       if (!keys?.[0]) {
         return Promise.reject('Parent collection key cannot be empty');
       }
-      const collectionChildRef = db
-        .collection(collections?.[0])
-        .doc(keys?.[0])
-        .collection(collections?.[1]);
-      let collectionRootQuery = collectionChildRef as firebase.firestore.Query;
+      const collectionChildRef = collection(
+        db,
+        `/${collections?.[0]}/${keys?.[0]}/${collections?.[1]}`,
+      );
+      let collectionRootQuery = query(collectionChildRef);
       if (whereClause) {
-        whereClause.forEach(
-          (clause: FirestoreWhere) =>
-            (collectionRootQuery = collectionRootQuery.where(
-              clause.column,
-              clause.operator,
-              clause.condition,
-            )),
+        const clauses: QueryFieldFilterConstraint[] = [];
+        whereClause.forEach((clause: FirestoreWhere) =>
+          clauses.push(where(clause.column, clause.operator, clause.condition)),
         );
+        collectionRootQuery = query(collectionChildRef, ...clauses);
       }
       if (orderByClause) {
-        orderByClause.forEach(
-          (clause: FirestoreOrderBy) =>
-            (collectionRootQuery = collectionRootQuery.orderBy(
-              clause.attr,
-              clause.dir,
-            )),
+        const clauses: QueryOrderByConstraint[] = [];
+        orderByClause.forEach((clause: FirestoreOrderBy) =>
+          clauses.push(orderBy(clause.attr, clause.dir)),
+        );
+        collectionRootQuery = query(collectionRootQuery, ...clauses);
+      }
+      if (!!limitValue && limitValue !== 0) {
+        collectionRootQuery = collectionRootQuery = query(
+          collectionRootQuery,
+          limit(limitValue),
         );
       }
-      if (!!limit && limit !== 0) {
-        collectionRootQuery = collectionRootQuery.limit(limit);
+      if (startAtValue) {
+        collectionRootQuery = query(collectionRootQuery, startAt(startAtValue));
       }
-      if (startAt) {
-        collectionRootQuery = collectionRootQuery.startAt(startAt);
+      if (endAtValue) {
+        collectionRootQuery = query(collectionRootQuery, endAt(endAtValue));
       }
-      if (endAt) {
-        collectionRootQuery = collectionRootQuery.endAt(endAt);
-      }
-      return collectionRootQuery.get();
+      return getDocs(collectionRootQuery);
     }
     return Promise.reject('Incorrect data set for firestore query');
   }
 
-  private getFirestoreDb(): firebase.firestore.Firestore {
-    return firebase.firestore();
+  private getFirestoreDb(app: FirebaseApp): Firestore {
+    return getFirestore(app);
   }
 }
