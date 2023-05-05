@@ -50,8 +50,8 @@
       "purpose": "maskable any"
     },
     {
-      "src": "assets/pwa/icon-384x384.png",
-      "sizes": "384x384",
+      "src": "assets/pwa/icon-284x284.png",
+      "sizes": "284x284",
       "type": "image/png",
       "purpose": "maskable any"
     },
