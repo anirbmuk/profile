@@ -1,3 +1,8 @@
+## v1.13.1
+- **Fix**: Fixed issue with `bg-fixed` class for iOS.  
+- **Fix**: Fixed missing image size reference for PWA assets.  
+- **Fix**: Fixed apple-touch-icon.  
+
 ## v1.13.0
 - **Feat**: Updated to latest firebase package with tree-shakable modular approach.  
 - **Fix**: Fixed incorrect image size reference for PWA assets.  
