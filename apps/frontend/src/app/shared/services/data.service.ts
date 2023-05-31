@@ -16,38 +16,42 @@ import {
   TECHSTACK,
 } from '@frontend/connector-interfaces';
 import { BehaviorSubject } from 'rxjs';
-import { exhaustMap, filter, map, tap } from 'rxjs/operators';
+import { exhaustMap, filter, map, shareReplay, tap } from 'rxjs/operators';
 import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  readonly profile$ = this.request
-    .get<[IProfile]>(PROFILE)
-    .pipe(map((data) => data?.[0]));
+  readonly profile$ = this.request.get<[IProfile]>(PROFILE).pipe(
+    map((data) => data?.[0]),
+    shareReplay(1),
+  );
 
   readonly techstack$ = this.request
     .get<[ITechstack]>(TECHSTACK)
     .pipe(map((data) => data?.[0]));
 
-  readonly github$ = this.request
-    .get<IGitHub[]>(GITHUB)
-    .pipe(map((data) => data?.sort((g1, g2) => g1.position - g2.position)));
+  readonly github$ = this.request.get<IGitHub[]>(GITHUB).pipe(
+    map((data) => data?.sort((g1, g2) => g1.position - g2.position)),
+    shareReplay(1),
+  );
 
-  readonly career$ = this.request.get<ICareer[]>(CAREER);
+  readonly career$ = this.request.get<ICareer[]>(CAREER).pipe(shareReplay(1));
 
-  readonly education$ = this.request
-    .get<IEducation[]>(EDUCATION)
-    .pipe(map((data) => data?.sort((e1, e2) => e2.position - e1.position)));
+  readonly education$ = this.request.get<IEducation[]>(EDUCATION).pipe(
+    map((data) => data?.sort((e1, e2) => e2.position - e1.position)),
+    shareReplay(1),
+  );
 
   readonly blog$ = this.request
     .get<IFeaturedBlog[]>(BLOG)
     .pipe(map((data) => data?.sort((b1, b2) => b1.position - b2.position)));
 
-  private readonly aboutme$ = this.request
-    .get<IAboutme[]>(ABOUTME)
-    .pipe(map((about) => about?.sort((a1, a2) => a1.position - a2.position)));
+  private readonly aboutme$ = this.request.get<IAboutme[]>(ABOUTME).pipe(
+    map((about) => about?.sort((a1, a2) => a1.position - a2.position)),
+    shareReplay(1),
+  );
 
   private loading = new BehaviorSubject<boolean>(false);
   readonly loading$ = this.loading.asObservable();
