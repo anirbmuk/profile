@@ -1,3 +1,7 @@
+## v1.13.2
+- **Fix**: Performance improvement with **shareReplay** on http calls.  
+- **Chore**: Updated related dev dependencies.  
+
 ## v1.13.1
 - **Fix**: Fixed issue with `bg-fixed` class for iOS.  
 - **Fix**: Fixed missing image size reference for PWA assets.  
