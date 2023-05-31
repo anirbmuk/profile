@@ -24,7 +24,6 @@ import { ErrorComponent, ErrorResolver } from './error';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { CareerComponent } from './sections/career/career.component';
 import { EducationComponent } from './sections/education/education.component';
 import { GithubComponent } from './sections/github/github.component';
@@ -51,7 +50,11 @@ const appRoutes: Routes = [
       errorData: ErrorResolver,
     },
   },
-  { path: 'notfound', component: NotFoundComponent },
+  {
+    path: 'notfound',
+    loadChildren: () =>
+      import('./not-found').then((module) => module.NotFoundModule),
+  },
   { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
 ];
 
@@ -64,7 +67,6 @@ const appRoutes: Routes = [
     ProfileComponent,
     TechstackComponent,
     GithubComponent,
-    NotFoundComponent,
     HomeComponent,
     EducationComponent,
     HeadshotComponent,
