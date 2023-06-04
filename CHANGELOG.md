@@ -1,5 +1,6 @@
 ## v1.13.2
 - **Fix**: Performance improvement with **shareReplay** on http calls.  
+- **Fix**: Image optimizations.  
 - **Chore**: Updated related dev dependencies.  
 
 ## v1.13.1
