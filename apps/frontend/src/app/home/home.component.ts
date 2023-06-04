@@ -10,13 +10,7 @@ import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
-import {
-  DataService,
-  DeviceService,
-  ITag,
-  Robots,
-  SeoService,
-} from './../shared/services';
+import { DataService, ITag, Robots, SeoService } from './../shared/services';
 
 @Component({
   selector: 'fe-home',
@@ -29,8 +23,6 @@ export class HomeComponent implements OnInit {
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
 
-  readonly iOS = this.device.appleDevice;
-
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   tsTrackingCallback?: (() => void) | undefined = () => {};
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -42,7 +34,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     readonly data: DataService,
-    private readonly device: DeviceService,
     private readonly seo: SeoService,
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller,

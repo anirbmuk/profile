@@ -194,6 +194,12 @@ module.exports = {
           '100%': { transform: 'rotate(360deg)' },
         },
       },
+      aspectRatio: {
+        '2/3': '2 / 3',
+        '3/4': '3 / 4',
+        '4/3': '4 / 3',
+        '16/9': '16 / 9',
+      },
     },
   },
   plugins: [],
