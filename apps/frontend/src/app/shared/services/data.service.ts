@@ -28,9 +28,10 @@ export class DataService {
     shareReplay(1),
   );
 
-  readonly techstack$ = this.request
-    .get<[ITechstack]>(TECHSTACK)
-    .pipe(map((data) => data?.[0]));
+  readonly techstack$ = this.request.get<[ITechstack]>(TECHSTACK).pipe(
+    map((data) => data?.[0]),
+    shareReplay(1),
+  );
 
   readonly github$ = this.request.get<IGitHub[]>(GITHUB).pipe(
     map((data) => data?.sort((g1, g2) => g1.position - g2.position)),
