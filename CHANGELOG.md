@@ -1,3 +1,7 @@
+## v1.13.3
+- **Fix**: Performance improvement by running google tracking events outside `NgZone`.  
+- **Chore**: Tailwind formatting for prettier-plugin-tailwindcss.  
+
 ## v1.13.2
 - **Fix**: Performance improvement with **shareReplay** on http calls.  
 - **Fix**: Image optimizations.  
