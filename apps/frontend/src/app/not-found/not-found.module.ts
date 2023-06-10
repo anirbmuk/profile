@@ -9,6 +9,6 @@ const notFoundRoutes: Routes = [{ path: '', component: NotFoundComponent }];
 @NgModule({
   declarations: [NotFoundComponent],
   imports: [CommonModule, RouterModule.forChild(notFoundRoutes), LinkModule],
-  exports: [RouterModule],
+  exports: [],
 })
 export class NotFoundModule {}

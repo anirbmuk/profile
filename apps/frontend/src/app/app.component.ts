@@ -14,6 +14,9 @@ import {
   RequestService,
   UpdateService,
 } from './shared/services';
+import { Observable } from 'rxjs';
+import { UpdateAvailableEvent } from '@angular/service-worker';
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'fe-root',
@@ -25,6 +28,8 @@ export class AppComponent {
   readonly footer$ = this.request
     .get<[IFooterBlock]>(FOOTER)
     .pipe(map((data) => data?.[0]));
+
+  readonly updateAvailable$?: Observable<UpdateAvailableEvent | null>;
 
   constructor(
     private readonly request: RequestService,
@@ -39,6 +44,9 @@ export class AppComponent {
       this.device.setDeviceWidth();
       this.tracking.buildHeadScript(this.renderer);
       this.tracking.buildBodyScript(this.renderer);
+      if (environment.production) {
+        this.updateAvailable$ = update.updateAvailable$;
+      }
     }
   }
 

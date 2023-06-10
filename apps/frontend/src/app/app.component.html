@@ -1,6 +1,6 @@
 <fe-header></fe-header>
 <main class="container my-20" (window:resize)="onResize()">
-  <fe-notification *ngIf="update.updateAvailable$ | async">
+  <fe-notification *ngIf="updateAvailable$ | async">
     <ng-container text>
       <div class="text-sm md:text-md text-black-dark dark-mode">
         A new version is available. Refresh now?
