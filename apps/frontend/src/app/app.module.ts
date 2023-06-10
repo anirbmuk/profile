@@ -52,8 +52,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'notfound',
-    loadChildren: () =>
-      import('./not-found').then((module) => module.NotFoundModule),
+    loadChildren: () => import('./not-found').then((module) => module.NotFoundModule),
   },
   { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
 ];

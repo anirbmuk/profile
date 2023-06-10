@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SanitizerService, TrackingService } from '@frontend/components';
-import {
-  IArtifact,
-  IBlog,
-  IProfile,
-  ISocial,
-} from '@frontend/connector-interfaces';
+import { IArtifact, IBlog, IProfile, ISocial } from '@frontend/connector-interfaces';
 import { map } from 'rxjs/operators';
 import { DeviceService, FileService } from '../../shared/services';
 import { ClickEventParams } from '../../shared/types';
@@ -19,9 +14,7 @@ import { ClickEventParams } from '../../shared/types';
 export class ProfileComponent {
   @Input() block?: IProfile | null;
 
-  readonly size$ = this.device.device$.pipe(
-    map(() => (this.device.isSFF() ? 8 : 10)),
-  );
+  readonly size$ = this.device.device$.pipe(map(() => (this.device.isSFF() ? 8 : 10)));
 
   private readonly trackableTagNames = ['A', 'SPAN'];
 
@@ -60,9 +53,8 @@ export class ProfileComponent {
         url = (event?.target as HTMLAnchorElement)?.href;
         metadata.event_url = url;
       } else if (tagName === 'SPAN') {
-        url = (
-          (event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement
-        )?.href;
+        url = ((event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement)
+          ?.href;
         metadata.event_url = url;
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });
@@ -71,9 +63,7 @@ export class ProfileComponent {
 
   onDownloadResume(artifacts: IArtifact[] | undefined) {
     if (artifacts) {
-      const [resume] = artifacts?.filter(
-        (artifact) => artifact.category === 'resume',
-      );
+      const [resume] = artifacts?.filter((artifact) => artifact.category === 'resume');
       if (resume) {
         this.fileService.downloadFile(resume.url);
         this.tracker.externalClickEvent({

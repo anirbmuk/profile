@@ -1,5 +1,5 @@
 .spinner {
-  @apply w-32 h-32 flex justify-center items-center align-middle text-xl overflow-hidden relative;
+  @apply relative flex h-32 w-32 items-center justify-center overflow-hidden align-middle text-xl;
 }
 
 .spinner-text {
@@ -7,7 +7,7 @@
 }
 
 .spinner-sector {
-  @apply absolute w-full h-full rounded-full border-8 border-transparent mix-blend-overlay pointer-events-none animate-rotate;
+  @apply pointer-events-none absolute h-full w-full animate-rotate rounded-full border-8 border-transparent mix-blend-overlay;
 }
 
 .spinner-sector-red {

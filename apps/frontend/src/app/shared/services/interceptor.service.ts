@@ -40,9 +40,7 @@ export class RequestInterceptor implements HttpInterceptor {
             error?.statusText ||
             'The cause of the error is unknown. Please contact your administrator',
           url:
-            error instanceof HttpErrorResponse
-              ? (error as HttpErrorResponse)?.url
-              : '',
+            error instanceof HttpErrorResponse ? (error as HttpErrorResponse)?.url : '',
         });
         this.router.navigate(['/error'], { skipLocationChange: true });
         return EMPTY;

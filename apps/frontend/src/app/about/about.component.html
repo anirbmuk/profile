@@ -1,11 +1,11 @@
 <div class="my-24 md:my-40">
   <article
     *ngIf="data.aboutmeData$ | async as aboutme"
-    class="text-md md:text text-justify mx-auto xl:max-w-1/2"
+    class="mx-auto text-justify text-md md:text xl:max-w-1/2"
   >
     <p
       *ngFor="let content of aboutme; trackBy: trackByKeyFn"
-      class="py-4 md:py-5 px-4"
+      class="px-4 py-4 md:py-5"
       [innerHtml]="sanitizer.sanitizeHtml(content?.description || '')"
       (click)="onLinkClick($event, 'external')"
     ></p>

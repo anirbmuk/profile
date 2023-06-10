@@ -1,10 +1,10 @@
 li {
-  @apply cursor-pointer border border-gray-300 p-4 mb-2.5 md:m-0.5 rounded ease-out duration-300;
+  @apply mb-2.5 cursor-pointer rounded border border-gray-300 p-4 duration-300 ease-out md:m-0.5;
 }
 
 @media screen and (min-width: 768px) and (hover: hover) {
   li:hover {
-    @apply bg-gray-50 ease-in scale-105;
+    @apply scale-105 bg-gray-50 ease-in;
   }
 }
 
@@ -15,7 +15,7 @@ li {
 
   @media screen and (min-width: 768px) and (hover: hover) {
     li:hover {
-      @apply bg-transparent ease-in scale-105;
+      @apply scale-105 bg-transparent ease-in;
     }
   }
 }

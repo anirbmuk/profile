@@ -14,11 +14,7 @@ export class TextShortenPipe implements PipeTransform {
     lengthToShortenTo = 100,
     ignoreCarriageReturn = true,
   ) {
-    return this.getShortenedString(
-      input,
-      lengthToShortenTo,
-      ignoreCarriageReturn,
-    );
+    return this.getShortenedString(input, lengthToShortenTo, ignoreCarriageReturn);
   }
 
   getShortenedString(
@@ -51,8 +47,7 @@ export class TextShortenPipe implements PipeTransform {
         if (carriageReturnCount > 0) {
           carriageReturnCount = this.MIN_CARRIAGE_RETURN_COUNT;
         }
-        lengthToShortenTo -=
-          carriageReturnCount * this.WORD_COUNT_PER_CARRIAGE_RETURN;
+        lengthToShortenTo -= carriageReturnCount * this.WORD_COUNT_PER_CARRIAGE_RETURN;
       }
     }
     if (inputSize <= lengthToShortenTo) {

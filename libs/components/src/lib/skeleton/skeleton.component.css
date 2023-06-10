@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
   [skeletonitem] {
-    @apply !bg-transparent !border-2;
+    @apply !border-2 !bg-transparent;
   }
 }

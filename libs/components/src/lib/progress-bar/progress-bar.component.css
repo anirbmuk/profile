@@ -1,5 +1,5 @@
 .progress-bar {
-  @apply bg-gray-500 h-0.5;
+  @apply h-0.5 bg-gray-500;
 }
 
 @media (prefers-color-scheme: dark) {

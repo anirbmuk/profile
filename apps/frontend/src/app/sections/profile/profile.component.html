@@ -1,20 +1,18 @@
 <section class="mt-0">
-  <div class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-7 drop-shadow-md">
+  <div class="mx-auto !mt-7 drop-shadow-md md:max-w-3/4 2xl:max-w-3/5">
     <div class="flex flex-col text-center">
-      <h2 class="text-xl md:text-3xl lg:text-4xl mb-1.5 md:mb-2">
+      <h2 class="mb-1.5 text-xl md:mb-2 md:text-3xl lg:text-4xl">
         {{ block?.designation }}
       </h2>
-      <h3 class="text md:text-2xl lg:text-3xl mb-1.5 md:mb-2" translate="no">
+      <h3 class="mb-1.5 text md:mb-2 md:text-2xl lg:text-3xl" translate="no">
         {{ block?.currentjob }}
       </h3>
-      <h4 class="text-md md:text lg:text-xl mb-2 md:mb-2.5">
+      <h4 class="mb-2 text-md md:mb-2.5 md:text lg:text-xl">
         {{ block?.location }}
       </h4>
-      <div class="flex justify-center items-center space-x-4">
+      <div class="flex items-center justify-center space-x-4">
         <ng-container *ngIf="size$ | async as size">
-          <ng-container
-            *ngFor="let social of block?.social; trackBy: trackBySocialFn"
-          >
+          <ng-container *ngFor="let social of block?.social; trackBy: trackBySocialFn">
             <fe-icon
               [icon]="social.type"
               [url]="social.url"
@@ -25,7 +23,7 @@
           </ng-container>
         </ng-container>
       </div>
-      <div class="grid place-content-center mt-4 mb-2">
+      <div class="mb-2 mt-4 grid place-content-center">
         <fe-button
           [buttonType]="{ type: 'button', buttonClass: 'download-button' }"
           (onclick)="onDownloadResume(block?.artifact)"
@@ -34,9 +32,9 @@
       </div>
     </div>
   </div>
-  <article class="mx-auto md:max-w-3/4 2xl:max-w-3/5 !mt-8 drop-shadow-md">
+  <article class="mx-auto !mt-8 drop-shadow-md md:max-w-3/4 2xl:max-w-3/5">
     <fe-block [style]="'inverted'">
-      <div class="space-y-4 md:space-y-2 text-md md:text">
+      <div class="space-y-4 text-md md:space-y-2 md:text">
         <ng-container *ngFor="let bio of block?.bio; trackBy: trackByIndexFn">
           <div
             [innerHtml]="sanitizer.sanitizeHtml(bio)"
@@ -44,7 +42,7 @@
           ></div>
         </ng-container>
       </div>
-      <div class="mx-auto flex justify-between items-center mt-4">
+      <div class="mx-auto mt-4 flex items-center justify-between">
         <div *ngFor="let blog of block?.blog; trackBy: trackByBlogFn">
           <fe-icon
             [icon]="blog.icon"

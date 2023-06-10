@@ -1,10 +1,10 @@
 <section class="space-y-8">
   <fe-accordion>
     <h3 class="md:heading gradient-text" heading>Education</h3>
-    <ul class="md:grid md:grid-cols-2 2xl:grid-cols-3 md:gap-3">
+    <ul class="md:grid md:grid-cols-2 md:gap-3 2xl:grid-cols-3">
       <li *ngFor="let education of block; trackBy: trackByKeyFn">
         <div class="space-y-2">
-          <div class="flex justify-between items-center">
+          <div class="flex items-center justify-between">
             <div>
               <div class="text md:text-xl">{{ education.school }}</div>
               <div class="text-md text-gray-500">

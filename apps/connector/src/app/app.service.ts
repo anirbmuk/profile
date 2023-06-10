@@ -73,9 +73,7 @@ export class AppService {
     try {
       items = await this.firebase.fetchCollection<T>({
         collections: [path],
-        whereClause: [
-          { column: 'visibility', operator: '==', condition: 'public' },
-        ],
+        whereClause: [{ column: 'visibility', operator: '==', condition: 'public' }],
         ...(limit > 0 && { limit }),
       });
       await this.cacheManager.set(cacheKey, JSON.stringify(items));

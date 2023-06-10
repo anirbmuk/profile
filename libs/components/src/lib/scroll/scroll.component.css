@@ -1,5 +1,5 @@
 button {
-  @apply fixed bottom-16 right-4 cursor-pointer opacity-70 z-10 bg-black-light p-2 rounded-full;
+  @apply fixed bottom-16 right-4 z-10 cursor-pointer rounded-full bg-black-light p-2 opacity-70;
 }
 
 @media (hover: hover) {

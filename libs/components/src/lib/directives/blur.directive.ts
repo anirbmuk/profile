@@ -58,46 +58,25 @@ export class BlurDirective implements OnInit, OnChanges, OnDestroy {
             if (entry.intersectionRatio <= 0.1) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-0');
-            } else if (
-              entry.intersectionRatio > 0.1 &&
-              entry.intersectionRatio <= 0.2
-            ) {
+            } else if (entry.intersectionRatio > 0.1 && entry.intersectionRatio <= 0.2) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-10');
-            } else if (
-              entry.intersectionRatio > 0.2 &&
-              entry.intersectionRatio <= 0.3
-            ) {
+            } else if (entry.intersectionRatio > 0.2 && entry.intersectionRatio <= 0.3) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-20');
-            } else if (
-              entry.intersectionRatio > 0.3 &&
-              entry.intersectionRatio <= 0.4
-            ) {
+            } else if (entry.intersectionRatio > 0.3 && entry.intersectionRatio <= 0.4) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-30');
-            } else if (
-              entry.intersectionRatio > 0.4 &&
-              entry.intersectionRatio <= 0.5
-            ) {
+            } else if (entry.intersectionRatio > 0.4 && entry.intersectionRatio <= 0.5) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-40');
-            } else if (
-              entry.intersectionRatio > 0.5 &&
-              entry.intersectionRatio <= 0.6
-            ) {
+            } else if (entry.intersectionRatio > 0.5 && entry.intersectionRatio <= 0.6) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-50');
-            } else if (
-              entry.intersectionRatio > 0.6 &&
-              entry.intersectionRatio <= 0.7
-            ) {
+            } else if (entry.intersectionRatio > 0.6 && entry.intersectionRatio <= 0.7) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-60');
-            } else if (
-              entry.intersectionRatio > 0.7 &&
-              entry.intersectionRatio <= 0.8
-            ) {
+            } else if (entry.intersectionRatio > 0.7 && entry.intersectionRatio <= 0.8) {
               this.removeClasses(this._target);
               this.renderer.addClass(this._target, 'lg:opacity-90');
             } else {

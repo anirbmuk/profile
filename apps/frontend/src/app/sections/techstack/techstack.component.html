@@ -2,19 +2,9 @@
   <fe-accordion>
     <h3 class="md:heading gradient-text" heading>Technologies</h3>
     <ul
-      class="
-        grid grid-cols-2
-        gap-0
-        md:grid-cols-3
-        2xl:grid-cols-4
-        3xl:grid-cols-5
-        md:gap-2
-      "
+      class="grid grid-cols-2 gap-0 md:grid-cols-3 md:gap-2 2xl:grid-cols-4 3xl:grid-cols-5"
     >
-      <li
-        *ngFor="let tech of technologies; trackBy: trackByTechnologyFn"
-        fehover
-      >
+      <li *ngFor="let tech of technologies; trackBy: trackByTechnologyFn" fehover>
         <a
           [href]="tech.url"
           rel="nofollow"
@@ -28,13 +18,11 @@
         </ng-template>
         <ng-template #innerContent>
           <div class="space-y-4">
-            <div class="flex justify-between items-center">
-              <fe-icon
-                *ngIf="tech.icon"
-                [icon]="tech.icon"
-                [size]="8"
-              ></fe-icon>
-              <div class="text-md md:text" translate="no">{{ tech.name }}</div>
+            <div class="flex items-center justify-between">
+              <fe-icon *ngIf="tech.icon" [icon]="tech.icon" [size]="8"></fe-icon>
+              <div class="text-md md:text" translate="no">
+                {{ tech.name }}
+              </div>
             </div>
             <div>
               <fe-rating [rating]="tech.rating"></fe-rating>
@@ -43,12 +31,7 @@
         </ng-template>
       </li>
       <li *ngFor="let db of databases; trackBy: trackByDatabaseFn" fehover>
-        <a
-          [href]="db.url"
-          rel="nofollow"
-          target="_blank"
-          *ngIf="db.url; else showDiv"
-        >
+        <a [href]="db.url" rel="nofollow" target="_blank" *ngIf="db.url; else showDiv">
           <ng-container [ngTemplateOutlet]="innerContent"></ng-container>
         </a>
         <ng-template #showDiv>
@@ -56,7 +39,7 @@
         </ng-template>
         <ng-template #innerContent>
           <div class="space-y-4">
-            <div class="flex justify-between items-center">
+            <div class="flex items-center justify-between">
               <fe-icon *ngIf="db.icon" [icon]="db.icon" [size]="8"></fe-icon>
               <div class="text-md md:text">{{ db.name }}</div>
             </div>

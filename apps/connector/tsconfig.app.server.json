@@ -10,12 +10,7 @@
   },
   "files": ["server.ssr.ts"],
   "include": [],
-  "exclude": [
-    "**/*.spec.ts",
-    "src/app/app.module.ts",
-    "server.ts",
-    "src/main.ts"
-  ],
+  "exclude": ["**/*.spec.ts", "src/app/app.module.ts", "server.ts", "src/main.ts"],
   "angularCompilerOptions": {
     "entryModule": "./../frontend/src/app/app.server.module#AppServerModule"
   }

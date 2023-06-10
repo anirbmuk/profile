@@ -45,9 +45,7 @@ export interface FirestoreQuery {
 @Injectable()
 export class FirebaseService {
   private _app: FirebaseApp | null;
-  constructor(
-    @Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig,
-  ) {
+  constructor(@Inject(FIREBASE_CONFIG) private readonly config: FirebaseConfig) {
     this._app = this.initFirebaseApp(this.config);
   }
 
@@ -56,15 +54,8 @@ export class FirebaseService {
   }
 
   async fetchCollection<T>(query: Partial<FirestoreQuery>): Promise<T[]> {
-    const {
-      collections,
-      keys,
-      whereClause,
-      orderByClause,
-      limit,
-      startAt,
-      endAt,
-    } = query;
+    const { collections, keys, whereClause, orderByClause, limit, startAt, endAt } =
+      query;
 
     const fetchData = await this._getCollectionDataFromFireStore(
       collections,

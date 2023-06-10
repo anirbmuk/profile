@@ -5,9 +5,7 @@ function isNotEmpty(value: unknown) {
 }
 
 export const checkMissingEnvVars = (variables = {}) => {
-  const missing = environmentVariables.filter(
-    (key) => !isNotEmpty(variables[key]),
-  );
+  const missing = environmentVariables.filter((key) => !isNotEmpty(variables[key]));
   if (missing?.length) {
     throw new Error(
       `The following environment variables are not set up: '${missing.join(

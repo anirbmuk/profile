@@ -1,12 +1,12 @@
 <ng-container *ngIf="data | async as error">
   <section class="text-center">
-    <h1 class="text-massive py-4 font-bold text-black-dark">
+    <h1 class="py-4 text-massive font-bold text-black-dark">
       {{ error.code }}
     </h1>
     <p class="text-red">{{ error.message }} at {{ error.url }}</p>
     <p class="text-center">
-      Whoa! You seem to have unearthed a nasty bug. I have made a note, but
-      right now, the best way to fix this is to visit the
+      Whoa! You seem to have unearthed a nasty bug. I have made a note, but right now, the
+      best way to fix this is to visit the
       <strong>
         <fe-link
           [link]="{ type: 'internal', text: 'main page', url: '/' }"

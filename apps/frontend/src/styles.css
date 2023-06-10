@@ -72,15 +72,15 @@ mark {
 }
 
 .heading {
-  @apply ease-in lg:hover:translate-x-1 lg:hover:ease-out lg:hover:tracking-wide duration-200;
+  @apply duration-200 ease-in lg:hover:translate-x-1 lg:hover:tracking-wide lg:hover:ease-out;
 }
 
 a.navlink {
-  @apply no-underline relative;
+  @apply relative no-underline;
 }
 
 abbr {
-  @apply !no-underline cursor-help;
+  @apply cursor-help !no-underline;
   border-bottom: 1px dashed #adadad;
 }
 
@@ -97,23 +97,23 @@ abbr {
 
 @media screen and (min-width: 768px) and (hover: hover) {
   a.navlink::after {
-    @apply absolute left-0 bottom-0 w-full h-[1px] bg-current origin-right scale-x-0;
+    @apply absolute bottom-0 left-0 h-[1px] w-full origin-right scale-x-0 bg-current;
     content: '';
     transition: transform 250ms ease-in;
   }
 
   a.navlink:hover::after {
-    @apply scale-x-100 origin-left;
+    @apply origin-left scale-x-100;
   }
 }
 
 li[fehover] {
-  @apply relative rounded p-2 m-0.5 z-1 cursor-pointer border border-gray-300;
+  @apply relative z-1 m-0.5 cursor-pointer rounded border border-gray-300 p-2;
 }
 
 @media screen and (min-width: 768px) and (hover: hover) {
   li[fehover]::after {
-    @apply absolute left-0 top-0 bottom-0 w-full z-minus1 rounded origin-right scale-x-0;
+    @apply absolute bottom-0 left-0 top-0 z-minus1 w-full origin-right scale-x-0 rounded;
     content: '';
     transition: transform 250ms ease-in;
     background-image: linear-gradient(
@@ -125,7 +125,7 @@ li[fehover] {
   }
 
   li[fehover]:hover::after {
-    @apply scale-x-100 origin-left;
+    @apply origin-left scale-x-100;
   }
 }
 
@@ -167,11 +167,11 @@ li[fehover] {
 }
 
 .download-button {
-  @apply border border-gray-200 bg-gray-100 text-black-dark rounded py-2 min-w-xs md:min-w-base md:hover:bg-gray-200 md:hover:border-gray-300 ease-in duration-200 cursor-pointer text-center text-md md:text px-2 shadow-lg tracking-tight;
+  @apply min-w-xs cursor-pointer rounded border border-gray-200 bg-gray-100 px-2 py-2 text-center text-md tracking-tight text-black-dark shadow-lg duration-200 ease-in md:min-w-base md:text md:hover:border-gray-300 md:hover:bg-gray-200;
 }
 
 @media (prefers-color-scheme: dark) {
   .download-button {
-    @apply border border-white text-white bg-transparent md:hover:bg-transparent md:hover:border-white shadow-none;
+    @apply border border-white bg-transparent text-white shadow-none md:hover:border-white md:hover:bg-transparent;
   }
 }

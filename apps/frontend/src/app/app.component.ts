@@ -9,11 +9,7 @@ import {
 import { TrackingService } from '@frontend/components';
 import { FOOTER, IFooterBlock } from '@frontend/connector-interfaces';
 import { map } from 'rxjs/operators';
-import {
-  DeviceService,
-  RequestService,
-  UpdateService,
-} from './shared/services';
+import { DeviceService, RequestService, UpdateService } from './shared/services';
 import { Observable } from 'rxjs';
 import { UpdateAvailableEvent } from '@angular/service-worker';
 import { environment } from './../environments/environment';

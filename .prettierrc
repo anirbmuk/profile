@@ -4,5 +4,10 @@
   "semi": true,
   "useTabs": false,
   "bracketSpacing": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "singleAttributePerLine": false,
+  "printWidth": 90,
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }

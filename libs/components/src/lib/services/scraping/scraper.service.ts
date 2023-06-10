@@ -42,9 +42,7 @@ export class ScraperService {
     const [, after] = head.split('<meta ', 2);
     const [before] = after.split('>', 2);
 
-    const hasDescription = ['og:description'].some((tag) =>
-      before.includes(tag),
-    );
+    const hasDescription = ['og:description'].some((tag) => before.includes(tag));
 
     if (!hasDescription) {
       return this.getDescription(head.slice(head.indexOf(before)));
@@ -86,9 +84,7 @@ export class ScraperService {
     const [, after] = head.split('<meta ', 2);
     const [before] = after.split('>', 2);
 
-    const hasImage = ['og:image', 'twitter:image'].some((tag) =>
-      before.includes(tag),
-    );
+    const hasImage = ['og:image', 'twitter:image'].some((tag) => before.includes(tag));
 
     if (!hasImage) {
       return this.getImage(head.slice(head.indexOf(before)));

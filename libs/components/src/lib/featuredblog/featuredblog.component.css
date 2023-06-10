@@ -1,5 +1,5 @@
 @media (prefers-color-scheme: dark) {
   img {
-    @apply p-2 rounded-xl;
+    @apply rounded-xl p-2;
   }
 }

@@ -1,10 +1,6 @@
 <ng-container *ngIf="type === 'link'; else div">
   <div [class]="displayClass">
-    <a
-      target="_blank"
-      [href]="target"
-      [attr.aria-label]="ariaLabel"
-      rel="nofollow"
+    <a target="_blank" [href]="target" [attr.aria-label]="ariaLabel" rel="nofollow"
       ><img
         [class]="iconClass"
         [src]="source"

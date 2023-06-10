@@ -1,9 +1,9 @@
 <div
   [ngClass]="{
     'bg-black-dark': style === 'normal',
-    'bg-gray-200 border border-gray-300': style === 'inverted'
+    'border border-gray-300 bg-gray-200': style === 'inverted'
   }"
-  class="p-4 flex space-x-2 rounded-t"
+  class="flex space-x-2 rounded-t p-4"
 >
   <span class="circle bg-red"></span>
   <span class="circle bg-yellow"></span>
@@ -12,9 +12,9 @@
 <div
   [ngClass]="{
     'bg-black text-white': style === 'normal',
-    'bg-gray-100 border border-gray-300': style === 'inverted'
+    'border border-gray-300 bg-gray-100': style === 'inverted'
   }"
-  class="p-5 rounded-b -mt-0.5"
+  class="-mt-0.5 rounded-b p-5"
   previewbody
 >
   <ng-content></ng-content>

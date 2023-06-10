@@ -16,10 +16,10 @@
     class="preview-container"
     [feTrackable]="[ghItemTrackingCallback(repo?.value)]"
   >
-    <div class="space-y-1 items-center">
-      <div class="flex space-x-2 items-center">
+    <div class="items-center space-y-1">
+      <div class="flex items-center space-x-2">
         <fe-icon [icon]="'github'" [size]="7"></fe-icon>
-        <div class="text md:text-2xl -mt-1" translate="no">
+        <div class="-mt-1 text md:text-2xl" translate="no">
           {{ repo?.value?.toString() | feExtractNamePipe }}
         </div>
       </div>

@@ -1,8 +1,4 @@
-<div
-  class="flex space-x-1"
-  [title]="_rating + '/' + _maxRating"
-  ratingcontainer
->
+<div class="flex space-x-1" [title]="_rating + '/' + _maxRating" ratingcontainer>
   <fe-icon
     *ngFor="let rating of _fullRating | feFillPipe; trackBy: trackByIndex"
     [icon]="'star-filled'"

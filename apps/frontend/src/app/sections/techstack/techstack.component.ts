@@ -14,8 +14,7 @@ export class TechstackComponent {
   @Input() set block(block: ITechstack | undefined) {
     this.technologies =
       block?.technology?.sort((t1, t2) => t1.position - t2.position) || [];
-    this.databases =
-      block?.database?.sort((d1, d2) => d1.position - d2.position) || [];
+    this.databases = block?.database?.sort((d1, d2) => d1.position - d2.position) || [];
   }
 
   trackByTechnologyFn(

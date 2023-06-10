@@ -188,10 +188,7 @@
               "apps/frontend/src/assets",
               "apps/frontend/src/manifest.webmanifest"
             ],
-            "styles": [
-              "apps/frontend/src/root.css",
-              "apps/frontend/src/styles.css"
-            ],
+            "styles": ["apps/frontend/src/root.css", "apps/frontend/src/styles.css"],
             "scripts": [],
             "serviceWorker": false
           },

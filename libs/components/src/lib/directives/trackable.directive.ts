@@ -16,9 +16,7 @@ export class TrackableDirective implements OnDestroy {
   tracked = false;
   _callbacks?: ((() => void) | undefined)[] | undefined;
 
-  @Input() set feTrackable(
-    callbacks: ((() => void) | undefined)[] | undefined,
-  ) {
+  @Input() set feTrackable(callbacks: ((() => void) | undefined)[] | undefined) {
     this._callbacks = callbacks ?? [];
     if (isPlatformServer(this.platformId)) {
       for (const callback of this._callbacks) {

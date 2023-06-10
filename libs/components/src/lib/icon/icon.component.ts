@@ -28,8 +28,7 @@ export class IconComponent {
   @Input() set size(value: number | null | undefined) {
     const defaultValue = 4;
     const useValue = value ?? defaultValue;
-    this.iconClass =
-      this.sizeMappers[useValue] || this.sizeMappers[defaultValue];
+    this.iconClass = this.sizeMappers[useValue] || this.sizeMappers[defaultValue];
   }
 
   @Input() set position(positionValue: 'start' | 'middle' | 'end' | undefined) {

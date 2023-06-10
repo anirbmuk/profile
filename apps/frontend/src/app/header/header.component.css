@@ -3,11 +3,11 @@
 }
 
 .header-background {
-  @apply bg-gray-50 border-b border-gray-100;
+  @apply border-b border-gray-100 bg-gray-50;
 }
 
 @media (prefers-color-scheme: dark) {
   .header-background {
-    @apply bg-transparent border-b border-transparent;
+    @apply border-b border-transparent bg-transparent;
   }
 }

@@ -22,11 +22,7 @@ export class DeviceService {
 
   readonly device$ = this.deviceSizeChanged
     .asObservable()
-    .pipe(
-      startWith(this.getDeviceSize()),
-      distinctUntilChanged(),
-      shareReplay(1),
-    );
+    .pipe(startWith(this.getDeviceSize()), distinctUntilChanged(), shareReplay(1));
 
   getDeviceSize(): string {
     return this.deviceWidth || 'xs';

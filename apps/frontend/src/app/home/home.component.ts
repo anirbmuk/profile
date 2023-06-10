@@ -1,10 +1,5 @@
 import { DOCUMENT, ViewportScroller } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { TrackingService } from '@frontend/components';
 import { fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';

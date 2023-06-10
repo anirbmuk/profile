@@ -57,9 +57,7 @@ export class DataService {
   private loading = new BehaviorSubject<boolean>(false);
   readonly loading$ = this.loading.asObservable();
 
-  private loadPage = new BehaviorSubject<'home' | 'about' | undefined | null>(
-    null,
-  );
+  private loadPage = new BehaviorSubject<'home' | 'about' | undefined | null>(null);
   readonly loadPage$ = this.loadPage.asObservable();
 
   readonly bio$ = this.loadPage$.pipe(

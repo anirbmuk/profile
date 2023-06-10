@@ -1,32 +1,18 @@
 <ng-container
-  *ngFor="
-    let timeline of _mappedTimelines;
-    let idx = index;
-    trackBy: trackByTimelineFn
-  "
+  *ngFor="let timeline of _mappedTimelines; let idx = index; trackBy: trackByTimelineFn"
 >
   <div class="grid grid-cols-5 gap-3 md:gap-0">
     <div
-      class="
-        col-span-2
-        flex
-        justify-end
-        items-start
-        pt-2
-        lg:hover:-translate-x-2
-        ease-in
-        duration-300
-        text-right
-      "
+      class="col-span-2 flex items-start justify-end pt-2 text-right duration-300 ease-in lg:hover:-translate-x-2"
       [class]="timeline.size ?? 'h-24'"
       #left
     >
       <ng-container *ngIf="timeline.alignment === 'left'">
-        <div class="block relative -right-1/6 md:-right-1/5 space-y-1">
-          <div class="text-sm text-gray-700 font-semiBold">
+        <div class="relative -right-1/6 block space-y-1 md:-right-1/5">
+          <div class="text-sm font-semiBold text-gray-700">
             {{ timeline.start }} - {{ timeline.end || 'present' }}
           </div>
-          <div class="text-black-dark text-sm md:text font-semiBold !leading-4">
+          <div class="text-sm font-semiBold !leading-4 text-black-dark md:text">
             <span translate="no"
               >{{ timeline.designation }}, {{ timeline.provider }}</span
             >
@@ -34,12 +20,7 @@
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
             *ngIf="timeline.description"
-            class="
-              text-sm text-gray-900
-              hidden
-              md:block md:mt-2 md:w-[32em]
-              !leading-4
-            "
+            class="hidden text-sm !leading-4 text-gray-900 md:mt-2 md:block md:w-[32em]"
           >
             {{ timeline.description }}
           </div>
@@ -47,19 +28,7 @@
       </ng-container>
     </div>
     <div
-      class="
-        mx-auto
-        w-4
-        bg-gray-400
-        border-2 border-gray-400
-        lg:hover:bg-black-alt lg:hover:border-black-alt
-        flex
-        justify-center
-        items-center
-        cursor-pointer
-        ease-in
-        duration-300
-      "
+      class="mx-auto flex w-4 cursor-pointer items-center justify-center border-2 border-gray-400 bg-gray-400 duration-300 ease-in lg:hover:border-black-alt lg:hover:bg-black-alt"
       [class]="timeline.size ?? 'h-24'"
       [ngClass]="{
         'rounded-t-sm': idx === 0,
@@ -68,32 +37,21 @@
       [feHover]="{
         elements: [timeline.alignment === 'left' ? left : right],
         classList:
-          timeline.alignment === 'left'
-            ? 'lg:-translate-x-2'
-            : 'lg:translate-x-2'
+          timeline.alignment === 'left' ? 'lg:-translate-x-2' : 'lg:translate-x-2'
       }"
       #middle
     ></div>
     <div
-      class="
-        col-span-2
-        flex
-        justify-start
-        items-start
-        pt-1
-        lg:hover:translate-x-2
-        ease-in
-        duration-300
-      "
+      class="col-span-2 flex items-start justify-start pt-1 duration-300 ease-in lg:hover:translate-x-2"
       [class]="timeline.size ?? 'h-24'"
       #right
     >
       <ng-container *ngIf="timeline.alignment === 'right'">
-        <div class="block relative -left-1/6 md:-left-1/5 space-y-1">
-          <div class="text-sm text-gray-700 font-semiBold">
+        <div class="relative -left-1/6 block space-y-1 md:-left-1/5">
+          <div class="text-sm font-semiBold text-gray-700">
             {{ timeline.start }} - {{ timeline.end }}
           </div>
-          <div class="text-black-dark text-sm md:text font-semiBold !leading-4">
+          <div class="text-sm font-semiBold !leading-4 text-black-dark md:text">
             <span translate="no"
               >{{ timeline.designation }}, {{ timeline.provider }}</span
             >
@@ -101,12 +59,7 @@
           <div class="text-sm text-gray-600">{{ timeline.location }}</div>
           <div
             *ngIf="timeline.description"
-            class="
-              text-sm text-gray-900
-              hidden
-              md:block md:mt-2 md:w-[32em]
-              !leading-4
-            "
+            class="hidden text-sm !leading-4 text-gray-900 md:mt-2 md:block md:w-[32em]"
           >
             {{ timeline.description }}
           </div>

@@ -1,7 +1,4 @@
-import {
-  ConnectorLibraryModule,
-  FirebaseService,
-} from '@frontend/connector-lib';
+import { ConnectorLibraryModule, FirebaseService } from '@frontend/connector-lib';
 import { Module, CacheModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';

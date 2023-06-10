@@ -61,9 +61,8 @@ export class AboutComponent implements OnInit {
         url = (event?.target as HTMLAnchorElement)?.href;
         metadata.event_url = url;
       } else if (tagName === 'SPAN') {
-        url = (
-          (event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement
-        )?.href;
+        url = ((event?.target as HTMLSpanElement)?.parentElement as HTMLAnchorElement)
+          ?.href;
         metadata.event_url = url;
       }
       type === 'external' && this.tracker.externalClickEvent({ ...metadata });

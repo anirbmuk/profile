@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TrackingService } from '@frontend/components';
 import { IFeaturedBlog } from '@frontend/connector-interfaces';
-import {
-  ClickEventParams,
-  ImpressionItemEventParams,
-} from '../../shared/types';
+import { ClickEventParams, ImpressionItemEventParams } from '../../shared/types';
 
 @Component({
   selector: 'fe-blog',

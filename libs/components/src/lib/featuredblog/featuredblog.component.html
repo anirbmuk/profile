@@ -1,4 +1,4 @@
-<div class="border border-gray-300 rounded">
+<div class="rounded border border-gray-300">
   <ng-container *ngIf="featuredBlog$ | async as featuredBlog">
     <a
       [href]="featuredBlog.url"
@@ -7,7 +7,7 @@
       (click)="onFeaturedBlogClick()"
     >
       <img [src]="featuredBlog.image" [alt]="featuredBlog.url" />
-      <div class="px-2 text-sm md:text-md ml-3 text-gray-600">
+      <div class="ml-3 px-2 text-sm text-gray-600 md:text-md">
         {{ featuredBlog.domain }}
       </div>
     </a>

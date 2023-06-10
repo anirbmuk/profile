@@ -2,18 +2,18 @@
 <main class="container my-20" (window:resize)="onResize()">
   <fe-notification *ngIf="updateAvailable$ | async">
     <ng-container text>
-      <div class="text-sm md:text-md text-black-dark dark-mode">
+      <div class="dark-mode text-sm text-black-dark md:text-md">
         A new version is available. Refresh now?
       </div>
     </ng-container>
     <ng-container action>
-      <div class="flex space-x-2 items-center justify-center">
+      <div class="flex items-center justify-center space-x-2">
         <fe-button
           [buttonType]="{ type: 'button', ariaLabel: 'reload' }"
           (onclick)="update.reload()"
         >
           <div
-            class="flex items-center text-green-800 material-symbols-rounded"
+            class="material-symbols-rounded flex items-center text-green-800"
             translate="no"
           >
             done_all
@@ -25,7 +25,7 @@
           aria-label="reject"
         >
           <div
-            class="flex items-center text-red-800 material-symbols-rounded"
+            class="material-symbols-rounded flex items-center text-red-800"
             translate="no"
           >
             block
