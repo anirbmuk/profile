@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Inject, Injectable, NgZone, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ServiceModule } from '../service.module';
 import { buildGTMScript, buildNoScript, GTM_ID, PRODUCTION } from './config';
@@ -16,18 +16,16 @@ export class TrackingService {
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
     private readonly title: Title,
+    private readonly ngZone: NgZone,
   ) {}
 
   private isBrowser() {
     return isPlatformBrowser(this.platformId);
   }
 
-  private async track<T extends BaseEventParams>(
-    event: BaseEvent,
-    metadata: T,
-  ) {
+  private async track<T extends BaseEventParams>(event: BaseEvent, metadata: T) {
     if (this.isBrowser()) {
-      return new Promise((resolve, reject) => {
+      return new Promise<void>((resolve, reject) => {
         try {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const dataLayer = (window as any)?.dataLayer || [];
@@ -40,7 +38,7 @@ export class TrackingService {
             vendor: window.navigator.vendor,
             platform: window.navigator.platform,
           });
-          resolve(dataLayer);
+          resolve();
         } catch (error) {
           reject(error);
         }
@@ -65,46 +63,56 @@ export class TrackingService {
 
   buildHeadScript(renderer: Renderer2) {
     if (this.isBrowser()) {
-      let headScript: string;
-      if (this.gtmId && this.production) {
-        headScript = buildGTMScript(this.gtmId);
-      } else {
-        headScript = '(function() { window.dataLayer = []; })()';
-      }
-      const script: HTMLScriptElement = renderer.createElement('script');
-      script.text = headScript;
-      script.defer = true;
-      renderer.appendChild(this.document.head, script);
+      this.ngZone.runOutsideAngular(() => {
+        let headScript: string;
+        if (this.gtmId && this.production) {
+          headScript = buildGTMScript(this.gtmId);
+        } else {
+          headScript = '(function() { window.dataLayer = []; })()';
+        }
+        const script: HTMLScriptElement = renderer.createElement('script');
+        script.text = headScript;
+        script.defer = true;
+        renderer.appendChild(this.document.head, script);
+      });
     }
   }
 
   buildBodyScript(renderer: Renderer2) {
     if (this.gtmId && this.isBrowser()) {
-      const bodyScript = buildNoScript(this.gtmId);
-      const script: HTMLElement = renderer.createElement('noscript');
-      script.innerHTML = bodyScript;
-      renderer.appendChild(this.document.body, script);
+      this.ngZone.runOutsideAngular(() => {
+        const bodyScript = buildNoScript(this.gtmId);
+        const script: HTMLElement = renderer.createElement('noscript');
+        script.innerHTML = bodyScript;
+        renderer.appendChild(this.document.body, script);
+      });
     }
   }
 
   trackPageViewEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'page_view' }, metaData);
+    this.ngZone.runOutsideAngular(() => this.track({ event: 'page_view' }, metaData));
   }
 
   trackImpressionCollectionEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'view_list' }, metaData);
+    this.ngZone.runOutsideAngular(() => this.track({ event: 'view_list' }, metaData));
   }
 
   trackImpressionItemEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'view_list_item' }, metaData);
+    this.ngZone.runOutsideAngular(() =>
+      this.track({ event: 'view_list_item' }, metaData),
+    );
   }
 
   internalClickEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'internal_click' }, metaData);
+    this.ngZone.runOutsideAngular(() =>
+      this.track({ event: 'internal_click' }, metaData),
+    );
   }
 
   externalClickEvent<T extends BaseEventParams>(metaData: T) {
-    this.track({ event: 'external_click' }, metaData);
+    this.ngZone.runOutsideAngular(() =>
+      this.track({ event: 'external_click' }, metaData),
+    );
   }
 
   get pageTitle(): string {
