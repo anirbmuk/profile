@@ -2,9 +2,11 @@
   <fe-scroll (scrollToTop)="onScrollToTop()"></fe-scroll>
 </ng-container>
 <section class="mx-auto mt-16 md:mt-24 xl:max-w-3/4 2xl:max-w-4/5">
-  <div class="mx-auto !mt-8 drop-shadow md:max-w-3/4 2xl:max-w-3/5">
-    <div role="img" class="profile-image" aria-label="profile image"></div>
-  </div>
+  <div
+    role="img"
+    class="profile-image mx-auto md:max-w-3/4 2xl:max-w-3/5"
+    aria-label="profile image"
+  ></div>
 </section>
 <div
   *ngIf="data.bio$ | async as bio"
@@ -13,20 +15,17 @@
   <div>
     <fe-profile [block]="bio"></fe-profile>
   </div>
-  <div *ngIf="data.career$ | async as career">
+  <div *ngIf="career">
     <fe-career [block]="career"></fe-career>
   </div>
-  <div *ngIf="data.techstack$ | async as techstack">
+  <div *ngIf="techstack">
     <fe-techstack [block]="techstack" [feTrackable]="[tsTrackingCallback]"></fe-techstack>
   </div>
-  <div>
-    <fe-github
-      [block]="data.github$ | async"
-      [feTrackable]="[ghTrackingCallback]"
-    ></fe-github>
+  <div *ngIf="github">
+    <fe-github [block]="github" [feTrackable]="[ghTrackingCallback]"></fe-github>
   </div>
-  <div>
-    <fe-education [block]="data.education$ | async" [feTrackable]="[edTrackingCallback]">
+  <div *ngIf="education">
+    <fe-education [block]="education" [feTrackable]="[edTrackingCallback]">
     </fe-education>
   </div>
 </div>

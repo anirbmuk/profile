@@ -1,11 +1,18 @@
 import { DOCUMENT, ViewportScroller } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { TrackingService } from '@frontend/components';
-import { fromEvent } from 'rxjs';
+import { Subscription, fromEvent } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ImpressionEventParams } from '../shared/types';
 import { environment } from './../../environments/environment';
 import { DataService, ITag, Robots, SeoService } from './../shared/services';
+import { ICareer, IEducation, IGitHub, ITechstack } from '@frontend/connector-interfaces';
 
 @Component({
   selector: 'fe-home',
@@ -13,10 +20,17 @@ import { DataService, ITag, Robots, SeoService } from './../shared/services';
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   readonly showScroll$ = fromEvent(this.document, 'scroll').pipe(
     map(() => this.viewport.getScrollPosition()?.[1] > 500),
   );
+
+  private subscriptions: Subscription[] = [];
+
+  career?: ICareer[];
+  techstack?: ITechstack;
+  github?: IGitHub[];
+  education?: IEducation[];
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   tsTrackingCallback?: (() => void) | undefined = () => {};
@@ -50,9 +64,21 @@ export class HomeComponent implements OnInit {
       pageType: 'home',
       pageUrl: this.tracker.pageUrl,
     });
+    this.subscriptions = [
+      this.data.career$.subscribe((_career) => (this.career = _career)),
+      this.data.techstack$.subscribe((_techstack) => (this.techstack = _techstack)),
+      this.data.github$.subscribe((_github) => (this.github = _github)),
+      this.data.education$.subscribe((_education) => (this.education = _education)),
+    ];
     this.data.loadPageAction('home');
 
     this.initTrackingCallbacks();
+  }
+
+  ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) {
+      subscription.unsubscribe();
+    }
   }
 
   onScrollToTop(): void {
