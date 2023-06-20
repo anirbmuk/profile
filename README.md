@@ -12,6 +12,9 @@
 ## Lighthouse report  
 ![preview](external/lighthouse.png)  
 
+> https://pagespeed.web.dev/analysis/https-anirbmuk-appspot-com/xdqbfs4pi5?form_factor=desktop  
+
+  
 ## Technical mumbo-jumbo  
 What I wanted   | What I got  
 --------------- | --------------
@@ -23,7 +26,7 @@ Hosting         | Google app engine
 Analytics       | G4A / GTM
 
 ## Production: Angular Universal (SSR)  
-https://anirbmuk.appspot.com   
+> https://anirbmuk.appspot.com   
 
 ## Quick Start & Documentation  
 Local development server:  
